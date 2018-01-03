@@ -1,0 +1,450 @@
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <div class="item-link item-content J_status_list">
+        <div class="item-inner">
+          <div class="item-title"><$ redwoodDescr $></div>
+          <div class="item-subtitle">当前责任人：<$ handler $> <% if handlerTel %><a href="tel:<$ handlerTel $>">拨打电话</a><% endif %></div>
+          <div class="item-subtitle">跟单员：<$ follower $> <% if followerTel %><a href="tel:<$ followerTel $>">拨打电话</a><% endif %></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% if content %>
+<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-text">任务备注: <$ content $></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% endif %>
+  <div class="list-block">
+    <ul class="J_caret">
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">订单信息</div>
+          <div class="item-after">
+            <span class="icon icon-caret"></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">订单号</div>
+          <div class="item-after"><$ serviceNumber $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">发布时间</div>
+          <div class="item-after"><$ createTime $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">采购商</div>
+          <div class="item-after"><$ buyerCompany $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">采购商所在地区</div>
+          <div class="item-after"><$ buyerProvinceCity $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">采购商电话</div>
+          <div class="item-after"><$ buyerTel $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">收货人姓名</div>
+          <div class="item-after"><$ contactName $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">收货人电话</div>
+          <div class="item-after"><$ contactTel $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <!-- <div class="item-title"></div> -->
+          <div class="item-text">收货地址：<$ province $><$ city $><$ area $><$ addr $></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="list-block">
+    <ul class="J_caret">
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">购买要求</div>
+          <div class="item-after">
+            <span class="icon icon-caret"></span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <% for product in wantProductList %>
+    <ul>
+      <li class="item-content zb-popup">
+        <div class="item-inner">
+          <div class="item-title img-goup">图片</div>
+          <div class="">
+            <% for imgUrls in product.imgUrls %>
+            <img src="<$ imgPath $><$ imgUrls $>@64h_64w_1e" style='width: 2rem;height: 2rem;'>
+            <% endfor %>
+          </div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">品类</div>
+          <div class="item-after"><$ product.productType $></div>
+        </div>
+      </li>
+      <!-- 20170830 新增 字段 -->
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">是否为提案</div>
+          <div class="item-after"><$ product.motionDesc $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">是否换卡头</div>
+          <div class="item-after"><$ product.changeCardDesc $></div>
+        </div>
+      </li>
+      <!-- 结束              -->
+      <!-- 20161008新增 寻样要求 字段 -->
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">寻样要求</div>
+          <div class="item-after"><$ findTypeString $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">成分/织法/工艺</div>
+          <div class="item-after"><$ title $></div>
+        </div>
+      </li>
+       <% if product.color%>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">颜色要求</div>
+          <div class="item-after"><$ product.color $></div>
+        </div>
+      </li>
+      <%endif%>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">档次</div>
+          <div class="item-after"><$ product.worthString $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">样版</div>
+          <div class="item-after"><$ haveRealVersion $></div>
+        </div>
+      </li>
+      <% if product.quantity%>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">需求量</div>
+          <div class="item-after"><$ product.quantity $> <$ product.quantityUnit $></div>
+        </div>
+      </li>
+      <%endif%>
+      <% if expectedTimeString != '1970-01-01 08:00:00' %>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">期望货期</div>
+          <div class="item-after"><$ expectedTimeString $></div>
+        </div>
+      </li>
+      <%endif%>
+
+      <% if leaveMessage %>
+      <li class="item-content">
+        <div class="item-inner">
+          <!-- <div class="item-title"></div> -->
+          <div class="item-text">留言：<$ leaveMessage $></div>
+        </div>
+      </li>
+      <% endif %>
+    </ul>
+    <% endfor %>
+  </div>
+
+<% if productList.length %>
+<div class="list-block contacts-block">
+  <ul class="J_caret">
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">购买信息：（<$ productList.length $>组）</div>
+        <div class="item-after">
+          <span class="icon icon-caret"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <%for product in productList %>
+    <div class="list-group">
+      <ul>
+        <li class="list-group-title">
+          色卡<$ loop.index $> 
+          <% if product.reply == '1' %>
+             <span class="source">来源商家</span><span class="del-color" data-id="<$ product.buyProductId $>">x 删除</span>
+          <% endif %>
+          </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">档口名</div>
+            <div class="item-after"><$ product.sellerCompany $></div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">档口电话</div>
+            <div class="item-after"><$ product.sellerTel $></div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <!-- <div class="item-title"></div> -->
+            <div class="item-text">档口地址: <$ product.sellerProvince $><$ product.sellerCity $><$ product.sellerArea $><$ product.sellerAddr $></div>
+          </div>
+        </li>
+        <li class="item-content zb-popup">
+          <div class="item-inner">
+            <div class="item-title img-goup">图片</div>
+            <div class="">
+              <% for imgUrls in product.imgUrls %>
+              <img src="<$ imgPath $><$ imgUrls $>@64h_64w_1e" style='width: 2rem;height: 2rem;'>
+              <% endfor %>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">品类</div>
+            <div class="item-after"><$ product.productType $></div>
+          </div>
+        </li>
+
+        <!-- 新增录入色卡的字段 -->
+        <li class="item-content">
+          <div class="item-inner">
+            <% if product.productType == '面料' %>
+            <div class="item-title">货号</div>
+            <% else %>
+            <div class="item-title">品名</div>
+            <% endif %>
+            <div class="item-after"><$ product.productNumber $></div>
+          </div>
+        </li>
+        <% if product.productType == '面料' %>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">空差</div>
+              <div class="item-after"><$ product.kongCha $></div>
+            </div>
+          </li>
+          <% if product.replyWeigth %>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">克重</div>
+              <div class="item-after"><$ product.replyWeigth $><$ product.replyWeigthUnit $></div>
+            </div>
+          </li>
+          <% endif %>
+          <% if product.replyWidth %>
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">幅宽</div>
+              <div class="item-after"><$ product.replyWidth $><$ product.replyWidthUnit $></div>
+            </div>
+          </li>
+          <% endif %>
+        <% endif %>
+        <% if product.tagNames %>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">成分/织法/工艺</div>
+            <div class="item-after tagName-label"><$ product.tagNames $></div>
+          </div>
+        </li>
+        <% endif %>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">是否现货</div>
+            <div class="item-after">
+            <% if product.productSource == 0 %>
+              现货
+            <% elif product.productSource == 1 %>
+              订货
+            <% endif %></div>
+          </div>
+        </li>
+
+        <% if product.productSource == 0 and product.price > 0 %>
+        <!-- 现货 -->
+          <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">价格</div>
+              <div class="item-after">
+                <$ product.price $><$ product.priceUnit $></div>
+            </div>
+          </li>
+
+        <% elif product.productSource == 1 %>
+        <!-- 订货 -->
+          <!-- 来源商家时不显示 预计到货时间和最小起订量 -->
+          <% if product.reply != '1' %>
+           <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">预计到货时间</div>
+              <div class="item-after"><$ product.expectedArrivalDate $></div>
+            </div>
+          </li>
+           <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">最小起定量</div>
+              <div class="item-after"><$ product.miniQuantity $><$ product.miniQuantityUnit $></div>
+            </div>
+          </li>
+          <% elif product.reply == 1 and product.price > 0 %>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">价格</div>
+                <div class="item-after">
+                  <$ product.price $><$ product.priceUnit $></div>
+              </div>
+            </li>
+          <% endif %>
+
+
+          <% if product.miniPrice %>
+           <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title">起订价格</div>
+              <div class="item-after"><$ product.miniPrice $><$ product.miniPriceUnit $></div>
+            </div>
+          </li>
+          <% endif %>
+        <% endif %>
+        
+        <% if product.reply == '1' %>
+         <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">成分/织法/工艺</div>
+            <div class="item-after"><$ product.title $></div>
+          </div>
+        </li>
+         <!-- <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title">价格</div>
+            <div class="item-after"><$ product.price $> <$ product.priceUnit $></div>
+          </div>
+        </li> -->
+        <% endif %>
+
+        <!-- 新增录入色卡的字段end -->
+        <% if product.leaveMessage %>
+        <li class="item-content">
+          <div class="item-inner">
+            <!-- <div class="item-title"></div> -->
+            <div class="item-text">留言: <$ product.leaveMessage $></div>
+          </div>
+        </li>
+        <% endif %>
+       <!--  <% if (status == 3 or status == 10) and sendType == 0 %>
+          <li>
+            <a href="/upDeliverGood.html?orderNumber=<$ orderNumber $>&notEdit=1" class="item-link item-content J_hold_lastpage">
+              <div class="item-media"><span class="icon icon-card"></span></div>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">物流信息</div>
+                </div>
+              </div>
+            </a>
+          </li>
+        <% endif %> -->
+      </ul>
+    </div>
+    <% endfor %>
+  </div>
+<% endif %>
+<% if status == 125 or status == 131 or status == 3 or status == 10 %>
+<div class="list-block contacts-block">
+  <ul class="J_caret">
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">审核结果</div>
+        <div class="item-after">
+          <span class="icon icon-caret"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">审核结果</div>
+        <div class="item-after"><$ scoreResult $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">审核打分</div>
+        <div class="item-after"><$ score $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">审核备注</div>
+        <div class="item-after"><$ scoreRemark $></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% endif %>
+<% if replyList.length and (status == 111 or status == 115)%>
+<div class="list-block contacts-block">
+  <ul class="J_caret">
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">接单商家：</div>
+        <div class="item-after">
+          <span class="icon icon-caret"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+<% for list in replyList%>
+    <a class="item-content item-link" href='/replyDetail.html?index=<$ loop.index $>'>
+      <div class="item-inner">
+        <div class="item-title"><$ list.company $></div>
+        <div class="item-after">
+        </div>
+      </div>
+    </a>
+  </ul>
+</div>
+<% endfor %>
+<% endif %>

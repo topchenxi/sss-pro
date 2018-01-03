@@ -1,0 +1,27 @@
+{#
+  指派任务模板
+#}
+
+{% extends 'layouts/application.html' %}
+
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/assignTask.css">
+      <div class="page assignTask-wrap" id='assignTask' style="display: block">
+         <header class="bar bar-nav J_assign_head">
+        </header>
+        <div class="content J_assginTask_content">
+          <form class="J_assign_man">
+          </form>
+          <div class="assgin-btn">
+            <a href="#" class="button button-big button-fill disabled J_save">确定</a>
+          </div>
+        </div>
+        </div>
+        <script src="javascripts/assignTask.js"></script>
+    </div>
+{% endblock %}
+
+
+

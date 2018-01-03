@@ -1,0 +1,78 @@
+<% if result.length > 0 %>
+<% for item in result %>
+ <div class="loop-content J_loopWrap">
+    <div class="list-block media-list">
+      <ul>
+        <li>
+          <label class="label-checkbox item-content">
+            <input type="checkbox" name="checkbox" class="J_radio" id="<$ item.buyerId $>">
+            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+            <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">采购商:<$ item.buyerCompany $></div>
+              </div>
+            </div>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="card money-list-card J_sonOrder">
+        <% for orderDetail in item.orderList %>
+        <div class="son-order">
+          <div class="sonTitle">
+                <span class="number">订单号：<span style="font-size: 12px;"><$ orderDetail.serviceNumber $></span></span>
+                <span class="status"><$ orderDetail.redwoodDescr $></span>
+          </div>
+          <div class="card-content">
+              <a class="block item-link item-content" href="javascript:;">
+                  <input type="checkbox" id="<$ orderDetail.orderNumber $>" class="chk J_chk">
+                  <label for="<$ orderDetail.orderNumber $>" class="label">
+                  <div class="card-content-inner ">
+                      <div class="pull-left img">
+                          <% if orderDetail.imgUrls.length %>
+                          <img src="<$ imgPath $><$ orderDetail.imgUrls[0] $>@100h_100w_1e" style="height: 100%;" alt="">
+                          <% else %>
+                          <img src="<$ imgPath $>/upload/util/default_buy.jpg@100h_100w_1e" style="height: 100%;" alt="">
+                          <% endif %>
+                      </div>
+                      <ul class="info pull-left">
+                          <li>采购商：<$ orderDetail.buyerCompany $></li>
+                          <li>供应商：<$ orderDetail.shopName $></li>
+                          <% if orderDetail.exceptionCode %> <li class='red' style="word-break: break-all;">异常<$ orderDetail.exceptionCode $>：<$ orderDetail.exceptionMsg $></li><% endif %>
+                      </ul>
+                      <% if orderDetail.category == 'dhls-all' %><span class="pull-right">流水</span><% endif %>
+                      <%if orderDetail.source == '2'%>
+                        <%if orderDetail.category == 'jb-all'%>
+                        <span class="pull-right">app-剪版</span>
+                        <%endif%>
+                        <%if orderDetail.category == 'all-all'%>
+                        <span class="pull-right">app-大货</span>
+                        <%endif%>
+                      <%endif%>
+                  </div>
+              </label>
+              </a>
+          </div>
+          <div class="card-footers">
+          <a href="javascript:;" data-ordernumber="<$ orderDetail.orderNumber $>" class="J_cancel_order button button-fill pull-right button-danger">取消订单</a>
+           <% if orderDetail.category == 'dhls-all' %>
+              <a href="/lsOrderPublish.html?orderNumber=<$ orderDetail.orderNumber $>&edit=1" data-ordernumber="<$ orderDetail.orderNumber $>" class=" button button-fill pull-right J_edit_ls">编辑流水订单</a>
+           <% endif %>
+          <% if orderDetail.category == 'jb-all' %>
+            <a href="#" data-ordernumber="<$ orderDetail.orderNumber $>" class="button button-fill pull-right J_edit_jb">编辑剪版</a>
+          <% endif %>
+          <% if orderDetail.status == '312' or orderDetail.status == '316' %>
+          <a href="/inputInfo.html?orderNumber=<$ orderDetail.orderNumber $>&isEditOrNot=1&from=shopCartList" class="J_list_cache button button-fill pull-right button-success J_removeDhSession2">编辑大货信息</a>
+          <% endif %>
+           <% if orderDetail.status == '339' %>
+          <a href="/inputFinal.html?orderNumber=<$ orderDetail.orderNumber $>&isEditOrNot=1&from=shopCartList" class="J_list_cache button button-fill pull-right button-success J_removeDhSession2">编辑尾款信息</a>
+          <% endif %>
+          </div>
+        </div>
+        <% endfor %>
+    </div>
+</div>
+<% endfor %>
+<% else %>
+<div style="height: 50px;line-height: 50px; text-align: center;">暂无数据</div>
+<% endif %>

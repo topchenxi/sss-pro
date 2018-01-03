@@ -1,0 +1,35 @@
+{#
+  系统消息
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/message.css">
+      <div class="page" id='sysMessage' style="display: block">
+        <header class="bar bar-nav">
+          <!-- <a class="button button-link button-nav pull-left back">
+            <span class="icon icon-left"></span>
+            返回
+          </a> -->
+          <h1 class='title'>系统消息</h1>
+        </header>
+        <div class="content pull-to-refresh-content J_content">
+          <!-- 默认的下拉刷新层 -->
+          <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+          </div>
+          <div class="content-block">
+            <div class="list-block media-list inset">
+              <ul class="message-list">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="javascripts/message.js"></script>
+    </div>
+{% endblock %}

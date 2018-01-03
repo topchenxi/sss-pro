@@ -1,0 +1,98 @@
+
+<header class="bar bar-nav">
+  <!-- <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a> -->
+  <h1 class='title'>验布报告</h1>
+<!--   <% if edit == 1%>
+    <a class='fn-right save-link J_save disabled'>保存</a>
+  <%endif%> -->
+</header>
+<div class="content money-detail-list">
+   <div class="list-block media-list">
+    <ul>
+      <li>
+        <div class="block-title">
+          订单信息
+        </div>
+        <div class="item-content">
+           <div class="item-inner">
+              <div class="item-subtitle"> 订单号：<span class="assert-price"><$ serviceNumber $></span></div>
+              <div class="item-subtitle"> 货号：<span class="assert-price"><$ productNumber $></span></div>
+              <div class="item-subtitle"> 匹号：<span class="assert-price"><$ clothLoneNumber $></span></div>
+              <div class="item-subtitle"> 色号：<span class="assert-price"><$ color $></span></div>
+              <div class="item-subtitle"> 实际布长：<span class="assert-price"><$ buchang $> <$ buchangUnit $></span></div>
+              <div class="item-subtitle"> 布封：<span class="assert-price"><$ bufeng $><$ bufengUnit $></span></div>
+              <div class="item-subtitle"> 实际布封：<span class="assert-price"><$ shijibufeng $><$ bufengUnit $></span></div>
+              <div class="item-subtitle"> 布重/长：<span class="assert-price"><$ buzhong $><$ buzhongUnit $></span></div>
+           </div>
+        </div>
+      </li>
+      <li>
+        <div class="block-title">
+          验布结果
+        </div>
+        <div class="item-content">
+           <div class="item-inner">
+              <div class="item-subtitle"> 总扣分：<span class="assert-price"><$ totalPenalties $>分</span></div>
+              <div class="item-subtitle"> 平均分：<span class="assert-price"><$ average $>分</span></div>
+              <div class="item-subtitle"> 评分级别：<span class="assert-price"><$ rankStr $></span></div>
+              <div class="item-subtitle"> 评语：<span class="assert-price"><$ comment $></span></div>
+              <div class="item-subtitle"> 验布师：<span class="assert-price"><$ checkerName $></span></div>
+           </div>
+        </div>
+      </li>
+      <li>
+        <div class="block-title">
+          瑕疵项
+        </div>
+        <div class="item-content">
+           <div class="item-inner">
+             <!-- 瑕疵项 -->
+             <% for item in flawMarkBoList%>
+              <div class="item-subtitle J_pop" data-index='<$ loop.index $>'>
+             <div class='xiaci-title'><$ item.name $> ( <$ item.toatalCount $>分 )</div>
+                <% if item.score1 %><div class="">0-3寸：<$ item.score1 $>* 1分</div><% endif %>
+                <% if item.score2 %><div class="">3-6寸：<$ item.score2 $>* 2分</div><% endif %>
+                <% if item.score3 %><div class="">6-9寸：<$ item.score3 $>* 3分</div><% endif %>
+                <% if item.score4 %><div class="">&ge;9寸：<$ item.score4 $>* 4分</div><% endif %>
+                <% for img in item.imgUrls %>
+                  <img src="<$ imgPath $><$ img $>@64h_64w_1e" alt="" style="width: 64px;heigth: 64px; padding-top: 5px;padding-right: 3px;" class='pb-popup' />
+                <% endfor%>
+              </div>
+              <% endfor %>
+              <div class="item-subtitle J_pop">
+              <% if bokou %>
+                <div class='xiaci-title'>驳口 </div>
+                <div style="width: 100%; white-space: initial;"> <$ bokou $></div>
+              <% endif %>
+              <% if lianxuxinChidian %>
+                <div class='xiaci-title'>连续性疵点 </div>
+                <div style="width: 100%; white-space: initial;"> <$ lianxuxinChidian $></div>
+              <% endif %>
+              <% if weixie %>
+                <div class='xiaci-title'>纬斜/纬弧 </div>
+                <div style="width: 100%; white-space: initial;"> <$ weixie $></div>
+              <% endif %>
+              <% if zhongbianse %>
+                <div class='xiaci-title'>中边色 </div>
+                <div style="width: 100%; white-space: initial;"> <$ zhongbianse $></div>
+              <% endif %>
+              <% if fuselaodu %>
+                <div class='xiaci-title'>色牢度 </div>
+                <div style="width: 100%; white-space: initial;"> <$ fuselaodu $></div>
+              <% endif %>
+              </div>
+           </div>
+        </div>
+      </li>
+    </ul>
+    <div class="footer">
+      <div class="">美国四分制检验标准</div>
+      <div class="">总扣分=（总扣分*3600）/（布封*实际布长）</div>
+      <div class="">评分级别：1-20分/A、21-30/B、31-40/C、41以上/D</div>
+      <div class='tel'>客户电话：400-877-6737</div>
+    </div>
+  </div>
+</div>

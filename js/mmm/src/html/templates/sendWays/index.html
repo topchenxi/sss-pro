@@ -1,0 +1,115 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'><$ title $></h1>
+</header>
+<form class='content'>
+  <div class="content-block list-block ">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">*配送方式 <span class="tips warning-text fn-hide">&nbsp;!</span></div>
+             <div class="item-input radio-group">
+                <label for="sendType-1">
+                  <input type="radio" name='sendType' id='sendType-1' value='0' <%if not sendType or  sendType == 0 %>  checked ='checked' <%endif%> >搜芽配送
+                </label>
+                <label for="sendType-2">
+                  <input type="radio" name='sendType' id='sendType-2' value= '1' <%if sendType == 1 %>  checked ='checked'<%endif%> >采购商自提
+                </label>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class='J_address_con <% if sendType == 1 %> fn-hide <% endif%>' >
+    </div>
+     <ul class='invoice-block'>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">*采购商发票 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input radio-group">
+
+                <label for="invoiceStatus-1">
+                  <input type="radio" name='invoiceStatus' id='invoiceStatus-1'  value='0'  <% if not invoiceStatus or invoiceStatus == 0 %> checked='checked'  <%endif%> >不要发票
+                </label>
+                <label for="invoiceStatus-2">
+                  <input type="radio" name='invoiceStatus' id='invoiceStatus-2' value='1' <% if invoiceStatus == 1 %>  checked="checked"  <%endif%>>需要发票
+                </label>
+
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="J_label_taxPoint <% if not invoiceStatus or invoiceStatus == 0 %> fn-hide <%endif%>">
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">*税点</div>
+             <div class="item-input">
+                <input type="text" style='width: 80%;display:inline-block' class='J_taxPoint' value="<$ taxPoint $>" placeholder= '必填'><span>%</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <!-- <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">*服务费</div>
+             <div class="item-input">
+                <input type="text" class='J_serviceMoney' value="<$ serviceMoney $>" placeholder= '必填'>
+            </div>
+          </div>
+        </div>
+      </li> -->
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">期望货期</div>
+             <div class="item-input">
+                <input type="text" class='J_send_day' value="<$ expectedTimeString $>" placeholder= '选填'>
+                <a class="button button-link button-nav pull-left J_clear clear-time">X</a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <!-- <div class="item-title label">采购商留言</div> -->
+            <div class="item-title label">跟单员留言</div>
+             <div class="item-input">
+                <textarea name="leaveMessage" id="" cols="30" rows="10"><$ leaveMessage $></textarea>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="invoice-block" style="padding-bottom: 1.5rem; margin-bottom: 2rem">
+      <li style="padding-left: 5px; padding-top: 20px">费用明细</li>
+      <li style="text-indent: 1rem">
+        <p>销售货款：¥<span><$ saleMoney $></span></p>
+        <!-- <p>税费：¥<span class="J_taxes">0.00</span></p>
+        <p>服务费：¥<span class="J_serviceMoney_text">0.00</span></p>
+        <p>支付总额：¥<span class="J_totalPay"><$ payment $></span></p> -->
+      </li>
+    </ul>
+    <% if status == 'create'%>
+      <nav class="button-create row no-gutter">
+        <a class="button J_save col-100 <% if not ableClick %> disabled <%endif%>">提交订单</a>
+     </nav>
+    <% else %>
+      <nav class="row no-gutter button-edit">
+        <a class="button J_save">确定</a>
+     </nav>
+    <% endif %>
+  </div>
+</form>

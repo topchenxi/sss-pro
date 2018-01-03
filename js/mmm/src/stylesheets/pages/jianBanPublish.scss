@@ -1,0 +1,147 @@
+#jianBanPublish{
+  .content {
+    padding-bottom: 2.2rem;
+  }
+  .save-link{
+    position: absolute;
+    width: 3.5rem;
+    right: 0.5rem;
+    top: 0.5rem;
+    &.disabled{
+      color:#999
+    }
+  }
+  .content-block {
+    padding: 0;
+  }
+  .list-block {
+    margin: 0;
+    &.inset {
+      margin: 0;
+      border-radius: 0;
+    }
+    
+    .item-content{
+      padding-left: 0;
+    }
+    .item-inner{
+      min-height: 3rem;
+      color: #6d6d72;
+    }
+    .block-title{
+      padding: 0.5rem;
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+    .leaveMessage.item-title{
+      width: 20%;
+    }
+    textarea {
+      height: 3.5rem;
+    }
+    .item-after.select-custorm{
+      max-height: 3rem;
+      word-break: break-all;
+      width: 70%;
+      white-space: inherit;
+    }
+    .seller-block {
+      margin: 1rem 0 ;
+    }
+    .proNumber-info{
+      ul{
+        background-color: transparent;
+      }
+      li{
+        background-color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .item-inner{
+        min-height: 2rem;
+        position: relative;
+        padding-bottom: 0;
+        padding-top: 0;
+        &:after{
+          background-color: transparent;
+        }
+      }
+      .item-title{
+        width: 15%;
+      }
+      .item-after{
+        max-width: 75%;
+        white-space:inherit;
+        max-height: 100%;
+      }
+      .right-btn{
+        width: 1.2rem;
+        text-align: center;
+      }
+      .line{
+        height: 1px;
+        width: 85%;
+        background-color: #eee;
+      }
+      .item-price,.item-all-price{
+        padding: 0;
+        max-height: 2rem;
+        min-height: 2rem;
+        .item-inner{
+          min-height: 2rem;
+          position: relative;
+          padding: 0;
+          padding-right: 0.75rem;
+          .item-title{
+            width: 80%;
+          }
+        }
+      }
+    } 
+    .radio-group{
+      label{
+        display: inline-block;
+        width: 4.2rem;
+      }
+      input{
+        width: 0.8rem;
+        height: 0.8rem;
+        vertical-align: middle;
+        margin-right: 0.25rem;
+      }        
+    }     
+  }
+  .add-proNumber{
+    width: 9rem;
+    position: relative;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    margin: 1rem auto;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4.5rem;
+  }
+  .bottom-btn{
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    height: 2rem;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0.25rem 0;
+    z-index: 9999;
+    .button-block {
+      width: 92%;
+      margin-left: 4%;
+      height: 100%;
+      font-size: 100%;
+      line-height: 1.6rem;    
+    }       
+  }
+}
+    
+
+                    
+
+

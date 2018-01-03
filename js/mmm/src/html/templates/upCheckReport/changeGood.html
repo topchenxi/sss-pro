@@ -1,0 +1,75 @@
+  <div style="padding-bottom: 50px;">
+  <% if checkFlawList.length > 0 %>
+    <% for item in checkFlawList %>
+    <% if item.result == 2 %>
+    <form class="J_form">
+      <ul class="colorBlock J_changeCertItem">
+        <li class="row no-gutter">
+          <div class="col-100 item-content" style="padding-left: 0;">
+            <ul class="item-son-content">
+              <li>
+                  <div class="item-inner">
+                      <div class="pull-left col-25">换货匹号<span class="J_warn warn">!</span></div>
+                      <div class="common-r  col-75">
+                      <span class="show"><$ item.number $></span>
+                      <input class="enter J_piNumber" type="hidden" name="number" value="<$ item.number $>">
+                      <input class="enter J_piNumber" type="hidden" name="id" value="<$ item.id $>">
+                      </div>
+                  </div>
+              </li>
+              <li style="padding-bottom: 10px;border-bottom: 1px solid #efefef;">
+                <div class="check">
+                    <div class="" style="padding-top: 10px;margin-right: 5px;">瑕疵图片</div>
+                    <div class="common-r img J_serialImg">
+                    <% for imgUrl in item.imgUrls %>
+                      <span class="imgWrap">
+                        <img src="<$ imgPath $><$ imgUrl $>" data-src="<$ imgPath $><$ imgUrl $>" class='J_zoom cloth' style="border:1px solid #ccc; width:2rem; height: 2rem;" />
+                          <strong class="close">x</strong>
+                          <input type="hidden" name="imgUrl" value="<$ imgUrl $>" >
+                      </span>
+                    <% endfor %>
+                      <label class='J_upCloth upCheckPic imgWrap'>+<input type="file" value='添加图片' class='file-input' accept="image/*" multiple >
+                      </label> 
+                    </div>
+                </div>
+              </li>
+              <li>
+                  <div class="item-inner">
+                      <div class="col-20 pull-left">评价</div>
+                      <div class="common-r col-80 pull-left">
+                       <div class="checkbox-wrap">
+                          <div class="checkbox assert">
+                          <input type="radio" class="result J_assert" name="result" value="1" id="orderMoney<$ loop.index $>" />
+                            <label  class="assert-btn" for="orderMoney<$ loop.index $>">
+                               合格
+                            </label>
+                             <input type="radio" class="result J_assert" name="result" value="0" id="leftMoney<$ loop.index $>" />
+                            <label  class="assert-btn labelOn" for="leftMoney<$ loop.index $>" >
+                               待沟通
+                            </label>
+                            <input type="radio" class="result J_assert" name="result" value="2" id="serviceMoney<$ loop.index $>" />
+                            <label   class="assert-btn" for="serviceMoney<$ loop.index $>">
+                               不合格
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </li>
+              <li>
+                <div class="item-inner">
+                    <div class="pull-left col-20" style="padding-top: 9px;">备注</div>
+                    <div class="common-r  col-80">
+                    <textarea class="enter J_remark"  name="remark" placeholder="填写备注"></textarea>
+                    </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </form>
+   <% endif %>
+  <% endfor %>
+<% endif %>
+</div>

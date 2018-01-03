@@ -1,0 +1,123 @@
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <div class="item-link item-content J_status_list">
+        <div class="item-inner">
+          <div class="item-title"><$ redwoodDescr $></div>
+          <div class="item-subtitle">当前责任人：<$ handler $> <% if handlerTel %><a href="tel:<$ handlerTel $>">拨打电话</a><% endif %></div>
+          <div class="item-subtitle">跟单员：<$ follower $> <% if followerTel %><a href="tel:<$ followerTel $>">拨打电话</a><% endif %></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<% if checkCount >= '1' %>
+<div class="list-block">
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title">上次验货时间</div>
+          <div class="item-after"><$ lastCheckTime $></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title">验货人</div>
+          <div class="item-after"><$ lastChecker $></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title">验货总次数</div>
+          <div class="item-after"><$ checkCount $></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% endif %>
+
+<div class="list-block media-list">
+  <ul>
+    <% if (status >= 305 or status <= 100) and content %>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-text">任务备注：<$ content $></div>
+        </div>
+      </div>
+    </li>
+    <% endif %>
+    <% if status > 305 and (productSourceString or sendInneedString) or doneStatus %>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+            <% if productSourceString %> <div class="item-subtitle">货源：<$ productSourceString $></div> <% endif %>
+            <% if productSource == 1 and isProcessByFinance == 0 %> <div class="item-subtitle">订金已收付（未经由财务）</div> <% endif %>
+            <% if sendInneedString %> <div class="item-subtitle">提货方式：<$ sendInneedString $></div> <% endif %>
+            <% if replySendTime %> <div class="item-subtitle"><$ sendInneedString $>时间：<$ replySendTime $></div><% endif %>
+            <% if replaceTimeString %> <div class="item-subtitle">换货时间：<$ replaceTimeString $></div><% endif %>
+        </div>
+      </div>
+    </li>
+    <% endif %>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-subtitle">订单编号：<$ serviceNumber $></div>
+          <% if status >= 303 or doneStatus %>
+            <% if createTime %><div class="item-subtitle">发布时间：<$ createTime $></div><% endif %>
+            <% if expectedTime %><div class="item-subtitle">期望货期：<$ expectedTime $></div><% endif %>
+          <% endif %>
+          <% if (loginInfo.woodPurchaserLeader or loginInfo.woodPurchaser) %>
+            <% if emergency == 2 %>
+              <div class='urgent'>急</div>
+            <% endif%>
+          <% endif %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% if status >= 305 and expectedArrivalDate %>
+<div class="list-block">
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title">预计到货时间</div>
+          <div class="item-after"><$ expectedArrivalDate $></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<% endif %>
+<div class="list-block">
+  <div class="list-group">
+    <ul>
+      <li>
+        <div class="item-content buyer-content">
+          <div class="item-inner">
+            <div class="item-title">采购商</div>
+            <div class="item-after"><$ company $></div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content buyer-content">
+          <div class="item-inner">
+            <div class="item-title">采购商结算周期</div>
+            <div class="item-after"><$ billingCycle $></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+
+	.yresult{
+	   display:none;
+	}
+	.yresult+ label{
+	    display: inline-block;
+	    padding: 1px  5px;
+	    border:1px solid #ccc;
+	    margin-right: 2px;
+	}
+	.yresult:checked + label{
+	    display: inline-block;
+	    background-color: #0894EC;
+	    color: #fff;
+	}

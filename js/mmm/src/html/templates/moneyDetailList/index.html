@@ -1,0 +1,67 @@
+
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>费用明细</h1>
+<!--   <% if edit == 1%>
+    <a class='fn-right save-link J_save disabled'>保存</a>
+  <%endif%> -->
+</header>
+<form class="content money-detail-list">
+  <input type="hidden" name="orderNumber" value="<$ orderNumber $>">
+   <div class="list-block media-list">
+    <ul>
+      <!-- 费用明细 -->
+      <% if isEarnestMoneyDebtPayed == 0 or isFinalMoneyDebtPayed == 0 or isFullMoneyDebtPayed == 0 %>
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <% if isEarnestMoneyDebtPayed == 0 %>
+              <div class="item-subtitle"> 垫付定金:<span class="assert-price"><$ earnestMoneyDebt $></span><span>元</span></div>
+            <% endif %>
+            <% if isFinalMoneyDebtPayed == 0 %>
+              <div class="item-subtitle"> 垫付尾款:<span class="assert-price"><$ finalMoneyDebt $></span><span>元</span></div>
+            <% endif %>
+            <% if isFullMoneyDebtPayed == 0 %>
+              <div class="item-subtitle"> 垫付全款:<span class="assert-price"><$ fullMoneyDebt $></span><span>元</span></div>
+            <% endif %>
+          </div>
+        </div>
+      </li>
+      <% endif %>
+      <!-- 退换货明细 -->
+      <% if lstReturnReplace.length > 0 %>
+        <li>
+          <div class="item-content">
+             <div class="item-inner">
+              <div class="item-title-row">
+                <div class="item-title">退换货明细</div>
+              </div>
+              <% for list in lstReturnReplace %>
+                <div class="fee-block">
+                  <% if list.type == 1 %>   <!-- 退货 -->
+                    <div class="item-subtitle"> 退换货单号<$ loop.index $>: <span class="assert-price"><$ list.number $></span></div>
+                    <%if list.saleMoney %><div class="item-subtitle"> 退货销售货款: <span class="assert-price"><$ list.saleMoney $></span><span>(搜芽退)/span></div><%endif%>
+                  <% endif %>
+                  <% if list.type == 2 %>   <!-- 换货 -->
+                    <div class="item-subtitle"> 退换货单号<$ loop.index $>: <span class="assert-price"><$ list.number $></span></div>
+                    <%if list.saleMoney %><div class="item-subtitle"> 换货销售货款: <span class="assert-price"><$ list.saleMoney $></span><span>(搜芽收)</span></div><%endif%>
+                  <% endif %>
+                </div>
+              <%endfor%>
+            </div>
+          </div>
+        </li>
+      <% endif %>
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-subtitle"> 未缴欠款:<span class="assert-price"><$ debtMoney $></span><span>元</span></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</form>

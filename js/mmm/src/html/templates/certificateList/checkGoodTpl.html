@@ -1,0 +1,70 @@
+<div class="list-block media-list" style="margin: 10px 0;">
+<ul style="padding: 0.5rem;">
+  <li>
+    <div class="item-inner">
+      <div class="item-subtitle">
+        <span class="item-l">订单号:</span><span><$ orderDetail.serviceNumber $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">货号:</span><span><$ orderDetail.productNumber $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">采购商:</span><span><$ orderDetail.buyer.company $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">供应商:</span><span><$ orderDetail.sellerCompany $></span>
+      </div>
+    </div>
+  </li>
+</ul>
+</div>
+<% for item in result %>
+<div class="card" style="margin: 0;">
+    <div class="card-header">
+      <!-- 待沟通(0) 合格(1) 不合格(2) , -->
+      <% if item.result == 0 %>
+        待沟通
+      <% elif  item.result == 1 %>
+        合格
+      <% elif item.result == 2 %>
+        不合格
+      <% endif %>
+    </div>
+    <div class="card-content">
+      <div class="list-block media-list">
+        <ul>
+          <li class="item-content">
+            <div class="item-media">
+              <img class='J_zoomPicture' src="<$ imgPath $><$ item.imgUrl $>@118h_118w_1e" data-src="<$ imgPath $><$ item.imgUrl $>"  style='width: 4rem; height: 3.5rem;'>
+            </div>
+            <div class="item-inner">
+              <div class="item-subtitle" style="position: relative;">
+                <span>匹号:</span>
+                <span><$ item.number $></span>
+                <% if edit %>
+                <span
+                    style="position: absolute; right: 0; top: 0"
+                    class="J_update" data-ph="<$ item.number $>"
+                    data-id="<$ item.id $>"
+                    data-result ="<$ item.result $>"
+                    >
+                      <a href="javascript:;">更改评价</a>
+                </span>
+                <% endif %>
+              </div>
+              <div class="item-subtitle">
+                <span>更新人:</span><span><$ item.editorName $></span>
+              </div>
+              <div class="item-subtitle">
+                <span>更新时间:</span><span><$ item.editTimeString $></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-footer">
+      <% if item.remark %><div>备注: <span><$ item.remark $></span></div><% endif %>
+    </div>
+</div>
+<% endfor %>

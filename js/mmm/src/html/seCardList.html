@@ -1,0 +1,24 @@
+{# 色卡列表 #} {% extends 'layouts/application.html' %} {% block content %}
+<div class="page-group">
+    <link rel="stylesheet" href="stylesheets/pages/seCardList.css">
+    <div class="page" id='seCardList' style="display: block">
+        <header class="bar bar-nav J_assign_head">
+            <a class="button button-link button-nav pull-left J_goBack">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title J_seCardList_title'>色卡列表</h1>
+        </header>
+        <div class="content J_assginTask_content">
+            <div class="J_seCardList card-ul">
+            </div>
+            <div class="assgin-btn" style="margin-top: 20px;">
+                <a href="javascript:;" class="button  J_add_seCard">新增录入色卡</a>
+            </div>
+            <div class="assgin-btn J_saveCardList" style="margin-top: 20px;">
+                <a href="javascript:;" class="button button-big button-fill">保存</a>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/seCardList.js"></script>
+</div>
+{% endblock %}

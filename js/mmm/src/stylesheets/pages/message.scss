@@ -1,0 +1,33 @@
+#sysMessage {
+    .content-block {
+        padding: 0;
+        margin-top: .75rem;
+    }
+    .list-block {
+      margin-top: .75rem;
+        &.inset {
+            margin: 0;
+            border-radius: 0;
+            ul {
+                border-radius: 0;
+            }     
+        }     
+        .item-content {
+            padding-left: 0;
+        }
+        .item-inner {
+            height: 3rem;
+        }
+        .item-media {
+            img {
+                border-radius: 100%;
+                margin-left: .75rem;
+            }
+                
+        }
+        .item-subtitle {
+            line-height: 2.25rem;
+        }
+    }      
+}
+    

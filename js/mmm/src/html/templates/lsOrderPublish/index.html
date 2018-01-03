@@ -1,0 +1,305 @@
+<header class="bar bar-nav">
+  <% if orderNumber %>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class='title'>编辑流水订单</h1>
+  <%else%>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>发布流水订单</h1>
+  <%endif%>
+</header>
+<div class="content">
+<div class='content-block list-block '>
+<form>
+  <% if orderNumber %>
+    <input type="hidden" value='<$ orderNumber $>' name='orderNumber'>
+  <%endif%>
+    <input type="hidden" name='buyType' value='dh'>
+  <ul>
+    <% if edit == 1 %>
+      <li>
+      <a class="item-content"> 
+    <% else %>
+      <li class='J_need_item'>
+      <a class="item-content J_select_buyer"> 
+    <% endif %>
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">采购商 :<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm <%if buyerInfo '==' '' %>gray-text<% endif %>">
+            <$ buyerInfo.company | placeholder('必选')$>
+            <input type="hidden" name='buyerId' value='<$ buyerInfo.id $>'>
+        </div>
+        <% if edit != 1 %> <!-- 编辑状态下 采购商不能被更改 -->
+          <span class="icon icon-edit pull-right"></span>
+        <% endif %>
+      </div>
+      </a>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content J_seller_edit">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title">供应商 :<span class="tips warning-text fn-hide "> &nbsp;!</span></div>
+          <div class="item-after  select-custorm  <%if not sellerInfo.sellerCompany %> gray-text <% endif %>">
+            <$ sellerInfo.sellerCompany | placeholder('必选')$>
+            <input type="hidden" name='shopId' value='<$ sellerInfo.id $>'>
+          </div>
+          <span class="icon icon-edit pull-right"></span>
+        </div>
+      </a>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">品类 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <%if not source %>
+          <div class="item-input radio-group">
+            <label for="productType-1">
+              <input type="radio" name='productType' id='productType-1' value = 1 <% if productType '==' 1  or not productType %> checked='checked' <% endif %>  value=1 >面料
+            </label>
+            <label for="productType-2">
+              <input type="radio" name='productType' id='productType-2' value = 2 <% if productType '==' 2 %> checked='checked' <% endif %> value=2 >辅料
+            </label>
+          </div>
+        <% else %>
+          <div class="item-input">
+            <% if productType == 1 %>
+              面料 
+            <% elif productType == 2 %>
+              辅料
+            <% endif %>
+            <input type="hidden" name='productType' value='<$ productType $>'>
+          </div>
+        <% endif %>
+      </div>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content J_sellerAccounts_edit">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title pay-ways">供应商收款方式:<span class="tips warning-text fn-hide "> &nbsp;!</span></div>
+          <div class="item-after pay-ways  <%if not sellerAccounts %> gray-text <% endif %>">
+            <% if sellerAccounts.type == 1 %>
+              <$ sellerAccounts.replyAccountCompany | placeholder('必选')$>
+            <% else %> 
+              <$ sellerAccounts.replyAccountUser | placeholder('必选')$>
+            <% endif %>
+             <input type="hidden" name='bankAccountId' value='<$ sellerAccounts.id $>'>
+          </div>
+          <span class="icon icon-edit pull-right"></span>
+        </div>
+      </a>
+    </li>
+    <li class="item-content has-upload">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">码单 :<span class="tips warning-text fn-hide"> &nbsp;!</span></div>
+        <div class="item-after J_has_upload">
+          <% for urls in madanImgUrls %>
+            <span class='upload-img J_upload_img'>
+                <a href="javascript:;"  class='J_img_preview' data-link='<$ urls $>'>
+                  <img src="<$ imagesPath $><$ urls $>@64h_64w_1e" >
+                </a>
+            <span class='img-del J_img_del'>x</span> 
+            </span>
+          <% endfor %>
+          <span  class='add-img-btn J_add_img'>
+              <span class='add-icon'>+</span><br/>  
+              <span class='text'>必填图片</span>
+              <label class='img-upload-label' for='img-file'>
+                  <input type="file" id='img-file' value='' class='file-input' accept="image/*" >
+              </label>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">验货</span></div>
+        <div class="item-input radio-group">
+          不验货
+          <input type="hidden" name='checkCloth' id='checkCloth-2' value='0' >
+        </div>
+      </div>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">货号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+            <input type="text" name='productNumber' placeholder="必填，要购买的商品货号" value='<$ productNumber $>'>
+        </div>
+      </div>
+    </li>
+  </ul>
+  </form>
+  <div class='block-title'>色号信息</div>
+  <ul class='J_color_block color-block'>
+      <%if not source and not productList %>
+        <li class='row no-gutter'>
+          <div class="col-80 item-content J_items">   
+              <ul>
+                <li class='J_need_item'> 
+                    <div class="item-inner">
+                      <div class="item-title label">单位 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class='J_unit_dom item-input'>
+                        <div class="row no-gutter custrom-unit <% if productType == 1 %> fn-hidden <%endif%> J_fuliao_input J_unit_input">
+                            <span class='col-10'>元/</span><input type="text" name="priceUnit" class='col-50 J_priceUnit <% if productType == 1 %> fn-hidden <%endif%>' placeholder="例如：个、码" value=''>
+                        </div>
+                        <div class="item-input radio-group <% if productType == 2 %> fn-hidden <%endif%> J_mianliao_input J_unit_input">
+                            <label for="priceUnit-1">
+                                  <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='priceUnit' id='priceUnit-1' value='米'>元/米
+                            </label>
+                            <label for="priceUnit-2">
+                              <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='priceUnit' id='priceUnit-2' value='码'>元/码
+                            </label>
+                            <label for="priceUnit-3">
+                              <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='priceUnit' id='priceUnit-3' value='千克'>元/千克
+                            </label>
+                        </div>
+                      </div>
+                  </div>
+                </li> 
+                <li class='J_need_item'> 
+                    <div class="item-inner">
+                        <div class="item-title label">单价 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                        <div class="item-input row no-gutter">  
+                          <input type="number" class='col-50 J_price' placeholder="请输入单价" value="">
+                          <span class='col-15 unit'>元/</span><span class='col-25 unit J_quantityUnit'></span>
+                        </div>
+                    </div>
+                </li>
+                <li class='J_need_item'> 
+                    <div class="item-inner">
+                        <div class="item-title label">色号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                        <input type="text" placeholder="必填" class='J_color' value=''> 
+                    </div>
+                </li>
+                <li class='J_need_item'> 
+                    <div class="item-inner">
+                        <div class="item-title label ">数量 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                        <div class="item-input row no-gutter">
+                          <input type="number" placeholder="必填" class='J_num quantity col-50' value= '<$ colorInfo.quantity $>'>
+                          <span class='col-25 unit J_quantityUnit'></span>
+                        </div> 
+                    </div>
+                </li>
+              </ul>
+          </div>
+          <div class="col-20 del warning-text item-link J_del">删除</div>  
+        </li>
+      <% endif%>
+      <% for colorInfo in productList %>
+        <li class='row no-gutter'>
+          <div class="col-80 item-content J_items">   
+              <ul>
+                <li class='J_need_item'> 
+                    <a  class='fn-hide J_id' data-value='<$ colorInfo.id $>'></a>
+                    <a  class='fn-hide J_buyProductId' data-value='<$ colorInfo.buyProductId $>'></a>
+                    <div class="item-inner">
+                      <div class="item-title label">单位<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class='J_unit_dom item-input'>
+                        <!-- 辅料 -->
+                        <div class="row no-gutter custrom-unit <% if productType == 1 %> fn-hidden <%endif%> J_fuliao_input J_unit_input">
+                          <span class='col-10'>元/</span><input type="text" name="J_priceUnit_<$ loop.index+3 $>" class='col-50 J_priceUnit <% if productType == 1 %> fn-hidden <%endif%>' placeholder="例如：个、码" value='<$ colorInfo.quantityUnit $>'>
+                        </div>
+                        <!-- 面料 -->
+                        <div class="radio-group <% if productType == 2 %> fn-hidden <%endif%> J_mianliao_input J_unit_input">
+                            <label for="priceUnit-<$ loop.index $>-<$ loop.index $>">
+                              <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ loop.index $>' id='priceUnit-<$ loop.index $>-<$ loop.index $>' value='米' <% if colorInfo.priceUnit == '元/米' %> checked="checked" <% endif %>>元/米
+                            </label>
+                            <label for="priceUnit-<$ loop.index $>-<$ loop.index+1 $>">
+                              <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ loop.index $>' id='priceUnit-<$ loop.index $>-<$ loop.index+1 $>' value='码'<% if colorInfo.priceUnit == '元/码' %> checked="checked" <% endif %> >元/码
+                            </label>
+                            <label for="priceUnit-<$ loop.index $>-<$ loop.index+2 $>">
+                              <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ loop.index $>' id='priceUnit-<$ loop.index $>-<$ loop.index+2 $>' value='千克'<% if colorInfo.priceUnit == '元/千克' %> checked="checked" <% endif %> >元/千克
+                            </label>
+                        </div> 
+                      </div>
+                  </div>
+                </li> 
+                <li class='J_need_item'>
+                  <a  class='fn-hide J_id' data-value='<$ colorInfo.id $>'></a>
+                  <a  class='fn-hide J_buyProductId' data-value='<$ colorInfo.buyProductId $>'></a>
+                  <div class="item-inner">
+                      <div class="item-title label">单价 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class="item-input row no-gutter">  
+                        <input type="number" class='col-50 J_price' placeholder="请输入单价" value="<$ colorInfo.price $>">
+                        <span class='col-15 unit'>元/</span><span class='col-25 unit J_quantityUnit'><$ colorInfo.quantityUnit $></span>
+                      </div>
+                  </div>
+              </li>
+              <li class='J_need_item'> 
+                  <div class="item-inner">
+                      <div class="item-title label">色号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <input type="text" placeholder="必填" class='J_color' value='<$ colorInfo.color $>'> 
+                  </div>
+              </li>
+              <li class='J_need_item'> 
+                  <div class="item-inner">
+                      <div class="item-title label ">数量 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class="item-input row no-gutter">
+                        <input type="number" placeholder="必填" class='J_num quantity col-50' value= '<$ colorInfo.quantity $>'>
+                        <span class='col-25 unit J_quantityUnit'><$ colorInfo.quantityUnit $></span>
+                      </div> 
+                  </div>
+              </li>
+              </ul>
+          </div>
+          <div class="col-20 del warning-text item-link J_del">删除</div>  
+        </li>
+      <% endfor %>
+  </ul>
+  <ul class='add-more'>
+      <li>
+          <a class="item-link list-button J_add_more">添加颜色</a>
+      </li>
+  </ul>
+  <div class='block-title'>费用明细</div>
+  <ul class='fee-block'>
+    <li class='J_need_item item-content'> 
+      <div class="item-inner">
+          <div class="item-title label ">成本货款 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+          <div class="item-input row no-gutter">
+            <input type="number" name='fullMoney' placeholder="必填" class='col-50' value='<$ fullMoney $>'>
+            <span class='col-25'>元</span>
+          </div> 
+      </div>
+    </li>
+    <li class='J_need_item item-content'> 
+      <div class="item-inner">
+          <div class="item-title label ">税款 <span class="tips warning-text fn-hide">&nbsp;!</span></div>
+          <div class="item-input row no-gutter">
+            <input type="number" name='taxMoney'  placeholder="必填" class='col-50' value='<$ taxMoney $>'>
+            <span class='col-25'>元</span>
+          </div> 
+      </div>
+    </li>
+    <li class='J_need_item item-content'> 
+      <div class="item-inner">
+          <div class="item-title label ">服务费<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+          <div class="item-input row no-gutter">
+            <input type="number" name='serviceMoney' placeholder="必填" class='col-50' value='<$ serviceMoney $>'>
+            <span class='col-25'>元</span>
+          </div> 
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+<nav class="bottom-btn row no-gutter">
+  <span class='prospect-price-wrap col-50'>
+      <div class='text'>支付总额</div>
+      <div class='price-num'>
+          <span class='price J_prospect_price'><$ prospect $></span>
+          <span class='pro-unit'>元</span>
+      </div>   
+  </span>
+  <a class="button J_save col-50">提交</a>
+</nav>

@@ -1,0 +1,196 @@
+.buyList
+    .statusTitle, .buyerTitle
+        display: block;
+    .top-search
+        padding: 0 10px;
+        position: relative;
+        top: 2.4rem;
+    .tab-content
+        position: relative;
+        top: 2.2rem;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        background-color: #fff;
+        border-bottom: 2px solid #eee;
+        .item
+            padding: 0.25rem 0;
+            color: #000;
+        .active
+            color: #0894ec;
+            border-bottom: 2px solid #0894ec;
+    .content-wrap
+        top: 2.4rem;
+        position: relative;
+        height: 100%;
+        .content
+            bottom: 2rem;
+
+    .money-list-card
+        margin: 0.5rem 0;
+        .card-header
+            padding: .5rem;
+            color: #0894ec;
+        .block
+            display: block;
+            overflow: hidden;
+        .card-content-inner 
+            width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            padding: .5rem .8rem;
+            .img
+                width: 30%;
+                max-width: 3rem;
+                max-height: 3rem;
+                overflow: hidden;
+                background-color: #EFEFEF;
+        .top-search
+            padding: 0 10px;
+        .info
+            width: 65%;
+            max-width: 10.8rem;
+            color: #333;
+            overflow: hidden;
+            padding-left: 0.5rem;
+            margin-top: 0;
+            li 
+                width: 100%;
+                overflow: hidden;
+                font-size: 0.7rem;
+                margin: 0;
+                padding: 0;
+                color: #999;
+            .limitHeight
+                height: 1.0rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            .haveRealVersion
+                position: absolute;
+                right: 0.25rem;
+                top: 0.25rem;
+                color: red;
+        .card-footer
+            border-top: 1px solid #D2D2D2;
+            min-height: 2.2rem;
+            min-height: 0;
+            height: 2.2rem;
+            padding: 0 .2rem;
+            padding-top: .4rem;
+            .money
+                position: absolute;
+                right: 5rem;
+                top: 0;
+                line-height: 2.2rem;
+                color: #f00;
+        .button
+            position: absolute;
+            right: 0.3rem;
+            border-radius: 0;
+            display: inline-block;
+            margin-left: .1rem;
+            padding: 0 .3rem;
+            color: #2FB468;
+            border-color: #2FB468;
+            &.again
+                color: #fff;
+                border-radius: 0.3rem;
+        .fix-icon
+            font-size: 0.9rem;
+            margin-top: 1.0rem;
+            color: #000;
+    .infinite-scroll-preloader
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        z-index: 10;
+        display: none;
+    .J_filter
+        position: relative;
+        padding: 0;
+        .container-list
+            display: none;
+            position: absolute;
+            .buyerItem.active
+                background-color: #0894ec;
+                color: #fff;
+                .item-inner
+                    color: #fff;
+            .item-inner
+                color: #333;
+            .list-block
+                margin-top: 0;
+            &.list-buyer
+                width: 202%;
+                background: #fff;
+                border: 1px solid #eee;
+                left: -1%;
+                top: 1.35rem;
+                .list-group-title
+                    color: #666;
+                .list-block .item-inner:after
+                    top: 0;
+            .content-detail
+                width: 95%;
+                float: left;
+            .content-nav
+                width: 5%;
+                float: right;
+                position: fixed;
+                background-color: #fff;
+                right: 0;
+                a
+                    display: block;
+            &.list-status
+                width: 100%;
+                background: #fff;
+                border: 1px solid #c8c9cb;
+                top: 1.35rem;
+                z-index: 100;
+                .list-block
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    ul
+                        ul
+                            padding-left: 0;
+                .item-title
+                    color: #333;
+                    font-size: .7rem;
+                .item-inner
+                    overflow: visible;
+                    background-color: #fff;
+                .item-status
+                    .container-list
+                        display: none;
+                    &.active
+                       .container-list
+                            display: block; 
+                .item-status.active
+                    background-color: #0894ec;
+                    .item-content1
+                        background-color: #0894ec;
+                        .item-inner1
+                            background-color: #0894ec; 
+                            .item-title1
+                                color: #fff;
+                    .listKey.active, .status.active
+                        background-color: #0894ec;
+                        .item-inner
+                            background-color: #0894ec;
+                            color: #fff;
+                            .item-title
+                                color: #fff;
+            .content-detail
+                width: 95%;
+                float: left;
+            &.level2
+                z-index: 99;
+                top: 0;
+                margin-left: .5rem;
+                width: 83%;
+                border-left: 1px solid #ccc;
+        &.active
+            .container-list
+                display: block;

@@ -1,0 +1,16 @@
+{#
+  订单查询
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <link rel="stylesheet" href="stylesheets/pages/printDetail.css">
+    <div class="page" id='sysMessage' style="display: block">
+      <div class="content J_content"> </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="javascripts/printDetail.js"></script>
+{% endblock %}

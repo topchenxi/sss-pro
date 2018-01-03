@@ -1,0 +1,53 @@
+f<li class='row no-gutter'>
+  <div class="col-80 item-content J_items">   
+      <ul>
+        <li class='J_need_item'> 
+            <div class="item-inner">
+              <div class="item-title label">单位 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class='J_unit_dom item-input'>
+                <!-- 辅料 -->
+                  <div class="row no-gutter custrom-unit <% if productType == 1 %> fn-hidden <%endif%> J_fuliao_input J_unit_input">
+                      <span class='col-10'>元/</span><input type="text" name='J_priceUnit_<$ length $>' class='col-50 J_priceUnit <% if productType == 1 %> fn-hidden <%endif%>' placeholder="例如：个、码" value=''>
+                  </div>
+                <div class="item-input radio-group <% if productType == 2 %> fn-hidden <%endif%> J_mianliao_input J_unit_input">
+                    <label for="priceUnit-<$ length + 2 $>">
+                        <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ length $>' id='priceUnit-<$ length + 2 $>' value='米'>元/米
+                    </label>
+                    <label for="priceUnit-<$ length + 3 $>">
+                      <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ length $>'  id='priceUnit-<$ length + 3 $>' value='码'>元/码
+                    </label>
+                    <label for="priceUnit-<$ length + 4 $>">
+                      <input type="radio" class='J_priceUnit <% if productType == 2 %> fn-hidden <%endif%>' name='J_priceUnit_<$ length $>'  id='priceUnit-<$ length + 4 $>' value='千克'>元/千克
+                    </label>
+                </div>
+              </div>
+          </div>
+        </li> 
+        <li class='J_need_item'> 
+            <div class="item-inner">
+                <div class="item-title label">单价 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                <div class="item-input row no-gutter">
+                  <input type="number" class='col-50 J_price' placeholder="单价" value="">
+                  <span class='col-15 unit'>元/</span><span class='col-25 unit J_quantityUnit'></span>
+                </div>
+            </div>
+        </li>
+        <li class='J_need_item'> 
+            <div class="item-inner">
+                <div class="item-title label">色号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                <input type="text" placeholder="必填" class='J_color' value=''> 
+            </div>
+        </li>
+        <li class='J_need_item'> 
+            <div class="item-inner">
+                <div class="item-title label ">数量 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                <div class="item-input row no-gutter">
+                  <input type="number" placeholder="必填" class='J_num quantity col-50' value=''>
+                  <span class='col-25 unit J_quantityUnit'></span>
+                </div> 
+            </div>
+        </li>
+      </ul>
+  </div>
+  <div class="col-20 del warning-text item-link J_del">删除</div>  
+</li> 

@@ -1,0 +1,60 @@
+#moneyDetailList{
+  .save-link{
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    &.disabled{
+      color:#999
+    }
+  }
+  .item-title{
+    margin: 0.5rem 0;
+  }
+  h5{
+    font-weight: bold;
+  }
+  .fn-right {
+    float: right;
+  }
+  .money-detail-list {
+    .list-block{
+      ul{
+        background: none;
+        li {
+          background-color: #eeeff;
+          margin-bottom: 10px;
+          .my-item-subtitle{
+            vertical-align: middle;
+            height: 2rem;
+            label{
+              padding-top: 0.1rem;
+            }
+            .assert-price{
+              height: 1.5rem;
+              input{
+                height: 1.5rem;
+                border-bottom: 1px solid #ccc
+              }
+            }
+            &:after{
+              content: '';
+              display: inline-block;
+              height: 100%;
+              width: 0;
+              vertical-align: middle;
+            }
+          }
+        }
+      } 
+    }
+    .assert-price{
+      padding-left: 5px;
+      
+    }
+    .item-content{
+      background-color: #fff;
+    }
+  }
+}
+
+ 

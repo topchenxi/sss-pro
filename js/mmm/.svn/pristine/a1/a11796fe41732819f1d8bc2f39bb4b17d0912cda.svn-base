@@ -1,0 +1,4 @@
+<div class="up-img J_wrap">
+  <img src='<$ base64 $>' id='single<$ randomNumber $>' class="J_zoom zoomImg" />
+  <span class="del J_del">x</span>
+</div>

@@ -1,0 +1,26 @@
+#buyerAddressEdit{
+	.save-link{
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+	}
+	.list-block{
+		font-size: 0.75rem;
+		input{
+			font-size:0.75rem
+		}
+	}
+	.express-block{
+		margin-top:2rem;
+		margin-bottom: 1rem;
+	}
+	.express-tips{
+		width: 100%;
+		text-align: center;
+		font-size: 0.6rem;
+	}
+	.bottom-btn{
+		width: 85%;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,12 @@
+{#
+  供应商付款方式
+#}
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+  		<link rel="stylesheet" href="stylesheets/pages/sellerAccounts.css">
+	  	<div class="page" id='sellerAccounts' style="display: block"></div> 
+		<script src="javascripts/sellerAccounts.js"></script>
+    </div>
+    <div class="page" id='supplyMethod'></div>
+{% endblock %}

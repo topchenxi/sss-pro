@@ -1,0 +1,89 @@
+<div class="content-detail list-block contacts-block">
+  <div class="list-group">
+    <ul>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">全部</div>
+          </div>
+        </div>
+      </li>
+      <% for item in statusList %>
+        <li class="item-status">
+          <div class="item-content item-content1">
+            <div class="item-inner item-inner1">
+              <div class="item-title item-title1"><$ item.descr $></div>
+              <div class="container-list list-status2 level2">
+                <div class="content-detail list-block contacts-block">
+                  <div class="list-group">
+                    <ul>
+                      <li class="listKey" data-listKey="<$ item.listKey $>" data-statusTitle="<$ item.descr $>-全部">
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title">全部</div>
+                          </div>
+                        </div>
+                      </li>
+                      <% for subItem in item.values %>
+                        <li class="status" data-status="<$ subItem.status $>" data-statusTitle="<$ item.descr $>-<$ subItem.statusShortDescr $>">
+                          <div class="item-content">
+                            <div class="item-inner">
+                              <div class="item-title"><$ subItem.statusShortDescr $></div>
+                            </div>
+                          </div>
+                        </li>
+                      <% endfor %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% endfor %>
+      
+      <!-- <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">付款中</div>
+          </div>
+        </div>
+      </li>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">提货中</div>
+          </div>
+        </div>
+      </li>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">验货中</div>
+          </div>
+        </div>
+      </li>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">发货中</div>
+          </div>
+        </div>
+      </li>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">换货中</div>
+          </div>
+        </div>
+      </li>
+      <li class="item-status">
+        <div class="item-content item-content1">
+          <div class="item-inner item-inner1">
+            <div class="item-title item-title1">归档</div>
+          </div>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</div>

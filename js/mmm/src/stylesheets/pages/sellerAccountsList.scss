@@ -1,0 +1,77 @@
+#sellerAccountsList{
+	.list-block{
+		ul{
+			padding-left: 0;
+			background-color: transparent;
+		}
+		li {
+			background-color: #fff;
+			margin-bottom: 1rem;
+		}
+		label.label-checkbox {
+			padding-left: 0.35rem;
+			.item-media {
+				padding-right: 0.35rem;
+			}
+		}
+		label.label-checkbox input[type="radio"]:checked+.item-media i.icon-form-checkbox {
+			background-color: #3FCC3D;
+		}
+		.col-left {
+			width: 92%;
+		}
+		.item-after{
+			width: 100%;
+			padding: 0.2rem 0.5rem;
+			border-bottom: 1px solid #ddd;
+			padding-left: 0.75rem;
+			margin-left: 0;
+			max-height: 10rem;
+			overflow: hidden;
+			word-break: break-all;
+			white-space: inherit;
+			&.zhihang{
+				border-bottom: none;
+			    width: 94%;
+			    span{
+			    	font-size: 0.7rem;
+			    	display: inline-block;
+			    	width: 75%;
+			    }
+			}
+		}
+		.info{
+			border-left: 1px solid #ddd;
+			margin-left: 0;
+			padding: 0;
+			.item-title-row{
+				width: 100%;
+			}
+		}
+		.icon-group{
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			vertical-align: middle;
+			bottom: 0;
+			top: 0;
+			width: 2rem;
+			padding-top: 50px;
+			border-left: 1px solid #ddd;
+			background-color: #fff;
+			div{
+				margin-bottom: 40px;
+			}
+			// &:after{
+			// 	content: '';
+			// 	display: inline-block;
+			// 	height: 100%;
+			// 	vertical-align: middle;
+			// }
+		}
+		.add-more{
+			margin-top: 1rem;
+		}
+	}
+}

@@ -1,0 +1,208 @@
+
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>实收</h1>
+</header>
+<div class="content money-detail-list">
+  <input type="hidden" name="orderNumber" value="<$ orderNumber $>">
+   <div class="list-block media-list">
+    <ul>
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">预估价：<span class="assert-price"><$ estimatedTotal $></span><span>元</span></div>
+            </div> 
+            <div class="item-title-row">
+              <div class="item-title">总购买量：<span class="assert-price"><$ quantityAll $></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </li>
+  <% if listObj.earnestMoney %>
+      <!-- 订金 -->
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">订金</div>
+            </div>
+            <div class="item-subtitle">应收：<span class="assert-price"><$ listObj.earnestMoney.amount $></span><span>元</span></div>
+            <div class="item-subtitle">已收：<span class="assert-price"><$ listObj.earnestMoney.realAmount $></span><span>元</span></div>
+            <div class="item-subtitle">欠款：<span class="assert-price"><$ listObj.earnestMoney.debt $></span><span>元</span></div>
+          </div>
+        </div>
+      </li>
+   <% endif %>
+
+<% if listObj.finalMoney %>
+  <!-- 尾款 -->
+   <li class='<% if edit == 1 and status == 339 %>J_need_item <% endif %>'>
+    <div class="item-content">
+       <div class="item-inner">
+        <div class="item-title-row">
+        <div class="item-title">尾款</div>
+        </div>
+          <% if edit == 1 and status == 339 %>
+            <div class="my-item-subtitle row no-gutter">
+            <label for="" class='col-20'>应收：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+            <span class="assert-price col-50"><input type="text" class='J_finalMoney' name='finalMoney' value='<$ listObj.finalMoney.amount $>'></span><label for="" class='col-20'>元</label>
+            </div>
+          <%else%>
+            <div class="item-subtitle">应收：<span class="assert-price"><$ listObj.finalMoney.amount $></span><span>元</span></div>
+          <%endif%>
+        <div class="item-subtitle">已收：<span class="assert-price"><$ listObj.finalMoney.realAmount $></span><span>元</span></div>
+        <div class="item-subtitle">欠款：<span class="assert-price J_debt"><$ listObj.finalMoney.debt $></span><span>元</span></div>
+      </div>
+    </div>
+  </li>
+<% endif %>
+ 
+ <% if listObj.fullMoney %>
+      <!-- 全款 -->
+       <li class='<% if edit == 1 and status == 316 %>J_need_item <% endif %>'>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">成本货款</div>
+            </div>
+              <% if edit == 1 and status == 316 %>
+              <div class="my-item-subtitle row no-gutter">
+                <label for="" class='col-20'>应收：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                <span class="assert-price col-50"><input type="text" class='J_fullMoney' name='fullMoney' value="<$ listObj.fullMoney.amount $>"></span>
+                <label for="" class='col-20'>元</label>
+              </div>
+              <%else%>
+                <div class="item-subtitle">应收：<span class="assert-price"><$ listObj.fullMoney.amount $></span><span>元</span></div>
+              <%endif%>
+            <div class="item-subtitle">已收：<span class="assert-price"><$ listObj.fullMoney.realAmount $></span><span>元</span></div>
+            <div class="item-subtitle">欠款：<span class="assert-price J_debt"><$ listObj.fullMoney.debt $></span><span>元</span></div>
+          </div>
+        </div>
+      </li>
+    <% endif %>    
+ 
+
+<% if listObj.serviceMoney %>
+      <!-- 服务费 -->
+       <li class='J_need_item'>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">服务费</div>
+            </div>
+              <% if edit == 1%>
+              <div class="my-item-subtitle row no-gutter">
+                <label for="" class='col-20'>应收：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                <span class="assert-price col-50"><input type="text" class='J_serviceMoney' name="serviceMoney" value='<$ listObj.serviceMoney.amount $>'></span>
+                <label for="" class='col-20'>元</label>
+              </div>
+              <%else%>
+                <div class="item-subtitle">应收：<span class="assert-price"><$ listObj.serviceMoney.amount $></span><span>元</span></div>
+              <%endif%>
+            <div class="item-subtitle">已收：<span class="assert-price"><$ listObj.serviceMoney.realAmount $></span><span>元</span></div>
+            <div class="item-subtitle">欠款：<span class="assert-price J_debt"><$ listObj.serviceMoney.debt $></span><span>元</span></div>
+          </div>
+        </div>
+      </li>
+<% endif %>
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">总计</div>
+            </div>
+            <div class="item-subtitle">应收：<span class="assert-price J_allMoney"><$ listObj.summary.amount $></span><span>元</span></div>
+            <div class="item-subtitle">已收：<span class="assert-price"><$ listObj.summary.realAmount $></span><span>元</span></div>
+            <div class="item-subtitle">欠款：<span class="assert-price J_allDebt"><$ listObj.summary.debt $></span><span>元</span></div>
+          </div>
+        </div>
+      </li>
+    <% if madanImgUrls.length %>
+      <li>
+        <a href="#" class="item-link item-content J_madan" data-type="madanImgUrls">
+          <div class="item-media"><img src="<$ imgPath $><$ madanImgUrls[0] $>@64h_64w_1e" style='width: 1rem; height: 1rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">码单</div>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% endif %>
+      <li>
+        <div class="item-content">
+           <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">财务实收</div>
+            </div>
+              <% if collectDebts %>
+                <% if not productSource %> 
+                  <!--现货 全款 -->
+                  <div class="my-item-subtitle row no-gutter">
+                    <label for="" class='col-20'>成本货款：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                    <span class="assert-price col-50"> <input type="number" class='J_fullMoney' placeholder= '必填' value='<$ formData.fullMoney.amount $>'></span>
+                    <label for="" class='col-20'>元</label>
+                  </div>
+                <% else %>
+                  <!-- 订货 -->
+                  <div class="my-item-subtitle row no-gutter">
+                    <label for="" class='col-20'>订金：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                    <span class="assert-price col-50"> <input type="number" class='J_earnestMoney' placeholder= '必填' value='<$ formData.earnestMoney.amount $>'></span>
+                    <label for="" class='col-20'>元</label>
+                  </div>
+                    <!-- 尾款 -->
+                  <div class="my-item-subtitle row no-gutter">
+                    <label for="" class='col-20'>尾款：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                    <span class="assert-price col-50"> <input type="number" class='J_finalMoney' placeholder= '必填' value='<$ formData.finalMoney.amount $>'></span>
+                    <label for="" class='col-20'>元</label>
+                  </div>                  
+                <% endif %>
+                <div class="my-item-subtitle row no-gutter">
+                  <label for="" class='col-25'>服务费：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                  <span class="assert-price col-50"> <input type="number" class='J_serviceMoney' placeholder= '必填' value='<$ formData.serviceMoney.amount $>'></span>
+                  <label for="" class='col-20'>元</label>
+                </div>
+              <% else %>
+                <% if status == 327 %>
+                <div class="my-item-subtitle row no-gutter">
+                  <label for="" class='col-20'>成本货款：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                  <span class="assert-price col-50"> <input type="number" class='J_fullMoney' placeholder= '必填' value='<$ formData.fullMoney.amount $>'></span>
+                  <label for="" class='col-20'>元</label>
+                </div>
+                <% endif %>
+                <% if status == 325 %>
+                <div class="my-item-subtitle row no-gutter">
+                  <label for="" class='col-20'>订金：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                  <span class="assert-price col-50"> <input type="number" class='J_earnestMoney' placeholder= '必填'  value='<$ formData.earnestMoney.amount $>'></span>
+                  <label for="" class='col-20'>元</label>
+                </div>
+                <% endif %>
+                <% if status == 345 %>
+                <div class="my-item-subtitle row no-gutter">
+                  <label for="" class='col-25'>尾款：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                  <span class="assert-price col-50"> <input type="number" class='J_finalMoney' pattern="^[0-9]*\.?[0-9]{0,2}$"  placeholder= '必填' value='<$ formData.finalMoney.amount $>'></span>
+                  <label for="" class='col-20'>元</label>
+                </div>
+              <% endif %>
+              <% if status != 325 %>
+              <div class="my-item-subtitle row no-gutter">
+                <label for="" class='col-25'>服务费：<span class="tips warning-text fn-hide ">&nbsp;!</span></label>
+                <span class="assert-price col-50"> <input type="number" class='J_serviceMoney' placeholder= '必填' value='<$ formData.serviceMoney.amount $>'></span>
+                <label for="" class='col-20'>元</label>
+              </div>
+              <% endif %>
+            <% endif %>
+            <div class="my-item-subtitle row">
+              <a href="#" class="button button-fill pull-left button-success J_back col-20">取消</a> 
+              <a href="#" class="button button-fill pull-left button-success J_save col-20">确定</a> 
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

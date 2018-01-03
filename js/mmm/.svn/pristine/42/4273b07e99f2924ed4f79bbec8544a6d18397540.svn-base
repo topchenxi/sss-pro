@@ -1,0 +1,170 @@
+<div class="J_record_content">
+  <div class="list-block J_big_good">
+    <ul class="section">
+        <li class="item-content has-upload J_has_upload">
+          <div class="where-image">
+            <!-- 图片展示 -->
+            <% if notEdit == 1 %>
+            <% if imgUrls.length %>
+               <% for img in imgUrls %>
+                <div class="up-img J_wrap">
+                  <img src='<$ imgPath $><$ img $>@80h_80w_1e' id='single<$ randomNumber $>' class="J_zoom zoomImg" />
+                </div>
+               <%endfor%>
+             <% else%>
+                <div class="up-img J_wrap">
+                  <img src='<$ imgPath $>/upload/util/default_buy.jpg@80h_80w_1e' id='single<$ randomNumber $>' class="J_zoom zoomImg" />
+                </div>
+             <%endif%>
+            <%else%>
+            <div class="J_images up-img">
+              <span class="add-img-btn J_add_img">
+                <span class="add-icon">+</span><br>  
+                <span class="text">添加图片</span>
+                <label class="img-upload-label" for="img-file">
+                    <input type="file" id="img-file" value="添加图片" class="file-input" accept="image/*" multiple="">
+                </label>
+              </span>
+            </div>
+            <%endif%>
+          </div>
+        </li>
+    </ul>
+    <div class="J_deliverGood">
+      <form class="J_type">
+        <ul class="section J_choseType">
+           <li class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">发货类型</div>
+              <div class="item-input radio-group">
+                  <% if notEdit == 1 %>
+                  <label for="productType-1" class="goodSource" >
+                    <% if type == 1 %> <!-- type  0 表示车队 1 表示物流 -->
+                      物流 
+                    <% else %>
+                      车队
+                    <%endif%>
+                  </label>
+                  <% else %>
+                    <label for="productType-1" class="goodSource" >
+                      <!-- haveSendCompany  0 表示车队 1 表示物流 -->
+                      <input type="radio"  <% if haveSendCompany == 1 %> checked <% endif %> name="type" data-num="1" value='1' id="productType-1">
+                      物流
+                    </label>
+                    <label for="productType-2" class="goodSource">
+                      <input type="radio" name="type"   value='0' data-num="0" id="productType-2">车队
+                    </label>
+                  <%endif%>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </form>
+    <!-- 物流模板 -->
+      <form class="J_logisticsInfo <% if notEdit == 1 and type == 0 %> fn-hide <%endif%>">
+        <ul>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">物流单号</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ sendOrderNumber $>
+                    <% else %>
+                      <input type="text" name="sendOrderNumber"  value="<$ sendOrderNumber $>" placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">物流公司</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ sendCompany $>
+                    <% else %>
+                      <input type="text" name="sendCompany" value="<$ sendCompany $>" placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">物流电话</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ sendTel $>
+                    <% else %>
+                      <input type="number" name="sendTel"  value="<$ sendTel $>"  placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </form>
+        <!-- 车队模板 -->
+      <form class="J_carInfo <% if notEdit == 1 %> <% if type == 1 %> fn-hide <% endif %><%else%> carInfo <%endif%> ">
+        <ul>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">车牌号</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ carNumber $>
+                    <% else %>
+                      <input type="text" name="carNumber" placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">联系人</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ contactName $>
+                    <% else %>
+                      <input type="text" name="contactName" placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+           <li>
+              <div class="item-content">
+                <div class="item-media"><i class="icon icon-form-name"></i></div>
+                <div class="item-inner">
+                  <div class="item-title label">联系人电话</div>
+                  <div class="item-input">
+                    <% if notEdit == 1 %>
+                      <$ contactTel $>
+                    <% else %>
+                      <input type="text" name="contactTel" placeholder="请填写">
+                    <%endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+<% if notEdit !=1 %>
+<div class="submit">
+  <a href="javascript:;" class="button button-big button-fill J_save">提交</a>
+</div>
+<%endif%>

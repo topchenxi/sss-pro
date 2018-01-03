@@ -1,0 +1,445 @@
+<dl class="jb-order-info hide">
+    <dt class="item-hd-title J-toggle-show">
+        <div class="item-title">订单信息:</div>
+        <div class="item-after">
+            <div class="icon icon-caret"></div>
+        </div>
+    </dt>
+    <dd>
+        <ul class="list-block">
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">订单号：</div>
+                    <div class="item-after"><$ number $></div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">订单时间：</div>
+                    <div class="item-after"><$ createTime $></div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">采购商：</div>
+                    <div class="item-after"><$ customerCompany $> <$ customerTel $></div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">收货地址：</div>
+                    <div class="item-after">
+                        <$ addressName $> <$ addressTel $> <$ addressProvince $><$ addressCity $><$ addressArea $><$ addressAddr $>
+                    </div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">供应商：</div>
+                    <div class="item-after">
+                        <div style="word-break: break-all">
+                            <$ shopCompany $> <$ shopTel $> <$ shopProvince $><$ shopCity $><$ shopArea $><$ shopAddr $>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </dd>
+</dl>
+
+<dl class="jb-order-info">
+    <dt class="item-hd-title J-toggle-show">
+        <% if salerId == null or salerId == ''  %>
+        <div class="item-title">货号:</div>
+        <%else%>
+        <div class="item-title">购买要求:</div>
+        <%endif%>
+        <div class="item-after">
+            <div class="icon icon-caret"></div>
+        </div>
+    </dt>
+    <% for item in productNumbers %>
+    <dd>
+        <ul class="list-block">
+            <li class="item-content">
+                <div class="item-inner">
+                    <% if salerId == null or salerId == ''  %>
+                        <% if item.category == 1 %>
+                        <div class="item-title">面料</div>
+                        <div class="item-after">货号:<$ item.number $></div>
+                        <% else%>
+                        <div class="item-title">辅料</div>
+                        <div class="item-after">品名:<$ item.number $></div>
+                        <% endif %>
+                    <% else%>
+                        <div class="col-33" style="color:blue">面料</div>
+                        <div class="col-33" style="color:blue">品名:<$ item.title $></div>
+                        <div class="col-33" style="color:blue">货号:<$ item.number $></div>
+                    <% endif %>
+                </div>
+            </li>
+            <% if item.clothId != null and item.clothId != ''  %>
+            <li class="item-content content-padded">
+                <div class="item-inner">
+                    <div class="item-title">原供应商：</div>
+                    <div class="item-after">
+                        <div style="word-break: break-all">
+                            <$ item.shopCompany $> <$ item.shopTel $> <$ item.shopProvince $><$ item.shopCity $><$ item.shopArea $><$ item.shopAddr $>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <% endif %>
+            <li class="item-content content-padded">
+                <div class="row item-inner">
+                    <% if salerId == null or salerId == ''  %>
+                        <% if item.category == 1 %>
+                        <div class="col-33">色号</div>
+                        <% else%>
+                        <div class="col-33">颜色</div>
+                        <% endif %>
+                        <div class="col-33">数量</div>
+                        <div class="col-33">单价</div>
+                    <% else%>
+                        <div class="col-33">色号</div>
+                        <div class="col-33">数量</div>
+                        <div class="col-33">销售单价</div>
+                    <% endif %>
+
+                </div>
+            </li>
+            <% for colors in item.colors%>
+            <li class="item-content content-padded">
+                <div class="row item-inner">
+                    <div class="col-33"><$ colors.color $></div>
+                    <div class="col-33"><$ colors.followerQuantity $><$ colors.followerQuantityUnit $></div>
+                    <% if salerId == null or salerId == ''  %>
+                        <div class="col-33"><$ colors.followerPriceMoney $><$ colors.followerPriceUnit $></div>
+                    <% else %>
+                        <div class="col-33"><$ colors.salePriceMoney $><$ colors.salePriceUnit $></div>
+                    <% endif %>
+                </div>
+            </li>
+            <% endfor%>
+            <li class="item-content">
+                <div class="item-inner">
+                    <% if salerId == null or salerId == ''  %>
+                    <div class="item-title">图片：</div>
+                    <% else %>
+                    <div class="item-title">商品图片：</div>
+                    <% endif %>
+                    <div class="item-after" style="width: 70%;">
+                        <div class="J_pb_img_wrap flex-img-wrap" style="width:100%">
+                        <% for img in item.imgUrls%>
+                            <% if img != ''%>
+                            <% if loop.index%3 == 1 %>
+                            <div class="flex-img-item">
+                            <% endif %>
+                            <div class="img-wrap J_pb_img">
+                                <img src="http://www.soouya.com<$ img $>" alt="" />
+                            </div>
+                            <% if loop.index%3 == 0 or loop.index == item.imgUrls.length+1 %>
+                            </div>
+                            <% endif %>
+                            <% endif %>
+                        <% endfor%>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <% if salerId != null and salerId != ''  %>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">色卡图片：</div>
+                        <div class="item-after" style="width:70%">
+                            <div class="J_pb_img_wrap flex-img-wrap" style="width:100%">
+                            <% for img in item.colorUrls%>
+                                <% if img != ''%>
+                                <% if loop.index%3 == 1 %>
+                                <div class="flex-img-item">
+                                <% endif %>
+                                <div class="img-wrap J_pb_img">
+                                    <img src="http://www.soouya.com<$ img $>" alt="" />
+                                </div>
+                                <% if loop.index%3 == 0 or loop.index == item.colorUrls.length+1 %>
+                                </div>
+                                <% endif %>
+                                <% endif %>
+                            <% endfor%>
+                            </div>
+                        </div>
+                    </div>
+                </li>                
+            <% endif %>
+        </ul>
+    </dd>
+    <% endfor %>
+    <% if salerId != null and salerId != ''  %>
+    <dd>
+        <ul class="list-block">
+        <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">期望发货时间：</div>
+                <div class="item-after"><$ expectedSendTime $>
+                </div>
+            </div>
+        </li>
+        <li class="item-content">
+            <div class="item-inner">
+                <div class="item-title">备注：</div>
+                <div class="item-after"><$ followerRemark $>
+                </div>
+            </div>
+        </li>
+    </dd>
+    <%endif%>
+</dl>
+<% if status == 201 or status == 210 or status ==211 %>
+<dl class="jb-order-info">
+    <dt class="item-hd-title J-toggle-show">
+        <div class="item-title">货号:</div>
+        <div class="item-after">
+            <div class="icon icon-caret"></div>
+        </div>
+    </dt>
+    <% for product in productNumbers %>
+    <dd>
+         <ul class="list-block">
+             <li class="item-content">
+                <div class="item-inner">
+                    <% if product.category == 1 %>
+                    <div class="item-title">面料</div>
+                    <div class="item-after">货号:<$ product.number $></div>
+                    <% else%>
+                    <div class="item-title">辅料</div>
+                    <div class="item-after">品名:<$ product.number $></div>
+                    <% endif %>
+                </div>
+            </li>
+            <% for color in product.colors %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item">色号：<$ color.color $></div>
+                    <div class="item-after"><$ color.followerQuantity $><$ color.followerQuantityUnit $></div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item">成本单价：</div>
+                    <div class="item-after"><$ color.cutterPriceMoney $><$ color.cutterPriceUnit $></div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item">采购数量：</div>
+                    <div class="item-after"><$ color.cutterQuantity $><$ color.cutterQuantityUnit $></div>
+                </div>
+            </li>
+            <% endfor %>
+         </ul>
+    </dd>
+    <% endfor %>
+</dl>
+<% endif %>
+
+<% if status == 502 or status == 510 or status == 511%>
+<dl class="jb-order-info">
+    <dt class="item-hd-title J-toggle-show">
+        <div class="item-title">购买信息:</div>
+        <div class="item-after">
+            <div class="icon icon-caret"></div>
+        </div>
+    </dt>
+    <% for product in productNumbers %>
+    <dd>
+         <ul class="list-block">
+             <li class="item-content">
+                <div class="item-inner">                    
+                    <div class="item-after" style="color:blue;">货号:<$ product.number $></div>                    
+                    <div class="item-after" style="color:blue;">供应商原货号:<$ product.shopOriginalNumber $></div>                    
+                </div>
+            </li>
+            <li class="item-content content-padded">
+                <div class="row item-inner">                    
+                    <div class="col-33">色号</div>
+                    <div class="col-33">采购数量</div>
+                    <div class="col-33">成本单价</div>
+                </div>
+            </li>
+            <% for color in product.colors %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="col-33"><$ color.color $><% if color.status ==0  %><label style="color:red">(无货)</label><%endif %></div>
+                    <div class="col-33"><$ color.cutterQuantity $><$ color.cutterQuantityUnit $></div>
+                    <div class="col-33"><$ color.followerPriceMoney $><$ color.followerPriceUnit $></div>
+                </div>
+            </li>            
+            <% endfor %>
+         </ul>
+    </dd>
+    <% endfor %>
+</dl>
+<% endif %>
+
+<dl class="jb-order-info">
+    <% if salerId != null and salerId != ''  %>
+    <dt>其它信息:</dt>
+    <% else %>
+    <dt>费用信息:</dt>
+    <% endif %>
+    <dd>
+        <% if status == 200 %>
+        <ul class="list-block">
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">采购商是否需要发票：</div>
+                    <div class="item-after"><% if needInvoice == 1 %>需要<% else%>不需要<% endif %></div>
+                </div>
+            </li>
+            <% if needInvoice == 1 %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">采购商税率：</div>
+                    <div class="item-after"><$ taxPoint $>%</div>
+                </div>
+            </li>
+            <% endif %>
+            <!-- <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">预估成本货款：</div>
+                    <div class="item-after"><$ estimatedCostMoney $>元</div>
+                </div>
+            </li>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">服务费：</div>
+                    <div class="item-after"><$ serviceMoney $>元</div>
+                </div>
+            </li> -->
+            <% if needInvoice == 1 %>
+            <!-- <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">税费：</div>
+                    <div class="item-after"><$ taxMoney $></div>
+                </div>
+            </li> -->
+            <% endif %>
+            <!-- <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">总费用：</div>
+                    <div class="item-after"><$ totalMoney $>元</div>
+                </div>
+            </li> -->
+            <% if status == 200 %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal">跟单员留言：</div>
+                    <div class="item-after"><$ followerRemark $></div>
+                </div>
+            </li>
+            <% endif %>
+        </ul>
+        <% endif %>
+        <% if status == 201 or status == 210 or status == 211 %>
+        <ul class="list-block">
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">成本货款：</div>
+                    <div class="item-after"><span class="u-red-font"><$ costMoney $></span>元</div>
+                </div>
+            </li>
+            <li class="item-content img-item">
+                <div class="item-inner">
+                    <div class="item-title">码单：</div>
+                    <div class="item-after J_pb_img_wrap">
+                        <% if madanUrls.length > 0 %>
+                        <% for madan in madanUrls %>
+                        <% if madan != '' %>
+                        <% if loop.index%3 == 1 %>
+                        <div class="flex-img-item">
+                        <% endif %>
+                        <div class="img-wrap J_pb_img">
+                            <img src="http://www.soouya.com<$ madan $>" alt="" />
+                        </div>
+                        <% if loop.index%3 == 0 or loop.index == madanUrls.length+1 %>
+                        </div>
+                        <% endif %>
+                        <% endif %>
+                        <% endfor %>
+                        <% endif %>
+                    </div>
+                </div>
+            </li>
+             <% if madan %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal">码单号码：</div>
+                    <div class="item-after cutter-remark"><$ madan $></div>
+                </div>
+            </li>
+            <% endif %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal">剪版员留言：</div>
+                    <div class="item-after cutter-remark"><$ cutterRemark $></div>
+                </div>
+            </li>
+        </ul>
+        <% endif %>
+        <% if status == 502%>
+        <ul class="list-block">            
+            <li class="item-content img-item">
+                <div class="item-inner">
+                    <div class="item-title">档口码单：</div>
+                    <div class="item-after J_pb_img_wrap" style="width:70%;max-width:70%">
+                        <% if madanUrls.length > 0 %>
+                        <% for madan in madanUrls %>
+                        <% if madan != '' %>
+                        <% if loop.index%3 == 1 %>
+                        <div class="flex-img-item">
+                        <% endif %>
+                        <div class="img-wrap J_pb_img">
+                            <img src="http://www.soouya.com<$ madan $>" alt="" />
+                        </div>
+                        <% if loop.index%3 == 0 or loop.index == madanUrls.length+1 %>
+                        </div>
+                        <% endif %>
+                        <% endif %>
+                        <% endfor %>
+                        <% endif %>
+                    </div>
+                </div>
+            </li>           
+             <% if madan %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal">码单号码：</div>
+                    <div class="item-after cutter-remark"><$ madan $></div>
+                </div>
+            </li>
+            <% endif %>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title">成本货款：</div>
+                    <div class="item-after"><span class="u-red-font"><$ costMoney $></span>元</div>
+                </div>
+            </li>
+        </ul>
+        <% endif %>
+  </dd>
+</dl>
+
+<div class="btn-wrap">
+    <% if status == 502 %>
+    <a class="button button-fill button-success J_submit_lading" data-orderId="<$ id $>">确认提货</a>
+    <% endif %>
+    <% if status == 200 or status == 201 %>
+    <a class="button button-fill button-success" href="/jbInputInfo.html?id=<$ id $>">录入剪版信息</a>
+    <% endif %>
+    <% if status == 201 %>
+    <a class="button button-fill button-success J_submit_review" data-orderId="<$ id $>">提交审核</a>
+    <% endif %>
+    <% if status == 210 %>
+    <!-- <a class="button button-fill button-success J_confirm_payment" data-orderId="<$ id $>">确认收款</a> -->
+    <% endif %>    
+</div>

@@ -1,0 +1,137 @@
+<ul>
+  <!-- 费用明细 -->
+  <li>
+    <div class="item-content">
+       <div class="item-inner">
+        <!-- <div class="item-title-row">
+          <div class="item-title">费用明细</div>
+        </div> -->
+          <div class="item-subtitle"> 未缴欠款:<span class="assert-price"><$ debtMoney $></span><span>元</span></div>
+        <!-- 订货 -->
+        <!-- <% if  productSource == 1 %>
+          <% if earnestMoney %>
+            <% if not finalMoney %>
+              <% if earnestMoney %><div class="item-subtitle"> 支付定金:<span class="assert-price"><$ earnestMoney $></span><span>元</span></div><%endif%>
+              <% if fullMoney %><div class="item-subtitle"> 预估货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+              <% if taxMoney %><div class="item-subtitle"> 预估税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+              <% if serviceMoney %><div class="item-subtitle"> 预估服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+              <%if earnestMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">欠款明细</div>
+                </div>
+                <div class="item-subtitle"> 待还定金:<span class="assert-price"><$ earnestMoneyDebt $></span><span>元</span></div>
+              <%endif%>
+            <%else%>
+              <% if earnestMoney %><div class="item-subtitle"> 定金:<span class="assert-price"><$ earnestMoney $></span><span>元</span></div><%endif%>
+              <% if fullMoney %><div class="item-subtitle"> 成本货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+              <% if finalMoney %><div class="item-subtitle"> 尾款:<span class="assert-price"><$ finalMoney $></span><span>元</span></div><%endif%>
+              <% if taxMoney %><div class="item-subtitle"> 税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+              <% if serviceMoney %><div class="item-subtitle"> 服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+              <%if earnestMoneyDebt or finalMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">欠款明细</div>
+                </div>
+                <% if earnestMoneyDebt %>
+                  <div class="item-subtitle"> 待还定金:<span class="assert-price"><$ earnestMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if finalMoneyDebt %>
+                  <div class="item-subtitle"> 待还尾款:<span class="assert-price"><$ finalMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if taxMoneyDebt %>
+                  <div class="item-subtitle"> 待还税款:<span class="assert-price"><$ taxMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if serviceMoneyDebt %>
+                  <div class="item-subtitle"> 待还服务费:<span class="assert-price"><$ serviceMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+              <%endif%>
+            <%endif%>
+          <%endif%>
+        <% else %>  -->
+        <!-- 现货 -->
+          <!-- <%if fullMoney %><div class="item-subtitle"> 成本货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+          <%if taxMoney %><div class="item-subtitle"> 税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+          <%if serviceMoney %><div class="item-subtitle"> 服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+          <%if fullMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+            <div class="item-title-row">
+              <div class="item-title">欠款明细</div>
+            </div>
+            <% if fullMoneyDebt %>
+              <div class="item-subtitle"> 待还货款:<span class="assert-price"><$ fullMoneyDebt $></span><span>元</span></div>
+            <%endif%>
+            <% if taxMoneyDebt %>
+              <div class="item-subtitle"> 待还税款:<span class="assert-price"><$ taxMoneyDebt $></span><span>元</span></div>
+            <%endif%>
+            <% if serviceMoneyDebt %>
+              <div class="item-subtitle"> 待还服务费:<span class="assert-price"><$ serviceMoneyDebt $></span><span>元</span></div>
+            <%endif%>
+          <%endif%>
+        <%endif%> -->
+
+        <!-- 现货 -->
+        <!-- <% if productSource == 0 %>
+          <% if (status >= 303 and status <= 316) or status == 416  %>  -->
+          <!-- 未支付货款的现货 -->
+          <!-- <div class="item-subtitle"> 支付货款：<span class="assert-price"><$ fullMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 支付税款：<span class="assert-price"><$ taxMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 支付服务费：<span class="assert-price"><$ serviceMoney $></span><span>元</span></div> -->
+         <!--  <% elif status > 316 or status == 423 or status == 3 or status == 10 or status == 100 %> --> <!-- 表示已经支付货款的现货 -->
+          <!-- <div class="item-subtitle"> 已支付货款：<span class="assert-price"><$ fullMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 已支付税款：<span class="assert-price"><$ taxMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 已支付服务费：<span class="assert-price"><$ serviceMoney $></span><span>元</span></div>
+          <%endif%>
+        <% elif productSource == 1 %>
+          <% if status == 312 or status == 311 %>
+          <div class="item-subtitle"> 支付定金：<span class="assert-price"><$ earnestMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 预估货款：<span class="assert-price"><$ fullMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 预估税款：<span class="assert-price"><$ taxMoney $></span><span>元</span></div>
+          <div class="item-subtitle"> 预估服务费：<span class="assert-price"><$ serviceMoney $></span><span>元</span></div> -->
+          <!-- <% elif status > 312 and status <= 339 %> --> <!-- 尾款 -->
+          <!--   <div class="item-subtitle"> 已支付定金：<span class="assert-price"><$ earnestMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 成本货款：<span class="assert-price"><$ fullMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 支付尾款：<span class="assert-price"><$ finalMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 支付税款：<span class="assert-price"><$ taxMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 支付服务费：<span class="assert-price"><$ serviceMoney $></span><span>元</span></div> -->
+         <!--  <% elif status > 339 or status == 3 or status == 10 or status == 100 %> --> <!-- 尾款 -->
+           <!--  <div class="item-subtitle"> 已支付定金：<span class="assert-price"><$ earnestMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 成本货款：<span class="assert-price"><$ fullMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 已支付尾款：<span class="assert-price"><$ finalMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 已支付税款：<span class="assert-price"><$ taxMoney $></span><span>元</span></div>
+            <div class="item-subtitle"> 已支付服务费：<span class="assert-price"><$ serviceMoney $></span><span>元</span></div>
+          <%endif%>
+        <%endif%> -->
+      </div>
+    </div>
+  </li>
+  <!-- 退换货明细 -->
+  <!-- <li>
+    <div class="item-content">
+       <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title">退换货明细</div>
+        </div>
+          <% for list in lstReturnReplace %>
+            <div class="fee-block"> -->
+              <!-- 退货 -->
+              <!-- <% if list.type == 1 %>
+                <div class="item-subtitle"> 退货单号<$ loop.index $>: <span class="assert-price"><$ list.number $></span></div>
+                <%if list.saleMoney %><div class="item-subtitle"> 退货销售货款: <span class="assert-price"><$ list.saleMoney $></span><span>(搜芽退)/span></div><%endif%>
+                <%if list.taxReplenishment %><div class="item-subtitle"> 退货税款: <span class="assert-price"><$ list.taxReplenishment $></span><span>(搜芽退)</span></div><%endif%>
+                <%if list.taxRefund %><div class="item-subtitle"> 退货税款: <span class="assert-price"><$ list.taxRefund $></span><span>(搜芽退)</span></div><%endif%>
+                <%if list.serviceRefund %><div class="item-subtitle"> 退货服务费: <span class="assert-price"><$ list.serviceRefund $></span><span>(搜芽退)</span></div><%endif%>
+                <%if list.serviceReplenishment %><div class="item-subtitle"> 退货服务费: <span class="assert-price"><$ list.serviceReplenishment $></span><span>(搜芽退)</span></div><%endif%>
+              <% endif %>
+              <% if list.type == 2 %>    -->
+              <!-- 换货 -->
+                <!-- <div class="item-subtitle"> 换货订单号<$ loop.index $>: <span class="assert-price"><$ list.number $></span></div>
+                <%if list.saleMoney %><div class="item-subtitle"> 换销售货款: <span class="assert-price"><$ list.saleMoney $></span><span>(搜芽收)/span></div><%endif%>
+                <%if list.taxReplenishment %><div class="item-subtitle"> 换税款: <span class="assert-price"><$ list.taxReplenishment $></span><span>(搜芽收)</span></div><%endif%>
+                <%if list.taxRefund %><div class="item-subtitle"> 换税款: <span class="assert-price"><$ list.taxRefund $></span><span>(搜芽付)</span></div><%endif%>
+                <%if list.serviceRefund %><div class="item-subtitle"> 换服务费: <span class="assert-price"><$ list.serviceRefund $></span><span>(搜芽付)</span></div><%endif%>
+                <%if list.serviceReplenishment %><div class="item-subtitle"> 换服务费: <span class="assert-price"><$ list.serviceReplenishment $></span><span>(搜芽收)</span></div><%endif%>
+              <% endif %>
+            </div>
+          <%endfor%> -->
+      <!-- </div>
+    </div>
+  </li> -->
+</ul>

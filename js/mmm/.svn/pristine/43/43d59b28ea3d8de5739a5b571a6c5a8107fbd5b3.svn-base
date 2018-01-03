@@ -1,0 +1,23 @@
+{#
+  订单状态的列表
+#}
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+  		<link rel="stylesheet" href="stylesheets/pages/statusList.css">
+	  	<div class="page" id='statusList' style="display: block">
+	    	<div class='J_content'>
+	    		<header class="bar bar-nav">
+				  <a class="button button-link button-nav pull-left J_back">
+				    <span class="icon icon-left"></span>
+				  </a>
+				  <h1 class='title'>历史任务列表</h1>
+				</header>
+	    	</div>
+	  	</div>  
+		<script src="javascripts/statusList.js"></script>
+    </div>
+
+{% endblock %}
+
+

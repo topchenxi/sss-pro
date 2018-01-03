@@ -1,0 +1,369 @@
+ <div class="list-block J_prefix" data-prefix="all-all">
+    <ul>
+        <li>
+            <div class='block-title'>待办任务</div>
+            <!--  跟单员 -->
+            <!--  跟单员 -->
+            <% if role.woodFollowLeader == true %><!--  跟单员 -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=tzxj" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.tzxj %><span class='task-num'><$ TaskNumObj.tzxj $></span><%endif%>
+                            <img src="images/pages/index/tzxj.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>通知询价</span></dt>
+                    </dl>
+                </a>
+                <!-- 跟单员支付的页面入口去除 -->
+                <!-- <a href='javascript:;' data-link="/shopCartList.html?Tabkey=fk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.fk %><span class='task-num'><$ TaskNumObj.fk $></span><%endif%>
+                            <img src="images/pages/index/fk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>支付</span></dt>
+                    </dl>
+                </a> -->
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=tzqh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.tzqh %><span class='task-num'><$ TaskNumObj.tzqh $></span><%endif%>
+                            <img src="images/pages/index/tzqh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>通知取货</span></dt>
+                    </dl>
+                </a> -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=cjqk&urgeMoney=1" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.cjqk %><span class='task-num'><$ TaskNumObj.cjqk $></span><%endif%>
+                            <img src="images/pages/index/cjck.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>催缴欠款</span></dt>
+                    </dl>
+                </a>
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=ddfy" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.ddfy %><span class='task-num'><$ TaskNumObj.ddfy $></span><%endif%>
+                            <img src="images/pages/index/ddfy.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>订单复议</span></dt>
+                    </dl>
+                </a> -->
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=dqrsh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.dqrsh %><span class='task-num'><$ TaskNumObj.dqrsh $></span><%endif%>
+                            <img src="images/pages/index/dsh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>确认收货</span></dt>
+                    </dl>
+                </a> -->
+            <% endif%>
+            <!-- 买货组 -->
+            <!-- 买货组 -->
+            <!-- 买货组 -->
+            <% if role.woodPurchaserLeader == true %> <!-- 买货组长 -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=zpxj" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.zpxj %><span class='task-num'><$ TaskNumObj.zpxj $></span><%endif%>
+                            <img src="images/pages/index/zpxj.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>指派询价</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+            <% if role.woodPurchaser == true %>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=xj" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.xj %><span class='task-num'><$ TaskNumObj.xj $></span><%endif%>
+                            <img src="images/pages/index/xj.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>询价</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=dhwk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.dhwk %><span class='task-num'><$ TaskNumObj.dhwk $></span><%endif%>
+                            <img src="images/pages/index/ddwk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>订货尾款</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=tzfk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.tzfk %><span class='task-num'><$ TaskNumObj.tzfk $></span><%endif%>
+                            <img src="images/pages/index/tzfk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>通知付款</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=zprw" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.zprw %><span class='task-num'><$ TaskNumObj.zprw $></span><%endif%>
+                            <img src="images/pages/index/assign.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>指派提货</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+            <!-- 财务 -->
+            <!-- 财务 -->
+            <!-- 财务 -->
+
+            <!-- <% if role.woodFinance == true %>
+                <a href='javascript:;' data-link="/payList.html?type=1" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.sfk %><span class='task-num'><$ TaskNumObj.sfk $></span><%endif%>
+                            <img src="images/pages/index/sfk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>收付款</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/payList.html?type=2" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.df %><span class='task-num'><$ TaskNumObj.df $></span><%endif%>
+                            <img src="images/pages/index/df.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>垫付</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=sqk&collectDebts=1&unGetPay=1" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.sqk %><span class='task-num'><$ TaskNumObj.sqk $></span><%endif%>
+                            <img src="images/pages/index/sqk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>收欠款</span></dt>
+                    </dl>
+                </a>
+            <%endif%> -->
+            <!-- 提货组 -->
+            <!-- 提货组 -->
+            <!-- 提货组 -->
+            <% if role.woodTaker == true  %> <!-- 提货组长 -->
+                <% if role.woodTakerLeader == true  %> <!-- 提货组长 -->
+                    <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=zprw" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.zprw %><span class='task-num'><$ TaskNumObj.zprw $></span><%endif%>
+                                <img src="images/pages/index/assign.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>指派提货</span></dt>
+                        </dl>
+                    </a> -->
+                <%endif%>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=th" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.th %><span class='task-num'><$ TaskNumObj.th $></span><%endif%>
+                            <img src="images/pages/index/th.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>提货</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=csh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.csh %><span class='task-num'><$ TaskNumObj.csh $></span><%endif%>
+                            <img src="images/pages/index/csh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>催送货</span></dt>
+                    </dl>
+                </a>
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=hh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.hh %><span class='task-num'><$ TaskNumObj.hh $></span><%endif%>
+                            <img src="images/pages/index/hh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>换货</span></dt>
+                    </dl>
+                </a> -->
+                <% if role.woodLogistics != true %> <!--发货员 --> <!-- 因为发货组和提货组的功能相同  要其中一个就好-->
+                    <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=fh" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.fh %><span class='task-num'><$ TaskNumObj.fh $></span><%endif%>
+                                <img src="images/pages/index/fh.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>发货</span></dt>
+                        </dl>
+                    </a> -->
+                <%endif%>
+            <%endif%>
+            <!-- 验货组 -->
+            <!-- 验货组 -->
+            <!-- 验货组 -->
+            <% if  role.woodChecker == true %> <!-- 验货员-->
+                <% if role.woodCheckerLeader == true %> <!-- 验货组长 -->
+                    <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=zpyh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.zpyh %><span class='task-num'><$ TaskNumObj.zpyh $></span><%endif%>
+                            <img src="images/pages/index/zpyh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>指派验货</span></dt>
+                    </dl>
+                    </a> -->
+                <%endif%>
+
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=yh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.yh %><span class='task-num'><$ TaskNumObj.yh $></span><%endif%>
+                            <img src="images/pages/index/yanhuo.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>验货</span></dt>
+                    </dl>
+                </a> -->
+            <%endif%>
+            <!-- 发货组 -->
+            <!-- 发货组 -->
+            <!-- 发货组 -->
+            <% if role.woodLogistics == true %> <!--发货员 -->
+                <% if role.woodLogisticsLeader == true %> <!-- 发货组长 -->
+                    <a href='javascript:;' data-link="/orderList.html?Tabkey=zpfh" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.zpfh %><span class='task-num'><$ TaskNumObj.zpfh $></span><%endif%>
+                                <img src="images/pages/index/zpfh.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>指派发货</span></dt>
+                        </dl>
+                    </a>
+                <%endif%>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=fh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.fh %><span class='task-num'><$ TaskNumObj.fh $></span><%endif%>
+                            <img src="images/pages/index/fh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>发货</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+            <!--  销售员 or 销售组长-->
+            <!--  销售员 -->
+            <!--  销售员 -->
+            <% if role.woodSales == true or role.woodSalesLeader == true %><!--  销售员 -->
+                <!-- <a href='javascript:;' data-link="/shopCartList.html?Tabkey=fk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.fk %><span class='task-num'><$ TaskNumObj.fk $></span><%endif%>
+                            <img src="images/pages/index/fk.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>支付</span></dt>
+                    </dl>
+                </a> -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=cjqk&urgeMoney=1" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.cjqk %><span class='task-num'><$ TaskNumObj.cjqk $></span><%endif%>
+                            <img src="images/pages/index/cjck.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>催缴欠款</span></dt>
+                    </dl>
+                </a>
+            <% endif%>
+         </li>
+         <li>
+            <div class='block-title'>功能列表</div>
+            <% if role.woodFollowLeader == true %>
+                <!--  跟单员 -->
+                <!-- 20171027 跟单员发布订单功能下架 -->
+                <!-- <a href='/orderPublish.html' data-link="" class='items J_order_publish'> -->
+                <a href='javascript:void(0)' data-link="" class='items j-undercarriage'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <img src="images/pages/index/fbdd.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>发布订单</span></dt>
+                    </dl>
+                </a>
+                <!-- <a href='/lsOrderPublish.html' data-link="" class='items J_lsorder_publish'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <img src="images/pages/index/fbdd.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>流水订单</span></dt>
+                    </dl>
+                </a> -->
+                <!-- <a href='javascript:;' data-link="/buyList.html?listKey=ywc&comeFrom=publishAgain" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <img src="images/pages/index/ywc.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>已完成订单</span></dt>
+                    </dl>
+                </a> -->
+            <%endif%>
+            <!--  销售员 或者 销售组长 -->
+            <% if role.woodSales == true or role.woodSalesLeader == true %>
+                <a href='/lsOrderPublish.html' data-link="" class='items J_lsorder_publish'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <img src="images/pages/index/fbdd.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>流水订单</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+            <!-- 买货组 -->
+            <% if role.woodPurchaser == true %>
+
+            <% endif%>
+            <!-- 财务 -->
+            <% if role.woodFinance == true %> <!-- 财务 -->
+                <a href='/progress.html?category=all-all' class='items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <!-- <% if TaskNumObj.sfk %><span class='task-num'><$ TaskNumObj.sfk $></span><%endif%> -->
+                            <img src="images/pages/index/data.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>跟进中</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+            <!-- 提货员 -->
+            <% if role.woodTaker == true %> <!-- 提货员 -->
+
+            <%endif%>
+            <!-- 验货员-->
+            <% if  role.woodChecker == true %> <!-- 验货员-->
+            <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=dsh" class='items J_items'>
+                <dl class='fl task-item'>
+                    <dd>
+                        <% if TaskNumObj.dsh %><span class='task-num'><$ TaskNumObj.dsh $></span><%endif%>
+                        <img src="images/pages/index/shouhuo.png" alt="">
+                    </dd>
+                    <dt><span class='task-title'>收货</span></dt>
+                </dl>
+            </a> -->
+            <%endif%>
+            <% if role.woodLogistics == true %> <!--发货员 -->
+
+            <%endif%>
+         </li>
+        <!-- 公共部分 -->
+        <!-- <li>
+            <div class='block-title'>通用功能</div>
+            <a href='javascript:;' data-link="/progress.html" class='items J_items'>
+                <dl class='fl task-item'>
+                    <dd>
+                        <img src="images/pages/index/data.png" alt="">
+                    </dd>
+                    <dt><span class='task-title'>进度跟进</span></dt>
+                </dl>
+            </a>
+        </li>  -->
+    </ul>
+ </div>

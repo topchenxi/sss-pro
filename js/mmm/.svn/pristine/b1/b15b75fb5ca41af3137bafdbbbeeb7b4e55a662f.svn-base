@@ -1,0 +1,74 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>详情</h1>
+</header>
+<div class="content">
+  <div class="list-block">
+    <div style="margin-left: 20px;padding: 5px 0">接单信息 :</div>
+     <ul>
+       <li>
+         <div class="item-content">
+           <div class="item-media"><i class="icon icon-form-name"></i></div>
+           <div class="item-inner">
+             <div class="item-title label">店铺名称： <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input buttons-row">
+              <$ company $>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li class='J_need_item'>
+         <div class="item-content">
+           <div class="item-media"><i class="icon icon-form-name"></i></div>
+           <div class="item-inner">
+             <div class="item-title label">店铺电话： <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input">
+              <$ tel $>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li class='J_need_item'>
+         <div class="item-content">
+           <div class="item-media"><i class="icon icon-form-name"></i></div>
+           <div class="item-inner">
+             <div class="item-title label">店铺地址： <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input">
+               <$ province $><$ city $> <$ area $> <$ addr $>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li class='J_need_item'>
+         <div class="item-content">
+           <div class="item-media"><i class="icon icon-form-name"></i></div>
+           <div class="item-inner">
+             <div class="item-title label">图片：<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input">
+                <div class="pb-popup">
+               <% for img in colorUrl %>
+                  <img src="<$ imgPath $><$ img $>@64h_64w" alt="" />
+               <% endfor%>
+                 </div>
+             </div>
+           </div>
+         </div>
+       </li>
+       <% for list in color %>
+        <li class='J_need_item'>
+         <div class="item-content">
+           <div class="item-media"><i class="icon icon-form-name"></i></div>
+           <div class="item-inner">
+             <div class="item-title label">色号：<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+             <div class="item-input">
+               <$ list $>
+             </div>
+           </div>
+         </div>
+        </li>
+        <% endfor %>
+     </ul>
+</div>

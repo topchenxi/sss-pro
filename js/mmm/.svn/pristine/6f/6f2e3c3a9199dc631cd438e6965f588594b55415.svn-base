@@ -1,0 +1,15 @@
+{#
+  费用明细
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/moneyDetail.css">
+      <div class="page" id='moneyDetailList' style="display: block">
+         <div class="J_moneyDetailList"></div>
+      </div>
+      <script src="javascripts/moneyDetailList.js"></script>
+    </div>
+{% endblock %}

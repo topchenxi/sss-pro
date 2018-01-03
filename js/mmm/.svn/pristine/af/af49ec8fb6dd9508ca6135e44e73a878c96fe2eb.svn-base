@@ -1,0 +1,49 @@
+#reportDetail{
+  .item-title{
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .list-block{
+    margin-top: 0;
+    background-color: #eee;
+    ul:after{
+      background-color: transparent;
+    }
+    li {
+      background-color: #eee;
+      .item-inner:after{
+        background-color: transparent;
+      }
+    }
+  }
+  .block-title{
+    background-color: #eee;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  .xiaci-title{
+    padding: 10px 0;
+  }
+  .item-content{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+    .item-subtitle{
+      font-size: 0.65rem;
+    }
+    .assert-price{
+      white-space: normal;
+    }
+  }
+  .footer{
+    font-size: 0.6rem;
+    padding: 20px  0.75rem;
+    color: #666;
+    .tel{
+      padding-top: 15px;
+      text-align: center;
+      color: #999;
+    }
+  }
+}

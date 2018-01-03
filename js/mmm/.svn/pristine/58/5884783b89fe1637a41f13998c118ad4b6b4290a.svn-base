@@ -1,0 +1,15 @@
+#replyDetail{
+  .list-block {
+    background-color: #fff;
+  }
+  .pb-popup {
+    width: 100%;
+    padding-bottom: 10px;
+    overflow: hidden;
+    img {
+      float: left;
+      padding-top: 10px;
+      padding-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>标签</h1>
+</header>
+<!-- images/pages/index/tzxj.png -->
+<% if tags %>
+	<div class="nav-list">
+		<ul class="nav-list-sort">
+			<% for tag in tags %>
+				<!--面料-->
+				<% if tag.name == '面料' %>
+					<% for val1 in tag.value %>
+						<% if val1.type == '0' %>
+							<li class="sortTit sort-tit <% if loop.index == '0' %>cur<% endif %>" data-id="<$ val1.id $>" data-type="<$ val1.type $>" data-category="面料">
+								<a class="sortA" href="javascript:;"> 
+									<b class='icon'>
+										<img src="<$ imgPath $><$ val1.icon $>">
+									</b>
+									<span><$ val1.name $></span>
+								</a>
+								<div class="typesWrap" <% if loop.index == '0'%> style="display: block" <% endif %> data-parentName="<$ tag.name $>">
+									<% for val2 in val1.value %>
+										<% if val2.type == '0'%>
+											<div class="property-item" data-id="<$ val2.id $>" data-type="<$ val2.type $>">
+												<p><$ val2.name $></p>
+												<ul class="tagsList">
+													<% if val2.value %>
+														<% for val3 in val2.value %>
+															<% if val3.type == '0'  %>
+																<li class="cloth-item" data-id="<$ val3.id $>" data-type="<$ val3.type $>"><$ val3.name $></li>
+															<% endif %>
+														<% endfor %>
+													<% endif %>
+													<!-- <li class="custom" data-parentId="<$ id $>"> 
+														<em>+</em>
+														自定义
+													</li> -->
+												</ul>
+											</div>
+										<% endif %>
+									<% endfor %>
+								</div>
+							</li>
+						<% endif %>
+					<% endfor %>
+				<% endif %>
+				<!--/面料-->
+
+				<!--辅料-->
+				<% if '辅料' == tag.name %>
+					<li class="sortTit sortAccessory" data-status="off">
+						<a class="sortA" href="javascript:;">
+							<b class='icon'>
+								<img src="<$ imgPath $><$ tag.icon $>">
+							</b>
+							<span>辅料</span>
+							<b class="arrow arrow-down"></b>
+						</a>
+					</li>
+					<dl class="accessoryNav fn-hide">
+						<% for val1 in tag.value %>
+							<% if val1.type == '0' %>
+								<dt data-id="<$ val1.id $>" data-type="<$ val1.type $>" data-category="辅料">
+									<a class="acc_tit" href="javascript:;" data-category="辅料">
+										<$ val1.name $>
+									</a>
+									<div class="typesWrap" data-parentName="<$ tag.name $>">
+										<% for val2 in val1.value %>
+											<% if '0' == val2.type %>
+												<div class="property-item" data-id="<$ val2.id $>" data-type="<$ val2.type $>">
+													<p><$ val2.name $></p>
+													<ul class="tagsList">
+														<% if val2.value %>
+															<% for val3 in val2.value %>
+																<% if val3.type == '0'%>
+																	<li class="cloth-item" data-id="<$ val3.id $>" data-type="<$ val3.type $>"><$ val3.name $></li>
+																<% endif %>
+															<% endfor %>
+														<% endif %>
+														<!-- <li class="custom" data-parentId="<$ id $>">
+															<em>+</em>
+															自定义
+														</li> -->
+													</ul>
+												</div>
+											<% endif %>
+										<% endfor %>
+									</div>
+								</dt>
+							<% endif %>
+						<% endfor %>
+						</dl>
+				<% endif %>
+				<!--/辅料-->
+
+				<!--其他-->
+				<% if tag.name == '其它'%>
+					<% for val1 in tag.value %>
+						<% if val1.type =='0' %>
+							<li class="sortTit sort-tit" data-id="<$ val1.id $>" data-type="<$ val1.type $>" data-category="其它">
+								<a class="sortA" href="javascript:;">
+									<b class='icon'>
+										<img src="<$ imgPath $><$ val1.icon $>">
+									</b> 
+									<span><$ val1.name $></span>
+								</a>
+								<div class="typesWrap" data-parentName="<$ tag.name $>">
+									<% for val2 in val1.value %>
+										<% if '0' == val2.type %>
+											<div class="property-item" data-id="<$ val2.id $>" data-type="<$ val2.type $>">
+												<p><$ val2.name $></p>
+												<ul class="tagsList">
+													<% if val2.value %>
+														<% for val3 in val2.value %>
+															<% if '0' == val3.type %>
+																<li class="cloth-item" data-id="<$ val3.id $>" data-type="<$ val3.type $>"><$ val3.name $></li>
+															<% endif %>
+														<% endfor %>
+													<% endif %>
+													<!-- <li class="custom" data-parentId="<$ id $>"> <em>+</em>
+														自定义
+													</li> -->
+												</ul>
+											</div>
+										<% endif %>
+									<% endfor %>
+								</div>
+							</li>
+						<% endif %>
+					<% endfor %>
+				<% endif %>
+				<!--/其他-->
+				
+			<% endfor %>
+
+		</ul>
+	</div>
+<% endif %>

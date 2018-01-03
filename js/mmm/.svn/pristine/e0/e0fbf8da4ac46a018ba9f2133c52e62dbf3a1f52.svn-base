@@ -1,0 +1,205 @@
+<header class="bar bar-nav">
+  <a class="icon icon-left pull-left J_back" href="#"></a>
+  <h1 class="title"><$ pageTitle $></h1>
+</header>
+
+<div class="content">
+  <div class="list-block">
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">支付编号：<$ payNumber $></div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">采购商：<$ buyerCompany $></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <%if  (status == '1' or status == '2') and loginInfo.woodFinance and type != 2 %>
+  <div class="list-block">
+    <ul>
+      <li class="item-content pb-popup" data-type="certImgUrls">
+        <div class="item-inner">
+          <div class="item-title">采购商付款凭据：</div>
+          <div class="item-after">
+          <% if certImgUrls.length != 0 %>
+            <% for imgUrl in certImgUrls %>
+            <img src="<$ imgPath $><$ imgUrl $>@64h_64w_1e" style='width: 1.2rem;height: 1.2rem;'>
+            <% endfor %>
+          <% else %>
+          <img src="<$ imgPath $>/upload/util/default_buy.jpg@64h_64w_1e" style='width: 1.2rem;'>
+          <% endif %>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% endif %>
+
+  <div class="list-block media-list">
+    <% for product in orderList %>
+    <ul>
+      <li>
+        <a class="item-content item-link J_set_lastpage" href="/orderDetail.html?orderNumber=<$ product.orderNumber $>">
+          <div class="item-inner">
+            <div class="item-title">订单号：<$ product.serviceNumber $></div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-media pb-popup">
+            <% if product.imgUrls[0] %>
+            <img src="<$ imgPath $><$ product.imgUrls[0] $>@64h_64w_1e" style='width: 2.2rem;'>
+            <% else %>
+            <img src="<$ imgPath $>/upload/util/default_buy.jpg@64h_64w_1e" style='width: 2.2rem;'>
+            <% endif %>
+          </div>
+          <div class="item-inner">
+            <div class="item-subtitle">采购商：<$ product.buyerCompany $></div>
+            <div class="item-subtitle">供应商：<$ product.shopName $></div>
+            <%if product.source == '2'%>
+              <%if product.category == 'jb-all'%>
+              <div class="item-after pull-right source">app-剪版</div>
+              <%endif%>
+              <%if product.category == 'all-all'%>
+              <div class="item-after pull-right source">app-大货</div>
+              <%endif%>
+            <%endif%>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title"><!-- 费用明细 --></div>
+              <div class="item-after">
+              <%if status == '2' and loginInfo.woodFinance %>
+                <%if product.payStatus == '2' %>
+                <a href="/shouldPay.html?orderNumber=<$ product.orderNumber $>&payNumber=<$ payNumber $>" class="button button-fill button-danger pull-right">付款</a>
+                <% else %>
+                <span class="text-blue">已付款</span>
+                <% endif %>
+              <% elif status == '101' and loginInfo.woodFinance %>
+              <span class="text-blue">已付款</span>
+              <% elif status != '1' %>
+              <span class="text-blue"><$ product.redwoodDescr $></span>
+              <% endif %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <%if product.fundType == '3' %>
+      <!-- 尾款 -->
+      <!-- <li>
+        <div class="item-content">
+          <div class="item-inner">
+              <div class="item-subtitle">已付定金：<$ product.earnestMoney $>元</div>
+              <div class="item-subtitle">销售货款总计：<$ product.saleMoney $>元</div>
+              <div class="item-subtitle">货款总计：<$ product.fullMoney $>元</div>
+              <div class="item-subtitle"><$ payType $>尾款：<$ product.finalMoney $>元</div>
+              <div class="item-subtitle"><$ payType $>税款：<$ product.taxMoney $>元</div>
+              <div class="item-subtitle"><$ payType $>服务费：<$ product.serviceMoney $>元</div>
+          </div>
+        </div>
+      </li> -->
+      <% endif %>
+      <%if product.fundType == '2' %>
+      <!-- 定金 -->
+      <!-- <li>
+        <div class="item-content">
+          <div class="item-inner">
+              <div class="item-subtitle"><$ payType $>定金：<$ product.earnestMoney $>元</div>
+              <div class="item-subtitle">预估销售货款：<$ product.saleMoney $>元</div>
+              <div class="item-subtitle">预估货款：<$ product.fullMoney $>元</div>
+              <div class="item-subtitle">预估税款：<$ product.taxMoney $>元</div>
+              <div class="item-subtitle">预估服务费：<$ product.serviceMoney $>元</div>
+          </div>
+        </div>
+      </li> -->
+      <% endif %>
+      <%if product.fundType == '5' %>
+      <!-- 全款 -->
+        <%if product.category == 'jb-all'%>
+        <!-- <li>
+          <div class="item-content">
+            <div class="item-inner">
+                <div class="item-subtitle"><$ payType $>成本货款：<$ product.fullMoney $>元</div>
+            </div>
+          </div>
+        </li> -->
+        <%else%>
+        <!-- <li>
+          <div class="item-content">
+
+            <div class="item-inner">
+                <div class="item-subtitle">支付总销售货款：<$ product.saleMoney $>元</div>
+                <div class="item-subtitle"><$ payType $>成本货款：<$ product.fullMoney $>元</div>
+                <div class="item-subtitle"><$ payType $>税款：<$ product.taxMoney $>元</div>
+                <div class="item-subtitle"><$ payType $>服务费：<$ product.serviceMoney $>元</div>
+            </div>
+          </div>
+        </li> -->
+        <% endif %>
+      <% endif %>
+      <li>
+        <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title"></div>
+            <div class="item-after"><$ payType $>小计： <span class="text-red"><$ product.totalMoney $>元</span></div>
+          </div>
+        </div>
+        </div>
+      </li>
+
+    </ul>
+    <% endfor %>
+  </div>
+  <%if mark%>
+  <div class="list-block media-list">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-title">
+              <% if payType == 0 %>
+                垫付总计
+              <% else %>
+                现付总计
+              <% endif %>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="item-content">
+          <div class="item-inner">
+            <div class="item-subtitle"><$ totalMoney $>元</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<% endif %>
+
+<%if  (not status) and (loginInfo.woodFollowLeader or loginInfo.woodSales or loginInfo.woodSalesLeader) %>
+<div class="bar bar-footer">
+  <small class="pull-left">总计支付：<br><span class="text-red"><$ totalMoney $></span> 元</small>
+  <a href="/uploadBill.html" class="button button-fill button-danger pull-right">现付</a>
+  <a href="#" class="button button-fill button-success pull-right J_apply_advance <%if hasAppOrder %>disabled<%endif%>" data-payNumber="<$ payNumber $>">申请垫付</a>
+</div>
+<% endif %>
+<%if status == '1' and loginInfo.woodFinance %>
+<div class="bar bar-footer">
+  <small class="pull-left">总计应收：<br><span class="text-red"><$ totalMoney $></span> 元</small>
+  <a href="#" class="button button-fill button-danger pull-right J_sendback_income  <%if type == '3' %>disabled<% endif %>"  data-payNumber="<$ payNumber $>" >异常</a>
+  <a href="#" class="button button-fill button-success pull-right J_confirm_income" data-payNumber="<$ payNumber $>" data-type="<$ type $>">确认</a>
+</div>
+<% endif %>

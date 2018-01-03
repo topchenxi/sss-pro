@@ -1,0 +1,73 @@
+<header class="bar bar-nav">
+  <a class="icon icon-left pull-left"  href="/"></a>
+  <h1 class="title"><$ headerTitle $></h1>
+</header>
+
+<div class="content">
+  <% for obj in result %>
+  <div class="list-block media-list">
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">支付编号：<$ obj.payNumber $></div>
+          <div class="item-title">采购商：<$ obj.buyerCompany $></div>
+          <div class="item-title">总额：<$ obj.totalMoney | round(2) $></div>
+        </div>
+      </li>
+    </ul>
+    <% for product in obj.orderList %>
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <!-- <div class="item-subtitle pull-right"><$ product.redwoodDescr $></div> -->
+          <div class="item-subtitle">订单号：<$ product.serviceNumber $></div>
+        </div>
+      </li>
+      <li>
+        <a class="item-content item-link J_set_lastpage" href="/orderDetail.html?orderNumber=<$ product.orderNumber $>">
+          <div class="item-media">
+            <%if product.imgUrls[0] %>
+            <img src="<$ imgPath $><$ product.imgUrls[0] $>@64h_64w_1e" style='width: 2.2rem;'>
+            <% else %>
+            <img src="<$ imgPath $>/upload/util/default_buy.jpg@64h_64w_1e" style='width: 2.2rem;'>
+            <% endif %>
+          </div>
+          <div class="item-inner">
+            <div class="item-subtitle">采购商：<$ product.buyerCompany $></div>
+            <div class="item-subtitle">供应商：<$ product.sellerCompany $></div>
+          </div>
+        </a>
+      </li>
+      <%if product.source == '2'%>
+        <li class="item-content">
+          <div class="item-inner">
+            <%if product.category == 'jb-all'%>
+            <div class="item-after pull-right source">app-剪版</div>
+            <%endif%>
+            <%if product.category == 'all-all'%>
+            <div class="item-after pull-right source">app-大货</div>
+            <%endif%>
+          </div>
+        </li>
+      <%endif%>
+      <%if product.category == 'dhls-all'%>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-after pull-right source">流水</div>
+        </div>
+      </li>
+      <%endif%>
+    </ul>
+    <% endfor %>
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <a href="/settlement.html?payNumber=<$ obj.payNumber $>" class="button button-fill pull-right J_set_lastpage <%if obj.status != '2' %>disabled<% endif %>">应付</a>
+          <a href="/settlement.html?payNumber=<$ obj.payNumber $>" class="button button-fill pull-right J_set_lastpage <%if obj.status != '1' %>disabled<% endif %>"><%if obj.type == '2'%>垫付<% else%>实收<% endif %></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <% endfor %>
+
+</div>

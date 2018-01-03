@@ -1,0 +1,155 @@
+#addColor {
+    .content{
+      margin-bottom: 0;
+    }
+    .save-link{
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      &.disabled{
+        color:#999
+      }
+    }
+    .content-block {
+        padding: 0;
+        &.list-block {
+            font-size: 0.6rem;
+            padding-bottom: 4rem;
+            .item-inner {
+              padding: 0;
+            }
+            .item-title.label {
+                width: 18%;
+            }
+            input{
+              height: 2rem;
+              font-size: 0.6rem;
+            }
+            .item-content {
+                min-height: 1rem;
+                padding-left: 0;
+                .unit {
+                  line-height: 2rem;
+                  height: 1.5rem
+                }
+                .item-inner {
+                  min-height: 2rem;
+                   
+                  .custrom-unit{
+                    span{
+                      line-height: 2rem;
+                    }
+                  }
+                }
+            }
+            .add-more{
+              margin-top: 1rem;
+              &.create{
+                bottom: 0;
+                width: 100%;
+              }
+            }
+            .radio-group {
+                label {
+                    display: inline-block;
+                    // width: 4rem;
+                    margin-right: 0.5rem;
+                    input {
+                        width: 0.8rem;
+                        height: 0.8rem;
+                        vertical-align: middle;
+                        margin-right: 0.25rem;
+                    }
+                }
+            }
+            .colorBlock {
+                background-color: transparent;
+                >li{
+                  background-color: #fff;
+                  margin-top: 1rem;
+                }
+               
+                ul {
+                    padding: 0;
+                    width: 100%;
+                }
+                .item-title.label {
+                    width: 32%;
+                }
+                .item-content {
+                    padding-left: 0.75rem;
+                    
+                }
+                .del{
+                  line-height: 5.9rem;
+                  text-align: center;
+                  border-left:1px solid #e7e7e7; 
+                }
+            }
+            .bottom-btn {
+                position: fixed;
+                bottom: 0;
+                height: 3rem;
+                width: 100%;
+                background-color: #fff;
+                overflow: hidden;
+                padding:0;
+                z-index: 999;
+                .prospect-price-wrap{
+                  display: inline-block;
+                  overflow: hidden;
+                  padding: 0.5rem;
+                  padding-top: 0.2rem;
+                  padding-right: 0;
+                  .price-num{
+                    line-height: 1rem;
+                  }
+                  .text{
+                    font-size: 0.7rem;
+                  }
+                  .pro-unit{
+                    font-size: 1rem;
+                    font-weight: bold;
+                    
+                  }
+                }
+                .button {
+                    border: none;
+                    border-left: 1px solid #e7e7e7;
+                    display: inline-block;
+                    width: 50%;
+                    height: 100%;
+                    font-size: 100%;
+                    line-height:3rem;
+                    border-radius: 0;
+                }
+            }
+        }
+
+    }
+}
+.bottom-btn.bottom-fixed{
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  height: 2rem;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 0.25rem 0;
+  z-index: 9999;
+  .button-block {
+    width: 92%;
+    margin-left: 4%;
+    height: 100%;
+    font-size: 100%;
+    line-height: 1.6rem;    
+  }       
+}
+.prompt-text{
+  margin: 0.5rem 0;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  padding: 0.2rem;
+  width: 95%; 
+}

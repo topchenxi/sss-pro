@@ -1,0 +1,39 @@
+{#
+    实付与垫付
+#}
+
+{% extends 'layouts/application.html' %}
+
+
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/upFinancialPay.css">
+      <div class="page upFinancialPay-wrap" id='upFinancialPay' style="display: block">
+        <header class="bar bar-nav J_head">
+        </header>
+        <div class="content J_input_content">
+             <div class="list-block media-list " style="margin: 0 0 1.75rem 0">
+                <!-- 订单信息 -->
+                <div class="J_bill_text">
+                </div>
+                <!-- 上传图片模板 -->
+               <div class="p-bot J_bill_block">
+               </div>
+                <!-- 上传按扭 -->
+                <div class="up-btn">
+                  <div class="for-text">
+                    <label class='J_add_img img-upload-label' for='img-file'>
+                      <span class="J_upload_word"></span>
+                      <input type="file" id='img-file' value='添加图片' class='file-input' accept="image/*" multiple >
+                    </label>
+                  </div>
+                </div>
+             </div>
+        </div>
+      </div>
+      <script src="javascripts/upFinancialPay.js"></script>
+    </div>
+{% endblock %}
+
+

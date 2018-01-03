@@ -1,0 +1,122 @@
+<div class="media-list" style='margin-bottom: 10px;'>
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-subtitle">支付编号：<$ payNumber $></div>
+          <div class="item-subtitle">供应商：<$ sellerCompany $></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <a href="#supplyMethod" class="item-link item-content J_supply_method">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">供应商收款方式</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% if madanImgUrls.length %>
+      <li>
+        <a href="#" class="item-link item-content J_madan_images">
+          <div class="item-media"><img src="<$ imgPath $><$ madanImgUrls[0] $>@64h_64w_1e" style='width: 1rem; height: 1rem;'></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">码单</div>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% endif %>
+    <% if payType == 1%>
+    <li>
+      <a href="/certificateList.html?tplType=certiType&orderNumber=<$ orderNumber $>&typeCagetory=1" class="item-link item-content J_save_temp">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">采购商付款凭据</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <%endif%>
+    <li>
+      <a href="orderDetail.html?orderNumber=<$ orderNumber $>" class="item-link item-content J_to_detail J_save_temp">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">订单详情</div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<ul>
+  <li>
+    <div class="item-inner">
+      <div class="item-subtitle">
+        <strong class="item-l">费用明细</strong>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">成本货款 :</span><span><$ fullMoney $> 元</span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">税款 :</span><span><$ taxMoney $> 元</span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">服务费 :</span><span><$ serviceMoney $> 元</span>
+      </div>
+      <%if status == '327' or status == '316' or status == '323' or status == '423' or status == '427' %><!-- 货款 -->
+        <div class="item-subtitle">
+          <span class="item-l red">应付货款 :</span><span><$ fullMoney $> 元</span>
+        </div>
+        <div class="item-subtitle realAmount-group">
+          <span class="item-l fn-left">实付货款 :</span>
+          <span class='fn-left'> 
+            <input type="number" name='realAmount' placeholder="必填，实付货款" value='<$ fullMoney $>'>
+          </span>
+          <span class='fn-left'>元</span>
+        </div>
+      <% endif %>
+      <%if status == '325' or status == '321' or status == '312' %><!-- 定金 -->
+        <div class="item-subtitle">
+          <span class="item-l">定金 :</span><span><$ earnestMoney $> 元</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-l red">应付定金 :</span><span><$ earnestMoney $> 元</span>
+        </div>
+        <div class="item-subtitle realAmount-group">
+          <span class="item-l fn-left">实付定金 :</span>
+          <span class='fn-left'> 
+            <input type="number" name='realAmount' placeholder="必填，实付货款" value='<$ earnestMoney $>'>
+          </span>
+          <span class='fn-left'>元</span>
+        </div>
+      <% endif %>
+      <%if status == '345' or status == '341' or status == '339' %> <!-- 尾款 -->  
+        <div class="item-subtitle">
+          <span class="item-l">定金 :</span><span><$ earnestMoney $> 元</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-l">尾款 :</span><span><$ finalMoney $> 元</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-l red">应付尾款 :</span><span><$ finalMoney $> 元</span>
+        </div>
+        <div class="item-subtitle realAmount-group">
+          <span class="item-l fn-left">实付尾款 :</span>
+          <span class='fn-left'> 
+            <input type="number" name='realAmount' placeholder="必填，实付货款" value='<$ finalMoney $>'>
+          </span>
+          <span class='fn-left'>元</span>
+        </div>
+      <% endif %>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,8 @@
+<div class="J_total_title">支付总额
+</div>
+<div>
+<span class="J_total_show">
+  <$ totalCountMoney $>
+</span>
+<span>元</span>
+</div>

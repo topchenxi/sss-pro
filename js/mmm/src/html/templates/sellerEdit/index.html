@@ -1,0 +1,175 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'><$ title $></h1>
+</header>
+<form class='content'>
+   <div class="list-block">
+    <% if sellerInfo.orderNumber %>
+      <input type="hidden" value='<$ sellerInfo.orderNumber  $>' name='orderNumber'>
+    <% endif %>
+    <% if type == 'add' %>
+      <ul>
+        <!-- Text inputs -->
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">档口名 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <input type="text" name='company' placeholder="必填" value="<$ sellerInfo.sellerCompany $>">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">电话类型 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input buttons-row">
+                  <a href="javascript:;" class='J_tel_type button active' data-type='1'>固话</a>
+                  <a href="javascript:;" class='J_tel_type button' data-type='2'>手机</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">档口电话<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <!-- 固话 -->
+                <div class="J_tel_wrap <% if telType == 2 %> fn-hide <% endif %>">
+                  <input type="number" class='pre-tel J_pre_tel' placeholder="区号" value="<$ phoneObj.pre $>">
+                  <span class='fl to'>—</span>
+                  <input type="number" class='end-tel J_end_tel' placeholder="必填" value="<$ phoneObj.end $>">
+                </div>
+                <!-- 手机 -->
+                <div class="J_phone_wrap <% if telType == 1 %> fn-hide <% endif %>">
+                  <input type="number" class='phone J_phone' placeholder="必填" value="<$ phoneObj.phone $>">
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label"> 省市区 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <input type="text" placeholder="请选择省市区" class='J_addr_select' value="<$ province $> <$ city $> <$ area $>">
+                <input type="hidden" name='province' value="<$ province $>">
+                <input type="hidden" name='city' value="<$ city $>">
+                <input type="hidden" name='area' value="<$ area $>">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">详细地址 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+               <textarea rows="10" cols="30"  name ='addr' class='J_sellerAddr' placeholder="必填" value=""><$ sellerInfo.sellerAddr $></textarea>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class='red repeat-tips J_repeat_tips fn-hide'>档口信息已存在，不可创建重复供应商信息。</div>
+      <a href="#" class="button save-button J_save <%if not sellerInfo%> disabled <%endif%>">确定</a>
+    <% else%>
+       <ul>
+        <!-- Text inputs -->
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">档口名<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <$ sellerInfo.sellerCompany $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">电话类型 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input buttons-row">
+                  <a href="javascript:;" class='button <% if telType == 1 %>active <% endif %>' data-type='1'>固话</a>
+                  <a href="javascript:;" class='button <% if telType == 2 %>active <% endif %>' data-type='2'>手机</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">档口电话 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <$ sellerInfo.sellerTel $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label"> 省市区 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <$ province $><$ city $><$ area $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">详细地址 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <$ sellerInfo.sellerAddr $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% if sellerInfo.purchaserRealName %>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">买货员</div>
+              <div class="item-input">
+                 <$ sellerInfo.purchaserRealName $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <%endif%>
+        <% if sellerInfo.sellerContact %>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">商家联系人</div>
+              <div class="item-input">
+                <$ sellerInfo.sellerContact $>--<$ sellerInfo.sellerContactTel $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <%endif%>
+      </ul>
+    <%endif%>
+  </div>
+</form>

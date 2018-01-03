@@ -1,0 +1,43 @@
+<% if status <= 305 and status >= 300 %>
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">供应商: <$ sellerCompany $></div>
+        <div class="item-title">电话: <$ sellerTel $></div>
+        <% if purchaserRealName %>
+        <div class="item-title">买货员: <$ purchaserRealName $></div>
+        <% endif %>
+        <% if sellerContact %>
+        <div class="item-title">商家联系人: <$ sellerContact $>--<$ sellerContactTel $></div>
+        <% endif %>
+        <div class="item-text seller-addr">地址：<$ sellerProvince $><$ sellerCity $><$ sellerArea $><$ sellerAddr $></div>
+        <!-- <div class="item-text seller-addr">买货员备注：<$ replyRemark $></div> -->
+      </div>
+    </li>
+    <% if status == 300 %>
+    <li class="item-content">
+      <div class="item-inner">
+        <% if loginInfo.woodFollowLeader %><div class="pull-right"><a href="/sellerList.html?source=orderDetailEdit" class="button button-success J_seller_edit">编辑</a></div><% endif %>
+        <% if showSellerSave %><div class="pull-right"><a href="javascript:;" class="button button-success J_seller_save seller-save">保存</a></div> <% endif%>
+      </div>
+    </li>
+    <% endif %>
+  </ul>
+</div>
+<% elif status > 305 or doneStatus %>
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <a href="/sellerEdit.html?source=orderDetail" class="item-link item-content J_seller_edit">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">供应商</div>
+            <div class="item-after"><$ sellerCompany $></div>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<% endif %>

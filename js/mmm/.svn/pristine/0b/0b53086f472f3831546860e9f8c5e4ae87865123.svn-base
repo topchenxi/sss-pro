@@ -1,0 +1,42 @@
+
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">大货类型：<$ typeString $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">货号：<$ productNumber $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">类型：<$ buyType $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">品类：<$ productType $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">样版：<$ haveRealVersion $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">验货：<$ checkClothString $></div>
+      </div>
+    </li>
+    <% if status == 300 and loginInfo.woodFollowLeader %>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-after J_edit_order pull-right"><a href="/orderPublish.html?source=orderDetail" class="button button-success">编辑</a></div>
+      </div>
+    </li>
+    <% endif %>
+  </ul>
+</div>

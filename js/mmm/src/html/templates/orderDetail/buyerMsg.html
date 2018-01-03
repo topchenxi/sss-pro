@@ -1,0 +1,39 @@
+
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-text">配送方式: <$ sendTypeString $></div>
+        <% if sendType == 0 %>
+          <div class="item-text">收货人: <$ contactName $></div>
+          <div class="item-text">收货人电话: <$ contactTel $></div>
+          <div class="item-text">收货地址: <$ province $><$ city $><$ area $><$ addr $></div>
+        <% endif %>
+        <% if sendCompany %><div class="item-text">物流公司：<$ sendCompany $></div><% endif %>
+        <% if sendTel %><div class="item-text">物流电话：<$ sendTel $></div><% endif %>
+        <div class="item-text">服务费单价: <$ servicePrice $> <% if productType == 2 or servicePriceUnit.indexOf('元') == -1 %> 元/<% endif %><$ servicePriceUnit $></div>
+        <!-- <div class="item-text">回扣单价: <$ clientRewardPrice $><$ servicePriceUnit $></div> -->
+        <% if status != 300 %>
+          <div class="item-text">服务费: <$ serviceMoney $> <% if serviceMoney > 0 %>元<% endif %></div>
+          <div class="item-text">税费: <$ taxMoney $> <% if taxMoney > 0 %>元<% endif %></div>
+        <% endif %>
+        <% if status == 300 and expectedTime %>
+          <div class="item-text">期望货期: <$ expectedTime $></div>
+        <% endif %>
+        <% if leaveMessage%>
+          <div class="item-text">跟单员留言：<$ leaveMessage $></div>
+        <% endif %>
+        <% if loginInfo.woodPurchaser and replyRemark %>
+        <div class="item-text seller-addr">买货员备注：<$ replyRemark $></div>
+        <% endif %>
+      </div>
+    </li>
+    <% if status == 300 and loginInfo.woodFollowLeader %>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-after pull-right"><a href="/sendWays.html?source=orderDetail" class="button button-success J_send_ways">编辑</a></div>
+      </div>
+    </li>
+    <% endif %>
+  </ul>
+</div>

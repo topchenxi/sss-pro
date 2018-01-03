@@ -1,0 +1,20 @@
+{#
+  添加货号
+  author yonghuang
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/proNumber.css">
+      <div class="page page-current" id='proNumber' style="display: block">
+        <div class='J_content'>
+          
+        </div>
+      </div>
+      <script src="javascripts/proNumber.js"></script>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,26 @@
+<div class="list-block">
+  <ul class="J_caret">
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">物流信息</div>
+        <div class="item-after">
+          <span class="icon icon-caret"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li class="item-content zb-popup">
+      <div class="item-inner">
+        <div class="item-title">发货凭证</div>
+        <div class="">
+          <% for obj in result %>
+          <% for imgUrls in obj.imgUrls %>
+          <img src="<$ imgPath $><$ imgUrls $>@64h_64w_1e" style='width: 2rem;height: 2rem;'>
+          <% endfor %>
+          <% endfor %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

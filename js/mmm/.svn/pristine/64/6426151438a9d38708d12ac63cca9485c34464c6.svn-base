@@ -1,0 +1,118 @@
+<% if status > 305 or doneStatus %>
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <a href="#supplyMethod" class="item-link item-content J_supply_method">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">供应商收款方式</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <!-- <li> 产品说去了
+      <a href="/moneyDetailList.html?orderNumber=<$ orderNumber $>&source=orderDetail" class="item-link item-content J_hold_lastpage">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">费用明细</div>
+          </div>
+        </div>
+      </a>
+    </li> -->
+    <% if madanImgUrls.length %>
+    <li>
+      <a href="#" class="item-link item-content pb-popup" data-type="madanImgUrls">
+        <div class="item-media"><img src="<$ imgPath $><$ madanImgUrls[0] $>@64h_64w_1e" style='width: 1rem; height: 1rem;'></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">码单</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+    <% if earnestMoneyPayStatus >= 1 or finalMoneyPayStatus >= 1 or fullMoneyPayStatus >= 1 %>
+    <li>
+      <a href="/certificateList.html?tplType=certiType&orderNumber=<$ orderNumber $>&typeCagetory=1" class="item-link item-content J_hold_lastpage">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">采购商付款凭据</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+    <% if (loginInfo.woodPurchaser) %>
+      <% if (isProcessByFinance == 1 and earnestMoneyPayStatus == 101) or finalMoneyPayStatus == 101 or fullMoneyPayStatus == 101 %>
+      <li>
+        <a href="/certificateList.html?tplType=certiType&orderNumber=<$ orderNumber $>&typeCagetory=2" class="item-link item-content J_hold_lastpage">
+          <div class="item-media"><span class="icon icon-card"></span></div>
+          <div class="item-inner">
+            <div class="item-title-row">
+              <div class="item-title">搜芽付款凭据</div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <% endif %>
+    <% endif %>
+    <% if (status > 365 or doneStatus or (replaceTime != 0)) and checkCloth == 1 %>
+    <li>
+      <% if loginInfo.woodFollowLeader and status == 371%>
+      <a href="/checkClothList.html?orderNumber=<$ orderNumber $>" class="item-link item-content">
+      <% else %>
+      <a href="/checkClothList.html?orderNumber=<$ orderNumber $>" class="item-link item-content">
+      <% endif %>
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">验货报告</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+    <% if (status == 3 or status == 10) and sendType == 0 %>
+    <li>
+      <a href="/upDeliverGood.html?orderNumber=<$ orderNumber $>&notEdit=1" class="item-link item-content J_hold_lastpage">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">物流信息</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+    <% if kongCha and zhiTong %>
+    <li class="item-content">
+      <div class="item-inner">
+          <div class="item-subtitle">空差: <$ kongCha $></div>
+          <div class="item-subtitle">纸筒: <$ zhiTong $></div>
+      </div>
+    </li>
+    <% endif %>
+    <% if not loginInfo.woodFinance and deliveryAddr %>
+    <li class="item-content">
+      <div class="item-inner">
+          <div class="item-text">提货地址: <$ deliveryProvince $><$ deliveryCity $><$ deliveryArea $><$ deliveryAddr $></div>
+      </div>
+    </li>
+    <% endif %>
+
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">供应商<$ payInvoiceInneed $></div>
+        <% if purchaserRealName %>
+        <div class="item-title">买货员: <$ purchaserRealName $></div>
+        <% endif %>
+        <% if sellerContact %>
+        <div class="item-title">商家联系人: <$ sellerContact $>--<$ sellerContactTel $></div>
+        <% endif %>
+        <!-- <% if replyRemark and loginInfo.woodPurchaser %><div class="item-text">买货员备注：<$ replyRemark $></div><% endif %> -->
+      </div>
+    </li>
+  </ul>
+</div>
+<% endif %>

@@ -1,0 +1,110 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+  </a>
+  <h1 class='title'>录入剪版信息</h1>
+  <!-- <a class="pull-right save-link J_save button button-fill <% if disabled %> disabled <%endif%>">保存</a> -->
+  <a class="pull-right save-link J_save button button-fill ">保存</a>
+</header>
+<div class="content">       
+<form class="content-block list-block ">
+  <% if orderNumber %>
+    <input type="hidden" value='<$ orderNumber $>' name='orderNumber'>
+  <%endif%>
+  <ul>
+    <li class="item-content has-upload">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">码单 :<span class="tips warning-text fn-hide"> &nbsp;!</span></div>
+        <div class="item-after J_has_upload">
+        <% for urls in madanImgUrls %>
+          <span class='upload-img J_upload_img'>
+              <a href="javascript:;"  class='J_img_preview' data-link='<$ urls $>'>
+                <img src="<$ imgPath $><$ urls $>@64h_64w_1e" >
+              </a>
+          <span class='img-del J_img_del'>x</span> 
+          </span>
+        <% endfor %>
+        <span  class='add-img-btn J_add_img'>
+            <span class='add-icon'>+</span><br/>  
+            <span class='text'>必填图片</span>
+            <label class='img-upload-label' for='img-file'>
+                <input type="file" id='img-file' value='' class='file-input' accept="image/*" >
+            </label>
+        </span>
+        </div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label leaveMessage">留言 :</div>
+        <div class="item-input">
+            <textarea name="leaveMessage" id="" cols="30" rows="10" placeholder="选填"><$ leaveMessage $></textarea>
+            <!-- <input type="text" name='leaveMessage' placeholder="选填" value='<$ leaveMessage $>'> -->
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class='J_proNumber_info proNumber-info'>
+    <% if productNumList %>
+    <h3 class='block-title'>货号信息</h3>
+    <ul>
+      <% for proNumber in productNumList %>
+      <li>
+        <a class="item-content J_edit_proNumber"  data-index='<$ loop.index $>'>
+          <div class="item-media"> </div>
+          <div class="item-inner">
+            <div class="item-title">
+              <%if proNumber.productType == 1%>
+                面料
+              <%else%>
+                辅料
+              <%endif%>
+            </div>
+            <div class="item-after">
+              <%if proNumber.productType == 1%>
+                货号：
+              <%else%>
+                名称：
+              <%endif%>
+              <$ proNumber.productNumber $>
+            </div>
+            <div class='pull-right right-btn'>
+              <span class="icon icon-edit"></span> 
+            </div>
+          </div>
+        </a>
+        <div class='line'></div>
+        <a class="item-content item-price">
+          <div class="item-media"> </div>
+          <div class="item-inner">
+            <div class="item-title">
+              小计：<$ proNumber.prospectPrice $>元
+            </div>
+            <div class='pull-right right-btn'>
+              <span class="icon icon-remove J_del_proNumber" data-number='<$ proNumber.productNumber $>'></span>
+            </div>
+          </div>
+        </a>
+      </li>
+    <%endfor%>
+      <li>
+        <a class="item-content item-all-price">
+          <div class="item-media"> </div>
+          <div class="item-inner">
+           <div class="item-title">
+              总计：<span class='J_all_prospect'><$ allProspectPrice $></span>元
+            </div>
+            <div class="item-after">
+              
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <%endif%>
+  </div>
+</form>
+<a href="javascript:;" class='J_add_proNumber button add-proNumber button-success button-fill'>新增货号信息 </a> 
+</div>

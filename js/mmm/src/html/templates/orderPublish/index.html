@@ -1,0 +1,151 @@
+<header class="bar bar-nav">
+  <% if source %>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class='title'>编辑订单</h1>
+  <%else%>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>发布订单</h1>
+  <%endif%>
+</header>
+<div class="content">
+<form class="content-block list-block ">
+  <% if orderNumber %>
+    <input type="hidden" value='<$ orderNumber $>' name='orderNumber'>
+  <%endif%>
+  <input type="hidden" name='buyType' value='dh'>
+  <input type="hidden" name="productNumber" value="<$ productNumber $>" />
+  <ul>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">*大货类型 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+          <label>
+            <input type="radio" name='type' value='1'  <% if type '==' 1 %> checked ='checked' <%endif%> >服务单
+          </label>
+          <label>
+            <input type="radio" name='type' value='2'  <% if type '==' 2 %> checked ='checked' <%endif%> >贸易单
+          </label>
+        </div>
+      </div>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content item-link J_select_buyer">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <% if source %>
+      <div class="item-inner" style="background:none;">
+      <% else %>
+      <div class="item-inner">
+      <% endif %>
+        <div class="item-title">*采购商 :<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm <%if buyerInfo '==' '' %>gray-text<% endif %>" style="display: block">
+            <div><$ buyerInfo.company | placeholder('必选')$></div>
+            <input type="hidden" name='buyerId' value='<$ buyerInfo.id $>'>
+        </div>
+      </div>
+      </a>
+    </li>
+    <li class='<% if not buyerInfo.company %> fn-hide <%endif%>'>
+      <a class="item-content">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title min-40">结算周期 :<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm">
+          <$ buyerInfo.billingCycle $>
+        </div>
+      </div>
+      </a>
+    </li>
+    <li class='J_need_item'>
+    <% if source %>
+      <a class="item-content">
+    <%else%>
+       <a class="item-content item-link J_seller_edit">
+    <%endif%>
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">*供应商 :<span class="tips warning-text fn-hide "> &nbsp;!</span></div>
+        <div class="item-after  select-custorm  <%if not sellerInfo.id %> gray-text <% endif %>"><$ sellerInfo.company | placeholder('必选')$>
+          <input type="hidden" name='shopId' value='<$ sellerInfo.id $>'>
+        </div>
+      </div>
+    </a>
+    </li>
+    <!-- <li class="item-content has-upload">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">图片 :<span class="tips warning-text fn-hide"> &nbsp;!</span></div>
+        <div class="item-after J_has_upload">
+          <% for urls in imgUrls %>
+            <span class='upload-img J_upload_img'>
+                <a href="javascript:;"  class='J_img_preview' data-link='<$ urls $>'>
+                  <img src="<$ imagesPath $><$ urls $>@64h_64w_1e" >
+                </a>
+            <span class='img-del J_img_del'>x</span>
+            </span>
+          <% endfor %>
+          <span  class='add-img-btn J_add_img'>
+              <span class='add-icon'>+</span><br/>
+              <span class='text'>选填图片</span>
+              <label class='img-upload-label' for='img-file'>
+                  <input type="file" id='img-file' value='' class='file-input' accept="image/*" multiple  capture="camera" >
+              </label>
+          </span>
+        </div>
+      </div>
+    </li> -->
+
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">*品类 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+          <label for="productType-1">
+            <input type="radio" name='productType' id='productType-1' value = 1 <% if productType '==' 1 %> checked='checked' <% endif %>>面料
+          </label>
+          <label for="productType-2">
+            <input type="radio" name='productType' id='productType-2' value = 2 <% if productType '==' 2 %> checked='checked' <% endif %>>辅料
+          </label>
+        </div>
+      </div>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">*样版 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+          <label for="haveRealVersion-1">
+            <input type="radio" name='haveRealVersion' id='haveRealVersion-1' value=1  <% if haveRealVersion '==' 1 %> checked ='checked' <%endif%> >有样版
+          </label>
+          <label for="haveRealVersion-2">
+            <input type="radio" name='haveRealVersion' id='haveRealVersion-2' value=0  <% if haveRealVersion '==' 0 %> checked ='checked' <%endif%> >无样版
+          </label>
+        </div>
+      </div>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">*验货 :<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+          <label for="checkCloth-1">
+            <input type="radio" name='checkCloth' id='checkCloth-1' value=1 <% if checkCloth '==' 1 %> checked ='checked' <%endif%> >验货
+          </label>
+          <label for="checkCloth-2">
+            <input type="radio" name='checkCloth' id='checkCloth-2' value=0 <% if checkCloth '==' 0 %> checked ='checked' <%endif%> >不验货
+          </label>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+</form>
+</div>
+<nav class="bottom-btn">
+  <a class="button button-block J_save <%if disabled %> disabled <%endif%>"> <% if source %> 保存 <%else%> 下一步 <%endif%></a>
+</nav>

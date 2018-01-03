@@ -1,0 +1,35 @@
+<% for info in certificate %>
+ <form class="J_form">
+    <ul class="colorBlock">
+      <li class="row no-gutter">
+        <div class="col-80 item-content">
+          <ul class="item-son-content">
+            <li class="bottomLine">
+                <div class="check">
+                    <div style="padding-top: 10px;margin-right: 5px;">搜芽付款凭据</div>
+                    <div class="common-r img J_newParent">
+                      <%if info.imgUrl %>
+                        <img src="<$ imgPath $><$ info.imgUrl $>@64h_64w_1e" alt="" class='J_preview'>
+                        <input type="hidden" name="imgUrl" value="<$ info.imgUrl $>">
+                      <%else%>
+                        <label class='J_upCloth upCheckPic' style="margin-top: 0.25rem;">+<input type="file"  value='添加图片' class='file-input' accept="image/*" multiple ></label>
+                      <%endif%>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <div class="pull-left col-20" style="padding-top: 9px;">备注</div>
+                    <div class="common-r  col-80">
+                      <textarea class="enter J_remark"  name="remark" placeholder="填写备注"><$ info.remark $></textarea>
+                    </div>
+                </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-20 del warning-text item-link J_del">删除 </div>
+    </li>
+  </ul>
+  </form>
+<%endfor%>
+

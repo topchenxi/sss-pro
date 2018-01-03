@@ -1,0 +1,22 @@
+#shouldPay{
+	.fn-hide{
+		display: none;
+	}
+	.red{
+		color: red;
+	}
+	.disabled.warning-text{
+		color: #999 !important;
+		background-color: #eee;
+	}
+	.realAmount-group input{
+		width: 65%;
+		border-bottom: 1px solid #eee;
+	}
+	.realAmount-group span{
+		line-height: 2rem;
+	}
+	.fn-left{
+		float: left;
+	}
+}

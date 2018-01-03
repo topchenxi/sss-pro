@@ -1,0 +1,26 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "source": {
+    "include": [ "src/javascripts/common/", "README.md", "./package.json"],
+    "includePattern": ".+\\.js(doc)?$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+
+  "opts": {
+    "template": "node_modules/ink-docstrap/template",
+    "encoding": "utf8",
+    "destination": "./doc/",
+    "private": false,
+    "recurse": true
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": true
+  }
+}

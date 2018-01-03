@@ -1,0 +1,23 @@
+<% for addObj in result %>
+<li class='row no-gutter'>
+  <div class='col-90'>
+    <label class="label-checkbox item-content J_address_list">
+      <input type="radio" name="address" <% if addObj.id '==' selectId %> checked = 'checked' <%endif%> value='<$ addObj.id $>'>
+      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+      <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title"><span><$ addObj.name $></span>&nbsp;&nbsp;&nbsp;&nbsp;<$ addObj.tel $></div>
+          <div class="item-after"><$ addObj.province $><$ addObj.city $><$ addObj.area $><$ addObj.addr $></div>
+          <% if addObj.haveSendCompany %>
+            <% if addObj.sendCompany %><div class="item-after send-company">物流公司：<$ addObj.sendCompany $></div><%endif%>
+            <% if addObj.sendTel %><div class="item-after send-company">物流电话：<$ addObj.sendTel $></div><%endif%>
+          <% endif %>
+        </div>
+      </div>
+    </label>
+  </div>
+  <div class='col-10 item-link addr-edit'>
+    <a class="icon icon-edit" href='/buyerAddressEdit.html?id=<$ addObj.id $>'></a>
+  </div>
+</li>
+<% endfor %>

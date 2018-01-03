@@ -1,0 +1,162 @@
+<div class="container-detail">
+    <div class="content-header">
+      <div class="logo">
+          <img src="images/pages/printDetail/soouyalogo@2x.png">
+          <h1 class="title">付款申请单</h1>
+          <a class="print-btn" href="javascript: window.print();">打印</a>
+      </div>
+    </div>
+    <div class="content-table">
+        <table>
+            <tbody>
+              <tr>
+                <td colspan="8">
+                  <div class="pull-left"><span class="text-green">订单编号：</span><$ serviceNumber $></div>
+                  <div class="pull-right">跟单员：<$ realName $> | 订单状态：<$ statusShortDescr $></div>
+                </td>
+              </tr>
+                <tr>
+                    <td class='td-title'>支付类别</td>
+                    <td class='td-title'>支付总金额</td>
+                    <td class='td-title'>支付时间</td>
+                    <td class='td-title' colspan="2">明细</td>
+                    <td class='td-title'>已收付</td>
+                    <td class='td-title'>已垫付</td>
+                    <!-- <td class='td-title'>采购商付款备注</td> -->
+                </tr>
+                <%if category == 'all-all'%>
+                  <%if productSource == '0'%>
+                  <!-- 现货 -->
+                  <tr>
+                    <td rowspan="3">现货</td>
+                    <td rowspan="3" class="text-red">￥<$ total $></td>
+                    <td rowspan="3"><$ fullTime $></td>
+                    <td class='td-title'>成本货款</td>
+                    <td class="text-red">￥<$ fullMoney $></td>
+                    <td rowspan="3"><%if fullCashStatus %>√<%endif%></td>
+                    <td rowspan="3"><%if fullAdvanceStatus %>√<%endif%></td>
+                    <!-- <td rowspan="3"><$ remark $></td> -->
+                  </tr>
+                  <tr>
+                      <td class='td-title'>税款</td>
+                      <td class='text-red'>￥<$ taxMoney $></td>
+                  </tr>
+                  <tr>
+                      <td class='td-title'>服务费</td>
+                      <td class='text-red'>￥<$ serviceMoney $></td>
+                  </tr>
+                  <!-- 现货 end-->
+                  <%endif%>
+                <%if productSource == '1'%>
+                <!-- 订货 -->
+                  <%if status == '341' or status == '345' %>
+                  <tr>
+                    <td rowspan="4">订货</td>
+                    <td rowspan="4" class="text-red">￥<$ total $></td>
+                    <td><$ earnestTime $></td>
+                    <td class='td-title'>定金</td>
+                    <td class="text-red">￥<$ earnestMoney $></td>
+                    <td><%if earnestCashStatus %>√<%endif%></td>
+                    <td><%if earnestAdvanceStatus %>√<%endif%></td>
+                    <!-- <td rowspan="4"><$ remark $></td> -->
+                  </tr>
+                  <tr>
+                      <td rowspan="3"><$ finalTime $></td>
+                      <td class='td-title'>尾款</td>
+                      <td class='text-red'>￥<$ finalMoney $></td>
+                      <td rowspan="3"><%if finalCashStatus %>√<%endif%></td>
+                      <td rowspan="3"><%if finalAdvanceStatus %>√<%endif%></td>
+                  </tr>
+                  <tr>
+                      <td class='td-title'>税款</td>
+                      <td class='text-red'>￥<$ taxMoney $></td>
+                  </tr>
+                  <tr>
+                      <td class='td-title'>服务费</td>
+                      <td class='text-red'>￥<$ serviceMoney $></td>
+                  </tr>
+                  <%else%>
+                  <tr>
+                    <td>订货</td>
+                    <td class="text-red">￥<$ total $></td>
+                    <td><$ earnestTime $></td>
+                    <td class='td-title'>定金</td>
+                    <td class="text-red">￥<$ earnestMoney $></td>
+                    <td><%if earnestCashStatus %>√<%endif%></td>
+                    <td><%if earnestAdvanceStatus %>√<%endif%></td>
+                    <!-- <td><$ remark $></td> -->
+                  </tr>
+                  <%endif%>
+                <%endif%>
+
+
+                <%endif%>
+                <!-- 流水订单 -->
+                <%if category == 'dhls-all'%>
+                <tr>
+                  <td rowspan="3">现货</td>
+                  <td rowspan="3" class="text-red">￥<$ total $></td>
+                  <td rowspan="3"><$ fullTime $></td>
+                  <td class='td-title'>成本货款</td>
+                  <td class="text-red">￥<$ fullMoney $></td>
+                  <td rowspan="3"><%if fullCashStatus %>√<%endif%></td>
+                  <td rowspan="3"><%if fullAdvanceStatus %>√<%endif%></td>
+                  <!-- <td rowspan="3"><$ remark $></td> -->
+                </tr>
+                <tr>
+                    <td class='td-title'>税款</td>
+                    <td class='text-red'>￥<$ taxMoney $></td>
+                </tr>
+                <tr>
+                    <td class='td-title'>服务费</td>
+                    <td class='text-red'>￥<$ serviceMoney $></td>
+                </tr>
+                <%endif%>
+                <!-- 流水订单 end -->
+                <tr>
+                    <td class='text-green'>采购商</td>
+                    <td class='text-green' colspan="7">供应商</td>
+                </tr>
+                <tr>
+                    <td class='td-title'>采购商名称</td>
+                    <td class='td-title'>供应商名称</td>
+                    <td class='td-title'>银行卡户名</td>
+                    <td class='td-title'>银行卡名称</td>
+                    <td class='td-title'>所属支行</td>
+                    <td class='td-title' colspan="3">银行卡卡号</td>
+                </tr>
+                <tr>
+                    <td><$ company $></td>
+                    <td><$ sellerCompany $></td>
+                    <td>
+                      <% if replyAccountType == 1 %> <$ replyAccountUser $> <% else %> <$ replyAccountCompany $><% endif %>
+                    </td>
+                    <td><$ replyAccountBank $></td>
+                    <td><$ replyAccountBranch $></td>
+                    <td colspan="3"><$ replyAccountNumber $></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class='td-title'>采购商备注</td>
+                    <td colspan="4" class='td-title'>供应商备注</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><$ remark $></td>
+                    <td colspan="4"><$ sellerMessage $></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<% for url in madanImgUrls %>
+    <div class="container-detail container-img">
+      <p class="title">码单图片</p>
+      <img class="imgs" src="<$ imgPath $><$ url $>" alt="码单<$ loop.index $>图片">
+    </div>
+<% endfor %>
+<% for url in certificateImgUrls %>
+    <div class="container-detail container-img">
+      <p class="title">采购商付款凭据</p>
+      <img class="imgs" src="<$ imgPath $>/<$ url $>" alt="采购商付款凭据">
+    </div>
+<% endfor %>

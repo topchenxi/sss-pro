@@ -1,0 +1,20 @@
+{#
+  凭据列表
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/certificateList.css">
+      <div class="page certificateList" id='certificateList' style="display: block">
+        <header class="bar bar-nav J_head">
+        </header>
+
+        <div class="content">
+          <div class="J_certificate_list"></div>
+        </div>
+      </div>
+      <script src="javascripts/certificateList.js"></script>
+    </div>
+{% endblock %}

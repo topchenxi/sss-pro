@@ -1,0 +1,169 @@
+<div class="container-detail">
+    <div class="logo">
+        <img src="images/pages/printDetail/soouya.png">
+    </div>
+    <div class="title">
+        大货任务通知单
+    </div>
+    <div class="content-table">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="7" class='td-title'>客户下单资料</td>
+                </tr>
+                <!--block1-->
+                <tr>
+                    <td class='td-title'>订单日期</td>
+                    <td class='td-title'>订单编号</td>
+                    <td colspan="2" class='td-title'>客户名</td>
+                    <td class='td-title'>货号</td>
+                    <td colspan="2" class='td-title'>色号·数量·单价</td>
+                </tr>
+                <tr>
+                    <td><$ createTime $></td>
+                    <td><$ serviceNumber $></td>
+                    <td colspan="2"><$ company $></td>
+                    <td rowspan="3"><$ productNumber $></td>
+                    <td colspan="2" rowspan="3">
+                        <% for item in preProductList %>
+                            <p>
+                                <$ item.color $>x
+                                <$ item.quantity $><$ item.quantityUnit $>x
+                                <$ item.salePrice $><$ item.salePriceUnit $>
+                            </p>
+                        <% endfor %>
+                    </td>
+                </tr>
+                <!--/block1-->
+
+                <!--block2-->
+                <tr>
+                    <td class='td-title'>供应商</td>
+                    <td class='td-title'>供应商地址</td>
+                    <td class='td-title'>电话</td>
+                    <td class='td-title'>客户编号</td>
+                </tr>
+                <tr>
+                    <td><$ sellerCompany $></td>
+                    <td>
+                        <$ sellerProvince $>
+                        <$ sellerCity $>
+                        <$ sellerArea $>
+                        <$ sellerAddr $>
+                    </td>
+                    <td><$ sellerTel $></td>
+                    <td></td>
+                </tr>
+                <!--/block2-->
+
+                <tr>
+                    <td colspan="7" class='td-title'>供应商资料</td>
+                </tr>
+
+                <!--block3-->
+                <tr>
+                    <td class='td-title'>幅宽</td>
+                    <td class='td-title'>克重</td>
+                    <td class='td-title'>空差</td>
+                    <td class='td-title'>纸筒</td>
+                    <td colspan="2" class='td-title'>实际色号·数量·单价</td>
+                    <td class='td-title'>总金额</td>
+                </tr>
+                <tr>
+                    <td>
+                        <% if replyWidth %>
+                            <$ replyWidth $>
+                        <% endif %>
+                    </td>
+                    <td>
+                        <% if replyWeigth %>
+                            <$ replyWeigth $>
+                        <% endif %>
+                    </td>
+                    <td>
+                        <% if kongCha %>
+                            <$ kongCha $>
+                        <% endif %>
+                    </td>
+                    <td>
+                        <% if zhiTong %>
+                            <$ zhiTong $>
+                        <% endif %>
+                    </td>
+                    <td colspan="2">
+                        <% for item in productList %>
+                            <p>
+                                <$ item.color $>x
+                                <$ item.quantity $><$ item.quantityUnit $>x
+                                <$ item.buyPrice $><$ item.buyPriceUnit $>
+                            </p>
+                        <% endfor %>
+                    </td>
+                    <td>
+                        ￥<$ totalWithServiceMoney $>
+                    </td>
+                </tr>
+                <!--/block3-->
+
+                <tr>
+                    <td colspan="7" class='td-title'>搜芽填写</td>
+                </tr>
+
+                <!--block4-->
+                <tr>
+                    <td class='td-title'>是否验货</td>
+                    <td class='td-title'>提货时间</td>
+                    <td class='td-title'>验货时间</td>
+                    <td class='td-title'>发货时间</td>
+                    <td class='td-title'>物流公司</td>
+                    <td colspan="2" class='td-title'>物流单号</td>
+                </tr>
+                <tr>
+                    <td>
+                        <% if checkCloth %>
+                          验货
+                        <% else %>
+                          不验货
+                        <% endif %>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><$ sendCompany $></td>
+                    <td colspan="2"><$ sendOrderNumber $></td>
+                </tr>
+                <!--/block4-->
+
+                <tr>
+                    <td colspan="2" style="text-align: left">收货人：<$ contactName $></td>
+                    <td colspan="2" style="text-align: left">联系电话：<$ contactTel $></td>
+                    <td colspan="3" style="text-align: left">
+                        收货地址：
+                        <$ province $>
+                        <$ city $>
+                        <$ area $>
+                        <$ addr $>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="7" style="text-align: left; min-height: 8rem; vertical-align: top;">
+                        备注:
+                        <$ leaveMessage $>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="14" style="text-align: left; min-height: 8rem; vertical-align: top;">
+                        <img src="http://hongshan.soouya.com/upload/reply/ad6a9e64-b1b8-4852-939b-b7a868403bf1.jpg" alt="">
+                    </td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="row" style="margin-top: 5rem">
+        <div class="col-20" style="margin-left: 43%;">
+          <a class="button button-big button-fill button-success" onClick="window.print()">打印</a>
+        </div>
+    </div> -->
+</div>

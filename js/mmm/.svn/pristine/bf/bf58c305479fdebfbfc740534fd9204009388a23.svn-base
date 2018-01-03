@@ -1,0 +1,32 @@
+ <!-- 垫付字段订金 -->
+<ul class="money-input">
+  <li  class="bot-line"><span>应垫付订金</span>: <span>150</span>元</li>
+  <li>
+    <span>实付订金</span>
+    <span>
+      <input  placeholder="填写" class="money-in" type="text">
+    </span>元
+  </li>
+</ul>
+
+<!-- 垫付尾款字段 -->
+<ul class="money-input">
+  <li class="bot-line"><span>应垫付尾款</span>: <span>150</span>元</li>
+  <li>
+    <span>实付尾款</span>
+    <span>
+      <input  placeholder="填写" class="money-in" type="text">
+    </span>元
+  </li>
+</ul>
+
+<!-- 垫付付款字段 -->
+<ul class="money-input">
+  <li  class="bot-line"><span>应垫付款</span>: <span>150</span>元</li>
+  <li>
+    <span>实付款</span>
+    <span>
+      <input  placeholder="填写" class="money-in" type="text">
+    </span>元
+  </li>
+</ul>

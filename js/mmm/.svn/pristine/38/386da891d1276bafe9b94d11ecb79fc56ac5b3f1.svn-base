@@ -1,0 +1,20 @@
+<% if page.result.length > 0 %>
+
+  <% for item in page.result %>
+      <li>
+        <a href="<$ item.objectId $>" class="item-link item-content order-item">
+          <div class="item-media">
+              <img src="http://www.soouya.com/upload/util/default_buy.jpg@80h_80w_1e" style='width: 2.2rem;'>
+          </div>
+          <div class="item-inner">
+            <div class="item-subtitle"><$ item.msg $></div>
+          </div>
+        </a>
+      </li>
+  <% endfor %>
+
+<% else %>
+  <li style="background-color: #efeff4; text-align: center;padding-top: 5rem">
+    <p>暂无消息</p>
+  </li>
+<% endif %>

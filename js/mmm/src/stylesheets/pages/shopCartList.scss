@@ -1,0 +1,125 @@
+ 
+#shopCartList{
+    .submit {
+        padding: 0 0 0 0.5rem;
+        background-color: #f7f7f8;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 100;
+        text-align: right;
+        border-top: 1px solid #ccc;
+        .fix {
+            border-radius: 0;
+            height: 1.6rem;
+            line-height: 1.6rem;
+        }
+    }
+    .search-content {
+        padding-bottom: 2.6rem;
+    }
+    .content{
+        top: 2.2rem;
+        }
+    .list-block {
+        margin: 0.5rem 0 0 0;
+    }
+    .money-list-card{
+        margin: 0 0 0.5rem 0;
+        .card-header{
+            padding: .5rem;
+            font-size: 0.6rem;
+        }
+        .block{
+            display: block;
+            position: relative;
+            overflow: hidden;
+            .chk {
+              position: absolute;
+              top: 40%;
+              left:1.0rem;
+            }
+        }
+        .item-content{
+          padding-left: 0.5rem;
+        }
+        .sonTitle {
+          padding-left: 0.5rem;
+          padding-right: 0.25rem;
+          padding-bottom: 0.25rem;
+          overflow: hidden;
+        }
+        .number {
+          float:left;
+        }
+        .status {
+          float: right;
+        }
+        .label {
+          float: left;
+          width: 100%;
+        }
+        .header{
+          border-top: 1px solid #ccc;
+          padding-left: 0.5rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          background-color: #ececec;
+        }
+        .card-content-inner{
+            width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            padding: .5rem 1.5rem;
+            .img{
+                width: 30%;
+                max-width: 3rem;
+                max-height: 3rem;
+                overflow: hidden;
+                background-color: #EFEFEF;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .info{ 
+            width: 60%;
+            max-width: 10.8rem;
+            color: #333;
+            overflow: hidden;
+            padding-left: 0.5rem;
+            margin-top: 0;
+            li {
+                width: 100%;
+                overflow: hidden;
+                font-size: 0.7rem;
+                margin: 0;
+                padding: 0;
+                color: #999;
+            }
+        }
+        .card-footers {
+            min-height: 2.2rem;
+            height: 2.2rem;
+            padding: 0 .2rem;
+            padding-top: .4rem;
+            padding-right: 0.75rem;
+            .button.pull-right {
+              margin-left: 0.5rem;
+            }
+            .money-tips {
+                font-size: 0.6rem;
+            }
+        }
+        .son-order {
+          border-top: 1px solid #ccc;
+          padding-top: 0.5rem;
+        }
+        .fix-icon {
+            font-size: 0.9rem;
+            margin-top: 1.0rem;
+            color: #000;
+        }
+    }
+}

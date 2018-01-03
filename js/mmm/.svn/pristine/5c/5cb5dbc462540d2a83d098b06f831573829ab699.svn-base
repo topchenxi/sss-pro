@@ -1,0 +1,35 @@
+{#
+  发布订单
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/jbOrderDetail.css">
+      <div class="page page-current order-detail" id='orderPublish' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_back" href="javascript:;">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title'>订单详情</h1>
+        </header>
+        <div class="content pull-to-refresh-content J_content" data-orderNumber="{{orderNumber}}">
+          <!-- 默认的下拉刷新层 -->
+          <div class="pull-to-refresh-layer">
+              <div class="preloader"></div>
+              <div class="pull-to-refresh-arrow"></div>
+          </div>
+          <div class="J_status"></div>
+        </div>
+
+        <nav class="bar bar-footer J_footer">
+
+        </nav>
+      </div>
+
+      <div class="page" id="fareDetail-list"></div>
+      <div class="page" id='supplyMethod'></div>
+      <script src="javascripts/jbOrderDetail.js"></script>
+    </div>
+{% endblock %}

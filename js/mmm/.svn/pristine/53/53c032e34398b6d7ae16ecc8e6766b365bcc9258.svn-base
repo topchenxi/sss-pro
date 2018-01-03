@@ -1,0 +1,16 @@
+{#
+  接单信息详情
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <link rel="stylesheet" href="stylesheets/pages/reportDetail.css">
+    <div class="page" id='reportDetail'>
+      <div class="content J_content"> </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="javascripts/reportDetail.js"></script>
+{% endblock %}

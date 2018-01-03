@@ -1,0 +1,33 @@
+{#
+  财务实收
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/realGetPay.css">
+      <div class="page page-current realGetPay-wrap" id='realGetPay' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_goBack">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title J_input_title'>实收</h1>
+        </header>
+        <div class="content J_input_content">
+             <div class="list-block media-list " style="margin: 0 0 1.75rem 0">
+                <div class="J_bill_text">
+                </div>
+        </div>
+        <header class="bar" style="bottom: 0; position: fixed; z-index: 1000;">
+          <span class="pull-left" style="padding-top: 10px;">
+            合计欠款:<span style="color: red;" class="J_totalMoneyShow"></span><span style="color: red;">元</span>
+          </span>
+          <span class="button button-fill button-danger pull-right J_unnormal">异常</span>
+           <span class="button button-fill  pull-right J_confirmPay">确认实收</span>
+        </header>
+      </div>
+      <script src="javascripts/realGetPay.js"></script>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,20 @@
+<% for list in result %>
+  <li class="item-content J_single_buyer" data-index="<$ loop.index-1 $>">
+    <div class="item-media">
+      <img src="<$ list.imgPath $><$ list.headUrl $>">
+    </div>
+    <div class="item-inner">
+      <div class="item-title-row">
+        <div class="item-title">
+          <span class="company-name"><$ list.company $></span>
+          <% if list.contractModelName %>
+            <span>--<$ list.contractModelName $></span>
+          <!-- <img class='auth' src="<$ list.levelImg $>" alt=""> -->
+          <% endif %>
+        </div>
+      </div>
+      <div class="item-subtitle"><$ list.mobilePhone $></div>
+    </div>
+  </li>
+<% endfor %>
+ 

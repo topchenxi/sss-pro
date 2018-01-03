@@ -1,0 +1,42 @@
+{#
+  订单查询
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <div class="page" id='sysMessage' style="display: block">
+        <header class="bar bar-nav">
+          <h1 class='title'>打印订单查询</h1>
+        </header>
+        <div class="content">
+          <div class="bar bar-header-secondary" style="position: relative; width: 50%; margin-left: 25%;">
+            <div class="searchbar">
+              <div class="search-input">
+                <label class="icon icon-search" for="search"></label>
+                <input type="search" id='search' placeholder='输入需要打印的订单号...'/>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 5rem; text-align: center; display:flex; justify-content: center;">
+            <div class="col-20">
+              <a class="button button-big button-fill button-success J_query">打印大货通知单</a>
+            </div>
+            <div class="col-20" style="display: none;">
+               <!-- 暂时隐藏 -->
+              <a class="button button-big button-fill button-success J_payRquest_query">打印付款申请单</a>
+            </div>
+            <div class="col-20">
+              <a class="button button-big button-fill button-success J_goSeeDetail">查看订单详情</a>
+            </div>
+          </div>
+          <div class="printTips" style="text-align: center;"></div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="javascripts/printQuery.js"></script>
+{% endblock %}

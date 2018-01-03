@@ -1,0 +1,14 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>选择银行</h1>
+</header>
+<div class='bank-list'>
+	<div class='list-wrap'>
+		<% for bank in bankList %>
+		<div class="bank-name J_bank"><$ bank $></div>
+		<% endfor%>
+	</div>
+</div>

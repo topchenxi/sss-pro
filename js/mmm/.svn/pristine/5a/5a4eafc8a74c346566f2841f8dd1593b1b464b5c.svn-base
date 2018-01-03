@@ -1,0 +1,105 @@
+ <div class="list-block J_prefix" data-prefix="zb-all">
+    <ul>
+        <li>
+            <div class='block-title'>待办任务</div>
+
+            <!--  跟单员 -->
+                <% if role.woodFollowLeader == true %><!--  跟单员 -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=tzzb" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.tzzb %><span class='task-num'><$ TaskNumObj.tzzb $></span><%endif%>
+                            <img src="images/pages/zhaoandjian/telFind.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>通知找版</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=dssk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.dssk %><span class='task-num'><$ TaskNumObj.dssk $></span><%endif%>
+                            <img src="images/pages/zhaoandjian/take.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>待收色卡</span></dt>
+                    </dl>
+                </a>
+                <!-- <a href='javascript:;' data-link="/orderList.html?Tabkey=dsh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.dsh %><span class='task-num'><$ TaskNumObj.dsh $></span><%endif%>
+                            <img src="images/pages/zhaoandjian/shenhe.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>待审核</span></dt>
+                    </dl>
+                </a> -->
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=djsk" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.djsk %><span class='task-num'><$ TaskNumObj.djsk $></span><%endif%>
+                            <img src="images/pages/zhaoandjian/send.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>待寄色卡</span></dt>
+                    </dl>
+                </a>
+                <a href='javascript:;' data-link="/orderList.html?Tabkey=dqrsh" class='items J_items'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <% if TaskNumObj.dqrsh %><span class='task-num'><$ TaskNumObj.dqrsh $></span><%endif%>
+                            <img src="images/pages/index/dsh.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>待确认收货</span></dt>
+                    </dl>
+                </a>
+                <% endif%>
+                <!--  新加找版大组长 -->
+                <!--  找版组长 -->
+                <% if role.woodClothHunterAdmin == true or role.woodClothHunterLeader == true %>
+                    <a href='javascript:;' data-link="/orderList.html?Tabkey=dfprw" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.dfprw %><span class='task-num'><$ TaskNumObj.dfprw $></span><%endif%>
+                                <img src="images/pages/zhaoandjian/fenpei.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>待分配任务</span></dt>
+                        </dl>
+                    </a>
+                    <a href='javascript:;' data-link="/orderList.html?Tabkey=dsh" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.dsh %><span class='task-num'><$ TaskNumObj.dsh $></span><%endif%>
+                                <img src="images/pages/zhaoandjian/shenhe.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>待审核</span></dt>
+                        </dl>
+                    </a>
+                <% endif%>
+                 <!--  找版组员 -->
+                <% if role.woodClothHunter == true %>
+                    <a href='javascript:;' data-link="/orderList.html?Tabkey=dzb" class='items J_items'>
+                        <dl class='fl task-item'>
+                            <dd>
+                                <% if TaskNumObj.dzb %><span class='task-num'><$ TaskNumObj.dzb $></span><%endif%>
+                                <img src="images/pages/zhaoandjian/findBan.png" alt="">
+                            </dd>
+                            <dt><span class='task-title'>待找版</span></dt>
+                        </dl>
+                    </a>
+                <% endif%>
+         </li>
+         <li>
+            <% if role.woodFollowLeader == true %><!-- 跟单员 -->
+                <div class='block-title'>功能列表</div>
+                <!-- <a href='/zhaoBanPublish.html' data-link="" class='items J_zhaoban_publish'> -->
+                <a href='javascript:void(0)' data-link="" class='items j-undercarriage'>
+                    <dl class='fl task-item'>
+                        <dd>
+                            <img src="images/pages/zhaoandjian/public.png" alt="">
+                        </dd>
+                        <dt><span class='task-title'>发布找版</span></dt>
+                    </dl>
+                </a>
+            <%endif%>
+         </li>
+
+    </ul>
+ </div>

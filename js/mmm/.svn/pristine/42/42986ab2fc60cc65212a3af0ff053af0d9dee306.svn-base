@@ -1,0 +1,7 @@
+<a class="button button-link button-nav pull-left J_goBack" href="/">
+    <span class="icon icon-left"></span>
+</a>
+<h1 class="title J_entry_title" data-one="<$ tabKey $>">
+	<span><$ title $></span>
+</h1>
+<a class="icon icon-refresh pull-right" onclick="javascript: location.reload()"></a>

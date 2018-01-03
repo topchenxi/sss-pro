@@ -1,0 +1,117 @@
+.progress{
+    .common-head {
+        position: relative;
+        top: 2.2rem;
+        z-index: 1000;
+        .tab-content {
+           text-align: center;
+           background-color: #fff;
+           border-bottom: 2px solid #eeeeee;
+           .item {
+            padding: 0.25rem 0;
+            color: #000;
+           }
+           .active {
+             color: #0894ec;
+             border-bottom:2px solid  #0894ec;
+           }
+        }
+        // .tab-content {
+        //     display: flex;
+        //     align-item: center;
+        //     justify-content: center;
+        //     text-align: center;
+        //     background-color: #fff;
+        //     border-bottom: 2px solid #ececec;
+        //     color: #000;
+        //     .tab-item{
+        //         padding: 0.25rem 0;
+        //         flex: 1;
+        //     }
+        //     .active{
+        //         color: #0894ec;
+        //         border-bottom: 2px solid #0894ec;
+        //     }
+        // }
+        .top-search{
+            padding: 0 10px;
+        }
+    }
+    .content{
+        top: 6rem;
+    }
+    .money-list-card {
+        margin: 0.5rem 0;
+        .card-header{
+            padding: .5rem;
+        }
+        .block{
+            display: block;
+            overflow: hidden;
+        }
+        .card-content-inner{
+            width: 100%;
+            display: inline-block;
+            overflow: hidden;
+            padding: .2rem .8rem;
+            .number {
+                max-height: 1.6rem;
+                line-height: 1.9rem;
+            }
+            .img {
+                width: 30%;
+                max-height: 1.6rem;
+                overflow: hidden;
+                line-height: 1.9rem;
+            }
+        }
+        .top-search{
+            padding: 0 10px;
+        }
+        .info{
+            width: 65%;
+            max-width: 10.8rem;
+            color: #333;
+            overflow: hidden;
+            padding-left: 0.5rem;
+            margin-top: 0;
+            li {
+                width: 100%;
+                overflow: hidden;
+                font-size: 0.7rem;
+                margin: 0;
+                padding: 0;
+                color: #999;
+            }
+        }
+        .card-footers{
+            border-top: 1px solid #D2D2D2;
+            min-height: 2.2rem;
+            min-height: 0;
+            height: 2.2rem;
+            padding: 0 .2rem;
+            padding-top: .4rem;
+        }
+        .button{
+            border-radius: 0;
+            display: inline-block;
+            margin-left: .1rem;
+            padding: 0 .3rem;
+            color: #2FB468;
+            border-color: #2FB468;
+        }
+        .fix-icon{
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            color: #000;
+        }
+    }
+    .infinite-scroll-preloader{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        z-index: 10;
+        display: none;
+    }   
+}

@@ -1,0 +1,31 @@
+{#
+  订单列表
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/orderList.css">
+      <div class="page page-current orderList" id='orderList' style="display: block">
+        <header class="bar bar-nav J_index_head">
+        </header>
+        <div class="top-search">
+          <div class="searchbar row">
+            <div class="search-input col-80">
+              <label class="icon icon-search" for="search"></label>
+              <input type="search" id='search' placeholder='订单号，采购商名称，供应商名称'/>
+            </div>
+            <a class="button button-fill button-primary col-20 J_search_btn disabled">搜索</a>
+          </div>
+        </div>
+        <div class="content J_content J_scroll_dom">
+          <div class="search-content J_money_content J_list_dom"></div>
+        </div>
+         <div class="infinite-scroll-preloader J_scroll_preloader">
+              <div class="preloader"></div>
+         </div>
+      </div>
+      <script src="javascripts/jbOrderList.js"></script>
+    </div>
+{% endblock %}

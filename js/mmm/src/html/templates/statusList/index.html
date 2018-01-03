@@ -1,0 +1,19 @@
+<div class='content status-detail-list'>
+    <div class="list-dom">
+        <ul class='list'>
+         <% for list in listData %>
+            <li <%  if list.isLatest == 1 %> class="current" <% endif %> >
+                <div class='status-title'>
+                    <$ list.preHandlerRoleName $><$ list.preHandler $> <$ list.preHandlerAction $>
+                    <span style="float:right;padding-right:10px;"><$ list.redwoodDescr $></span>
+                </div>
+                <div class="circle"></div>
+               <!--  <% if list.content %>
+                    <div>留言：<$ list.content $></div>
+                <%endif%> -->
+                <div><$ list.createTimeString $></div>
+            </li>
+        <% endfor %>  
+        </ul>
+    </div>
+</div>

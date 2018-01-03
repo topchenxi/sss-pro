@@ -1,0 +1,24 @@
+{#
+  品类选择
+#}
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+  		<link rel="stylesheet" href="stylesheets/pages/addProperty.css">
+	  	<div class="page" id='addProperty' style="display: block">
+	    	<div class="property-con">
+				<!--面料属性列表-->
+				<div class="property-list" ></div>
+				<!--/面料属性列表-->
+
+				<!--确定按钮-->
+				<input class="confirm-btn" type="button" value="确定">
+				<!--/确定按钮-->
+			</div>
+	  	</div>  
+		<script src="javascripts/addProperty.js"></script>
+    </div>
+
+{% endblock %}
+
+

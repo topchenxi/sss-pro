@@ -1,0 +1,21 @@
+<% if status >= 300 and (status <= 305 or (productSource == 1 and status < 311)) %>
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">费用明细</div>
+          </div>
+          <div class="item-subtitle">销售货款：<$ saleMoney $></div>
+          <% if status != 300 %>
+          <div class="item-subtitle">税费：<$ taxMoney $></div>
+          <!-- <% if type == 1%> -->
+            <div class="item-subtitle">服务费：<$ serviceMoney $></div>
+          <!-- <% endif %> -->
+          <div class="item-subtitle">支付总额：<$ total $></div>
+          <% endif %>
+        </div>
+    </li>
+  </ul>
+</div>
+<% endif %>

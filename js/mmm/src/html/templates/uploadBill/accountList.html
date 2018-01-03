@@ -1,0 +1,6 @@
+<select name="financeAccountId">
+  <option value=''>请选择</option>
+  <% for bank in result %>
+    <option value='<$ bank.id $>'><$ bank.bankName $></option>
+  <% endfor %>
+</select>

@@ -1,0 +1,5 @@
+ <a class="button button-link button-nav pull-left J_goBack">
+    <span class="icon icon-left"></span>
+    返回
+    </a>
+<h1 class='title'><$ title $></h1>

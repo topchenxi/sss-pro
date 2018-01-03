@@ -1,0 +1,17 @@
+<% if woodFollowLeader and status == 371 %>
+<nav class="bar bar-footer J_footer" style="z-index: 1000;">
+    <a href="javascript:;" data-ordernumber="<$ orderNumber $>" class="J_cancel_order button button-fill pull-right button-danger">取消订单</a>
+  <% for item in checkFlawList  %>
+    <% if item.type == '不合格' %>
+    <a href="javascript:;" data-ordernumber="<$ orderNumber $>" data-number="<$ item.storeNumber $>" class="J_change_good button button-fill pull-right">换货</a>
+    <% endif %>
+  <% endfor %>
+    <% if sendType == 0 %>
+    <a href="#" class="button button-fill pull-right button-success J_notify_send" data-ordernumber="<$ orderNumber $>">发货</a>
+    <% endif %>
+    <% if sendType == 1 %>
+    <a href="#" class="button button-fill pull-right button-success J_notify_receive" data-ordernumber="<$ orderNumber $>">通知取货</a>
+    <% endif %>
+</nav>
+<% endif %>
+

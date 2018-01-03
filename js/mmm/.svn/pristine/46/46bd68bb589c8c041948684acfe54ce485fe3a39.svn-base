@@ -1,0 +1,467 @@
+<form class="list-block J_big_good">
+    <ul>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">*大货类型</div>
+            <div class="item-input radio-group">
+              <% if type == 1 %>
+                <label for="type-check-" >
+                  <input type="hidden" name='type' value="1" id='type-check-1'
+                  >服务单
+                </label>
+              <% endif %>
+              <% if type == 2 %>
+                <label for="type-check-2">
+                  <input type="hidden" name='type' value="2" id='type-check-2'>贸易单
+                </label>
+              <% endif %>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+         <div class="item-inner">
+           <div class="item-title label">货源</div>
+           <div class="item-input radio-group J_productSource">
+               <!-- <label for="productType-1" class="goodSource">
+                 <% if productSource == 0 and isEditOrNot == 0 %>
+                   <input type="radio" checked
+                   name='productSource' value="0" class="good-source" data-num = '0' id='productType-1'>现货
+                 <% elif productSource == 1 and isEditOrNot == 0 %>
+                   <input type="radio" name='productSource'
+                    value="0" class="good-source" data-num = '0' id='productType-1'>现货
+                 <% elif isEditOrNot == 0 %>
+                   <input type="radio" checked
+                   name='productSource' value="0" class="good-source" data-num = '0' id='productType-1'>现货
+                 <% endif %>
+                  <% if productSource == 0 and isEditOrNot == 1 %>
+                   <span>现货</span>
+                  <% endif %>
+               </label>
+               <label for="productType-2">
+                 <% if productSource == 1 and isEditOrNot == 0 %>
+                   <input type="radio" checked
+                    name='productSource' value="1" class="good-source" data-num = '1' id='productType-2'>订货
+                   <% elif isEditOrNot == 0 %>
+                   <input type="radio" name='productSource'
+                    value="1" class="good-source" data-num = '1' id='productType-2'>订货
+                 <% endif %>
+                  <% if productSource == 1 and isEditOrNot == 1 %>
+                   <span>订货</span>
+                  <% endif %>
+               </label> -->
+               <% if productSource == 0 %>
+                现货
+               <% endif %>
+               <% if productSource == 1 %>
+                订货
+               <% endif %>
+           </div>
+         </div>
+       </li>
+
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">*验货</div>
+            <div class="item-input radio-group">
+                <label for="check-1" >
+                  <input type="radio"
+                  class="J_checkCloth"
+                   <% if checkCloth == 1 %>
+                    checked
+                   <% endif %>
+                  name='checkCloth' value="1" id='check-1'
+                  >验货
+                </label>
+                <label for="check-2">
+                  <input type="radio"
+                  class="J_checkCloth"
+                  <% if checkCloth == 0 %>
+                    checked
+                   <% endif %>
+                   name='checkCloth' value="0" id='check-2'>不验货
+                </label>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner" style="font-size: 0.7rem">
+            <div class="item-title label" style='min-width: 50%;'>*是否需要付款给供应商</div>
+            <div class="item-input radio-group" data-status="<$ status $>">
+                <label for="needToPaySeller1" >
+                  <input type="radio"
+                  <% if needToPaySeller == 1 or needToPaySeller == null %>
+                    checked
+                  <% endif %>
+                  name='needToPaySeller' value="1" id='needToPaySeller1'>需要付款
+                </label>
+                <label for="needToPaySeller2">
+                  <input type="radio"
+                  <% if needToPaySeller == 0 %>
+                    checked
+                  <% endif %>
+                  name='needToPaySeller' value="0" id='needToPaySeller2'>无需付款
+                </label>
+            </div>
+          </div>
+        </li>
+        <li class="item-content has-upload J_has_upload"
+          <p class="up-md">*上传码单</p>
+          <div class="where-image">
+            <!-- style="display:none;" status == '312' or status == '316' 跟单员之前在此状态下不能编辑码单，现在放开 -->
+          <% if madanImgUrls.length > 0 %>
+            <% for imgUrl in madanImgUrls %>
+            <div class="up-img J_upimgWrap" data-new='new'><img class="J_zoom"
+            data-src="<$ imgUrl $>"
+            src="<$ imgPath $><$ imgUrl $>@118h_118w_1e"
+            show-src='<$ imgPath $><$ imgUrl $>'
+            style="width: 4rem; height: 3.5rem;"><span class="close J_close">x</span></div>
+            <% endfor %>
+          <% endif %>
+            <div class="J_images up-img">
+              <span class="add-img-btn J_add_img">
+                <span class="add-icon">+</span><br>
+                <span class="text">添加图片</span>
+                <label class="img-upload-label" for="img-file">
+                    <input type="file" id="img-file" value="添加图片" class="file-input" accept="image/*" multiple="">
+                </label>
+              </span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">采购商:</div>
+              <div class="item-input">
+                <$ buyer.company $>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">采购商等级:</div>
+              <div class="item-input"><$ buyer.contractModelName $><% if buyer.contractModelDescr %>(<$ buyer.contractModelDescr $>)<% endif %></div>
+            </div>
+          </div>
+        </li> -->
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">采购商发票:</div>
+              <div class="item-input">
+                <% if invoiceStatus == 0 %>
+                  不需要发票
+                <% elif invoiceStatus == 1 %>
+                  需要发票
+                <% endif %>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">供应商发票</div>
+            <div class="item-input radio-group" data-status="<$ status $>">
+              <% if true %>
+                <label for="payInvoiceInneed1" >
+                  <input type="radio"
+                  <% if payInvoiceInneed == 1 %>
+                    checked
+                  <% endif %>
+                  class="J_sellerPayBill"
+                  name='payInvoiceInneed' value="1" id='payInvoiceInneed1'>有发票
+                </label>
+                <label for="payInvoiceInneed2">
+                  <input type="radio"
+                  <% if payInvoiceInneed == 0  or payInvoiceInneed == null  %>
+                    checked
+                  <% endif %>
+                  class="J_sellerPayBill"
+                  name='payInvoiceInneed' value="0" id='payInvoiceInneed2'>没有发票
+                </label>
+            <% endif %>
+            </div>
+          </div>
+        </li>
+        <li
+          <% if payInvoiceInneed == 1 %>
+            style='display:block;'
+          <% elif payInvoiceInneed == 0 or payInvoiceInneed == null %>
+            style='display:none;'
+          <% endif %>
+          class="J_sellerTaxPoint"
+        >
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">*供应商税点</div>
+              <div class="item-input J_sellerTaxPoint_inpt">
+                <input style="display:inline-block; width: 30%;" type="number" name="sellerTaxPoint" placeholder="必填" value="<$ sellerTaxPoint $>" style="display: inline-block; width: 20%">%
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item-content  <% if status == 312 or status == 316 %><% else %>item-link<% endif %>">
+          <a href='javascript:;'
+          <% if status == 312 or status == 316 %>
+           class=""
+          <% else %>
+            class="J_goSupply"
+          <% endif %>
+          style="overflow: hidden;display: inline-block;width: 100%; color: #3d4145 ">
+            <div class="item-inner">
+              <div class="item-title">
+              <span>供应商</span>
+                <span style="margin-left: 20px;"><$ sellerCompany $></span>
+                 <input type="hidden" name="sellerCompany" value="<$ sellerCompany $>">
+                 <input type="hidden" name="shopId" value="<$ shopId $>">
+              </div>
+              <div class="item-after ">
+              </div>
+            </div>
+          </a>
+        </li>
+        <li class="item-content item-link">
+          <a
+          <% if status == 312 or status == 316  %>
+            href='#supplyMethod'
+          <% else %>
+            class="J_goRealSupply"
+          <% endif %>
+          style="overflow: hidden;display: inline-block;width: 100%; color: #3d4145 "
+          >
+            <div class="item-inner">
+              <div class="item-title">供应商收款方式</div>
+              <input type="hidden" name="bankAccountId" value="<$ bankAccountId $>" class='J_bankAccountId'>
+              <div class="item-after">
+              </div>
+            </div>
+          </a>
+        </li>
+
+      <div class="order-good J_order_good" data-mark='<$ productSource $>'
+        <% if productSource == 0 %>
+          style='display: none; '
+        <% elif productSource == 1 %>
+          style='display:block;'
+        <% endif %>
+        >
+          <li>
+            <div class="item-content">
+              <div class="item-inner" style="border-bottom: 1px solid #efefef;">
+                <div class="item-title label" style="width:38%;">预计到货时间</div>
+                <div class="item-input">
+                  <input type="text" placeholder="选择到货日期"
+                   value="<% if expectedArrivalDateString != '1970-01-01' %><$ expectedArrivalDateString $><% endif %>"
+                   name="expectedArrivalDate">
+                </div>
+              </div>
+            </div>
+          </li>
+        </div>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label" style="width: 29%;">提货方式</div>
+            <div class="item-input radio-group">
+            <% if status == '312' or status == '316' %>
+                <% if sendInneed == 1 %>
+                供应商送货
+              <% elif sendInneed == 0 %>
+                提货员提货
+              <% endif %>
+            <% else %>
+                <label for="method-1" class="goodSource" style="margin-right: 5px;">
+                  <% if sendInneed == 1 %>
+                  <input type="radio" checked name='sendInneed' value="1" id='method-1'>供应商送货
+                  <% elif sendInneed == 0 %>
+                  <input type="radio" name='sendInneed' value="1" id='method-1'>供应商送货
+                  <% else %>
+                  <input type="radio" checked name='sendInneed' value="1" id='method-1'>供应商送货
+                  <% endif %>
+                </label>
+                <label for="method-2">
+                  <% if sendInneed == 0 %>
+                  <input type="radio" checked name='sendInneed' value="0" id='method-2'>提货员提货
+                  <% else %>
+                  <input type="radio" name='sendInneed' value="0" id='method-2'>提货员提货
+                  <% endif %>
+                </label>
+            <% endif %>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">提货地址</div>
+              <div class="item-input">
+               <% if status == '312' or status == '316' %>
+                <$ deliveryAddr $>
+               <% else %>
+              <textarea name="deliveryAddr" style="height: 50px; line-height: 20px;overflow-y: auto;" placeholder="选填"><$ deliveryAddr $></textarea>
+              <% endif %>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">货号</div>
+              <div class="item-input">
+               <% if status == '312' or status == '316' %>
+                 <$ productNumber $>
+               <% else %>
+                <input type="text" placeholder="填写" name="productNumber" readonly value="<$ productNumber $>">
+               <% endif %>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item-content item-link">
+          <a href='javascript:;' class="J_jumpColor" style="overflow: hidden;display: inline-block;width: 100%; color: #3d4145 ">
+            <div class="item-inner">
+              <div class="item-title">颜色及数量(共<$ proLen $>组)</div>
+              <div class="item-after ">
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">空差</div>
+              <div class="item-input">
+                <input type="number" name="kongCha" placeholder="选填" value="<$ kongCha $>">
+              </div>
+            </div>
+          </div>
+        </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">纸筒</div>
+                <div class="item-input">
+                  <input type="number" name="zhiTong" placeholder="选填" value="<$ zhiTong $>">
+                </div>
+              </div>
+            </div>
+          </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title label">买货员备注</div>
+              <div class="item-input">
+              <textarea class="J_replyRemark" name="replyRemark" style="height: 50px; line-height: 20px;overflow-y: auto;" placeholder="选填"><$ replyRemark $></textarea>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">跟单员备注</div>
+                <div class="item-input">
+                  <$ leaveMessage $>
+                </div>
+              </div>
+            </div>
+          </li>
+        <!-- <p style="padding: 10px 0 0 13px;margin:0;">费用明细</p> -->
+        <li>
+          <div class="item-content" style="padding-left: 0; margin-left: 0.75rem; border-bottom: 1px solid #F3F3F3; margin-top: 10px;padding-bottom: 10px;">
+            <div class="item-inner">
+              <div class="item-content" style="padding-left: 5px;">
+                  <div class="item-input radio-group">
+                      <!-- 此处区分订货 现货 -->
+                      <div class="J_dh J_dj">
+                        <div class="fare">
+                          <span>*尾款</span>
+                          <span><input class="inpt" type="number"  name="finalMoney" value="<$ finalMoney $>"  style='border-bottom: 1px solid #ccc'></span>
+                          <span>元</span>
+                        </div>
+                      </div>
+                      <div class="fare">
+                        <span>销售货款</span>
+                        <span>
+                          <input readonly="readonly" class="inpt J_saleMoney" type="number" name="saleMoney" value="<$ saleMoney $>"></span>
+                        <span>元</span>
+                      </div>
+                      <div>
+                        <span>采购货款<span <% if payInvoiceInneed == 1 %> style='display:inline-block;' <% elif payInvoiceInneed == 0 or payInvoiceInneed == null %>
+                            style='display:none;'
+                          <% endif %>
+                          class="J_extra_wrapContent">(含税)</span>：</span>
+                        <span class="J_buyMoney"><input type="number" name="buyMoney" value="<$ buyMoney $>" style="display: inline-block;width: 40%; border-bottom: 1px solid #ccc; height: 1.15rem;" /></span>
+                        <span>元</span>
+                      </div>
+                      <div <% if payInvoiceInneed == 1 %>
+                        style='display:block;'
+                      <% elif payInvoiceInneed == 0 or payInvoiceInneed == null %>
+                        style='display:none;'
+                      <% endif %>
+                      class="J_extra_wrapContent">
+                        <div style="padding-left: 12px; font-size: 14px;">
+                          <span>采购货款(不含税)：</span>
+                          <span class="J_buyMoneyOffTax"><input type="number" name="buyMoneyOffTax" value="<$ buyMoneyOffTax $>" style="display: inline-block;width: 40%; border-bottom: 1px solid #ccc; height: 1.15rem;" /></span>
+                          <span>元</span>
+                        </div>
+                      </div>
+                      <div>
+                        <span>成本货款<span <% if payInvoiceInneed == 1 %> style='display:inline-block;' <% elif payInvoiceInneed == 0 or payInvoiceInneed == null %>
+                            style='display:none;'
+                          <% endif %>
+                          class="J_extra_wrapContent">(含税)</span>：</span>
+                        <!-- costMoney 要加上税款 (原来没有加上)-->
+                        <span class="J_costMoney"><input name="costMoney" style="display: inline-block;width: 25%; border-bottom: 1px solid #ccc; height: 1.15rem;" type="number" value="<$ costMoney $>"></span>
+                        <span>元</span>
+                      </div>
+                      <div
+                        <% if payInvoiceInneed == 1 %>
+                          style='display:block;'
+                        <% elif payInvoiceInneed == 0 or payInvoiceInneed == null %>
+                          style='display:none;'
+                        <% endif %>
+                        class="J_extra_wrapContent"
+                      >
+                        <div style="padding-left: 12px; font-size: 14px;">
+                          <span>成本货款(不含税)：</span>
+                          <span class="J_costMoneyOffTax"><input name="costMoneyOffTax" style="display: inline-block;width: 25%; border-bottom: 1px solid #ccc; height: 1.15rem;" type="number" value="<$ costMoneyOffTax $>"></span>
+                          <span>元</span>
+                        </div>
+                        <div style="padding-left: 12px; font-size: 14px;">
+                          <span>供应商税款：</span>
+                          <span class="J_sellerTaxMoney"><input name="sellerTaxMoney" style="display: inline-block; width: 20%;border-bottom: 1px solid #ccc; height: 1.15rem;" type="number" value="<$ sellerTaxMoney $>"></span>
+                          <span style="width: 40%">元(<label class="J_sellerTaxMoney_text"><$ sellerTaxPoint $></label>%税点)</span>
+                        </div>
+                      </div>
+                      <!-- <div class="fare">
+                        <span>服务费</span>
+                        <span><$ serviceMoney $></span>
+                        <span>元</span>
+                      </div> -->
+                      <div class="fare">
+                        <span>已付定金</span>
+                        <span><$ earnestMoney $></span>
+                        <span>元</span>
+                      </div>
+                      <!-- <div class="fare">
+                        <span>税款</span>
+                        <span class="J_taxMoney"><$ taxMoney $></span>
+                        <span style="width: 40%">元</span>
+                      </div> -->
+                      <div class="fare">
+                        <span>支付总额</span>
+                        <span class="J_totalMoney">
+                          <$ finalMoney $>
+                        </span>
+                        <span>元</span>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </li>
+</ul>
+</form>

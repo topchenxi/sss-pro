@@ -1,0 +1,45 @@
+{#
+  应付页
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/uploadBill.css">
+      <link rel="stylesheet" href="stylesheets/pages/shouldPay.css">
+      <div class="page page-current uploadBill-wrap" id='shouldPay' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_goBack">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title J_input_title'>应付</h1>
+        </header>
+        <div class="content J_input_content">
+             <div class="list-block media-list " style="margin: 0 0 1.75rem 0">
+                <!-- 订单信息 -->
+                <div class="J_orderDetail_text">
+                </div>
+                <!-- 上传图片模板 -->
+               <div class="p-bot J_bill_block">                 
+               </div>
+                <div class="plus">
+                  <a class="plus-w J_add_bill fn-hide" href="javascript:;">+</a>
+                </div>  
+                <!-- 上传按扭 -->
+                <div class="up-btn">
+                  <div class="for-text">
+                    <label class='J_save_btn img-upload-label disabled'>
+                       提交         
+                    </label>
+                  </div>
+                </div>
+             </div>
+        </div>
+      </div>
+      <div class="page" id='supplyMethod'></div>
+      <script src="javascripts/shouldPay.js"></script>
+    </div>
+{% endblock %}
+
+

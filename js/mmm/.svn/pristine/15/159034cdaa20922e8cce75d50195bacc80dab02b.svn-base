@@ -1,0 +1,15 @@
+{#
+  实收
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/realGet.css">
+      <div class="page" id='realGet' style="display: block">
+         <div class="J_realGet"></div>
+      </div>
+      <script src="javascripts/realGet.js"></script>
+    </div>
+{% endblock %}

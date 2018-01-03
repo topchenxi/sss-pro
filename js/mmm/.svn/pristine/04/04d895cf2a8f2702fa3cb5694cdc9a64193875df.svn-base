@@ -1,0 +1,289 @@
+<% macro footer(loginInfo, item) %>
+<% if loginInfo.woodFollowLeader or loginInfo.woodSalesLeader or loginInfo.woodSales %>
+  {# 跟单员收欠款 #}
+  <% if loginInfo.urgeMoney == 1%>
+    <!-- 2017-08-29 该功能已经下架 -->
+    <!-- <a href="/uploadBill.html?urgeMoney=1&id=<$ item.id $>&orderNumber=<$ item.orderNumber $>&payDebtId=<$ item.payDebtId $>&source=<$ item.source $>" class="J_list_cache button pull-right button-fill" data-orderNumber="<$ item.orderNumber $>" data-payDebtId="<$ item.id $>">已付款</a> -->
+    <a href="javascript:;" class="J_list_cache J_y_urgeMoney button pull-right button-fill button-danger" data-payDebtId="<$ item.payDebtId $>" data-orderNumber="<$ item.orderNumber $>">催缴</a>
+  <% endif %>
+  {# 跟单员剪版待收款 #}
+  <% if loginInfo.jbCollection == 1%>
+    <% if item.ygj %><span class='pull-left money-tips'>总额：<$ item.ygj $> 元</span><% endif %>
+    <a href="#" class="button pull-right button-fill button-danger J_confirm_jb_money_pay" data-orderNumber="<$ item.orderNumber $>">确认收款</a>
+  <% endif %>
+  {# 跟单员剪版待收版 #}
+  <% if loginInfo.tabKey == 'dsb' %>
+  <a href="#" class="button button-fill pull-right button-success J_confirm_receive_jb" data-orderNumber="<$ item.orderNumber $>">确认收版</a>
+  <% endif %>
+<% endif %>
+
+<% if loginInfo.woodFinance %>
+{# 财务收欠款 #}
+  <% if loginInfo.collectDebts == 1 and loginInfo.unGetPay == 1 %>
+    <a href="#" class="J_list_cache J_hold_lastpage J_goRealGetPay button pull-right button-fill button-danger" data-payDebtId="<$ item.payDebtId $>" data-orderNumber="<$ item.orderNumber $>"　data="<$ loginInfo.collectDebts $>">实收</a>
+  <% endif %>
+<% endif %>
+<% if loginInfo.woodCutClothLeader or loginInfo.woodCutCloth %>
+  {# 剪版组长 #}
+  {# 剪版组员 #}
+  <% if loginInfo.jbCollection == 1%>
+    <% if item.ygj %><span class='pull-left money-tips'>总额：<$ item.ygj $> 元</span><% endif %>
+    <a href="#" class="button pull-right button-fill button-danger J_confirm_jb_money_pay2" data-orderNumber="<$ item.orderNumber $>">确认收款</a>
+  <% endif %>
+<% endif %>
+<!-- standAlone 表示是否独立的 和状态无关 0 表示有关  1表示独立的 -->
+<% if item.isMyTask and not item.standAlone%>
+  <% if loginInfo.woodFollowLeader %>
+  {# 跟单员 #}
+    <% if item.status == 300 %>
+
+      <!-- <a href="#" class="button pull-right button-fill button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a> -->
+
+      <a href="#" class="button pull-right button-fill button-success J_notify_ask_price" data-orderNumber="<$ item.orderNumber $>">通知询价</a>
+    <% endif %>
+    <% if item.status == 312 or item.status == 339 or item.status == 316 %>
+      <!-- <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a>
+      <a href="#" class="button button-fill pull-right button-success J_apply_advance" data-orderNumber="<$ item.orderNumber $>">申请垫付</a>
+      <a href="/uploadBill.html?orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">已付款</a> -->
+    <% endif %>
+    <% if item.status == 371 %>
+      <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a>
+      <% if item.notifyReplaceBtnShow %>
+      <a href="#" class="button button-fill pull-right button-success J_notify_replace" data-orderNumber="<$ item.orderNumber $>" data-ph="<$ item.checkFlawList $>">换货</a>
+      <%endif%>
+      <% if item.sendType == 0 %>
+      <a href="#" class="button button-fill pull-right button-success J_notify_send" data-orderNumber="<$ item.orderNumber $>">发货</a>
+      <% endif %>
+      <% if item.sendType == 1 %>
+      <a href="#" class="button button-fill pull-right button-success J_notify_receive" data-orderNumber="<$ item.orderNumber $>">通知取货</a>
+      <% endif %>
+    <% endif %>
+    <% if item.status == 385 %>
+
+      <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a>
+
+      <a href="#" class="button button-fill pull-right button-success J_notify_receive" data-orderNumber="<$ item.orderNumber $>">通知取货</a>
+    <% endif %>
+    <% if item.status == 3 %>
+    <!-- <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a> -->
+      <a href="#" class="button button-fill pull-right button-success J_confirm_receive_for_buyer" data-orderNumber="<$ item.orderNumber $>">确认收货</a>
+    <% endif %>
+   <!--  <% if item.status == 3 %>
+
+    <% endif %> -->
+
+
+    <% if item.status == 101 %>
+    <a href="#" class="button button-fill pull-right button-success J_notify_zb" data-orderNumber="<$ item.orderNumber $>">通知找版</a>
+    <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a>
+    <a href="/zhaoBanPublish.html?type=edit&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache J_zhaoban_edit button button-fill pull-right button-warning" data-orderNumber="<$ item.orderNumber $>">编辑</a>
+    <% endif %>
+    <% if item.status == 125 %>
+    <a href="#" class="button button-fill pull-right button-success J_confirm_receive_sk" data-orderNumber="<$ item.orderNumber $>">确认收色卡</a>
+    <% endif %>
+    <% if item.status == 131 %>
+    <a href="/upDeliverGood.html?orderNumber=<$ item.orderNumber $>&from=sk" class="J_list_cache button button-fill pull-right button-success J_hold_lastpage" data-orderNumber="<$ item.orderNumber $>">上传发货凭据</a>
+    <% endif %>
+
+
+    <% if loginInfo.jbCollection != 1 and loginInfo.tabKey != 'dsb'%>
+    <% if item.status == 201 %>
+    <a href="#" class="button button-fill pull-right button-success J_notify_jb" data-orderNumber="<$ item.orderNumber $>">通知剪版</a>
+    <a href="#" class="button button-fill pull-right button-danger J_cancel_order" data-orderNumber="<$ item.orderNumber $>">取消订单</a>
+    <a href="/jianBanPublish.html?type=edit&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache J_jianban_edit button button-fill pull-right button-warning" data-orderNumber="<$ item.orderNumber $>">编辑</a>
+    <% endif %>
+    <% if item.status == 231 %>
+    <a href="/upDeliverGood.html?orderNumber=<$ item.orderNumber $>&from=sk" class="J_list_cache button button-fill pull-right button-success J_hold_lastpage" data-orderNumber="<$ item.orderNumber $>">上传发货凭据</a>
+    <% endif %>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodPurchaserLeader and item.status == 305 %>
+  {# 买货组长 #}
+  <a href="/assignTask.html?taskNumber=0&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派询价</a>
+  <% endif %>
+
+  <% if (loginInfo.woodPurchaserLeader or loginInfo.woodPurchaser) %>
+  {# 买货组 #}
+    <% if loginInfo.woodPurchaser and loginInfo.woodPurchaserLeader == false %>
+    <% if item.status == 305 %>
+    <a href="/inputInfo.html?orderNumber=<$ item.orderNumber $>&isEditOrNot=0&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success J_removeDhSession">录入大货</a>
+    <% endif %>
+    <% endif %>
+    <% if item.status == 315 %>
+      <a href="/inputInfo.html?orderNumber=<$ item.orderNumber $>&isEditOrNot=1&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-warning J_removeDhSession">修改大货信息</a>
+      <a href="#" class="button button-fill pull-right button-success J_notify_pay" data-title='通知采购商付款' data-orderNumber="<$ item.orderNumber $>" data-item="<$ item.itemString $>" data-source="<$ item.source $>">通知付款</a>
+    <% endif %>
+    <% if item.status == 311 %>
+      <a href="/inputInfo.html?orderNumber=<$ item.orderNumber $>&isEditOrNot=1&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-warning J_removeDhSession">修改大货信息</a>
+      <a href="#" class="button button-fill pull-right button-success J_notify_pay" data-title='通知采购商付订金' data-orderNumber="<$ item.orderNumber $>" data-item="<$ item.itemString $>" data-source="<$ item.source $>">通知付订金</a>
+    <% endif %>
+    <% if item.status == 335 %>
+    <a href="/inputFinal.html?orderNumber=<$ item.orderNumber $>&isEditOrNot=0&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success J_removeDhSession">录入尾款信息</a>
+    <% endif %>
+    <% if item.status == 338 %>
+      <a href="/inputFinal.html?orderNumber=<$ item.orderNumber $>&isEditOrNot=1&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-warning J_removeDhSession">修改尾款信息</a>
+      <a href="#" class="button button-fill pull-right button-success J_notify_pay"  data-title='通知采购商付尾款' data-orderNumber="<$ item.orderNumber $>" data-item="<$ item.itemString $>" data-source="<$ item.source $>">通知付尾款</a>
+    <% endif %>
+    <% if loginInfo.woodPurchaser and loginInfo.woodPurchaserLeader == false %>
+    <% if item.status == 303 or item.status == 305 %>
+    <a href="#" class="button button-fill pull-right button-success J_repulse" data-title='打回跟单' data-orderNumber="<$ item.orderNumber $>" data-item="<$ item.itemString $>" data-source="<$ item.source $>">打回跟单</a>
+    <% endif %>
+    <% endif %>
+    <% if item.status == 347 %>
+    <a href="/assignTask.html?taskNumber=1&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派提货</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodFinance %>
+  {# 财务 #}
+
+    <% if item.fullMoneyPayStatus == 1 %>
+      <!-- <span class='pull-left money-tips'>应收货款：<$ item.fullMoney $> 元</span> -->
+    <% endif %>
+    <% if item.earnestMoneyPayStatus == 1 %>
+      <!-- <span class='pull-left money-tips'>应收订金：<$ item.earnestMoney $> 元</span> -->
+    <% endif %>
+    <% if item.finalMoneyPayStatus == 1 %>
+      <!-- <span class='pull-left money-tips'>应收尾款：<$ item.finalMoney $> 元</span> -->
+    <% endif %>
+    <% if item.status == 321 or item.status == 341 or item.status == 323 %>
+    <!-- <a href="/upFinancialPay.html?orderNumber=<$ item.orderNumber $>&payWay=0&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">确认垫付</a> -->
+    <% endif %>
+    <% if item.status == 325 or item.status == 345 or item.status == 327 %>
+      <% if loginInfo.collectDebts != 1 %>
+      <!-- <a href="#" class="J_list_cache button button-fill pull-right button-success J_confirm_income <%if item.payStatus != 1 %>disabled<% endif %>" data-orderNumber="<$ item.orderNumber $>" data-productSource="<$ item.productSource $>" data-status="<$ item.status $>" data-source='<$ item.source $>'>实收</a> -->
+      <% endif %>
+      <!-- <a href="/upFinancialPay.html?orderNumber=<$ item.orderNumber $>&payWay=1&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success <%if item.payStatus != 2 %>disabled<% endif %>">实付</a> -->
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodTakerLeader %>
+  {# 提货组长 #}
+    <% if item.status == 347 %>
+    <!-- <a href="/assignTask.html?taskNumber=1&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派提货</a> -->
+    <% endif %>
+    <% if item.status == 372 %>
+    <a href="/assignTask.html?taskNumber=4&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派换货</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodTakerLeader or loginInfo.woodTaker %>
+  {# 提货组 #}
+    <% if item.checkCloth == 0 and (item.status == 351 or item.status == 355 or item.status == 352 or item.status == 356) %>
+    <!-- <a href="/upDeliverGood.html?orderNumber=<$ item.orderNumber $>" class="J_list_cache button button-fill pull-right button-success J_hold_lastpage">上传发货凭据</a> -->
+    <% endif %>
+    <% if item.status == 381 %>
+    <!-- <a href="/upDeliverGood.html?orderNumber=<$ item.orderNumber $>" class="J_list_cache button button-fill pull-right button-success J_hold_lastpage">上传发货凭据</a> -->
+    <% endif %>
+    <% if item.status == 351 %>
+    <a href="#" class="button button-fill pull-right button-success J_update_reply_send_time" data-sendInneed="<$ item.sendInneed $>" data-replySendTime="<$ item.replySendTime $>" data-orderNumber="<$ item.orderNumber $>">录入提货时间</a>
+    <% endif %>
+    <% if item.status == 355 %>
+    <a href="#" class="button button-fill pull-right button-success J_update_reply_send_time" data-sendInneed="<$ item.sendInneed $>" data-replySendTime="<$ item.replySendTime $>" data-orderNumber="<$ item.orderNumber $>">修改提货时间</a>
+    <% endif %>
+    <% if item.status == 352 %>
+    <a href="#" class="button button-fill pull-right button-success J_update_reply_send_time" data-sendInneed="<$ item.sendInneed $>" data-replySendTime="<$ item.replySendTime $>" data-orderNumber="<$ item.orderNumber $>">录入供应商送货时间</a>
+    <% endif %>
+    <% if item.status == 356 %>
+    <a href="#" class="button button-fill pull-right button-success J_update_reply_send_time" data-sendInneed="<$ item.sendInneed $>" data-replySendTime="<$ item.replySendTime $>" data-orderNumber="<$ item.orderNumber $>">修改供应商送货时间</a>
+    <% endif %>
+    <% if item.status == 375 %>
+    <a href="#" class="button button-fill pull-right button-success J_input_replace_time" data-replaceTime="<$ item.replaceTime $>" data-sendType="<$ item.sendType $>" data-orderNumber="<$ item.orderNumber $>">录入换货时间</a>
+    <% endif %>
+    <% if item.status == 376 %>
+    <a href="#" class="button button-fill pull-right button-success J_input_replace_time" data-sendType="<$ item.sendType $>" data-replaceTime="<$ item.replaceTime $>" data-orderNumber="<$ item.orderNumber $>">修改换货时间</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodCheckerLeader %>
+  {# 验货组长 #}
+    <% if item.status == 361 %>
+    <a href="/assignTask.html?orderNumber=<$ item.orderNumber $>&taskNumber=2&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派验货</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodCheckerLeader or loginInfo.woodChecker %>
+  {# 验货组 #}
+    <% if item.status == 355 or item.status == 356 or item.status == 376 or item.status == 351 or item.status == 352 %>
+    <a href="#" class="button button-fill pull-right button-success J_confirm_receive"  data-orderNumber="<$ item.orderNumber $>">确认收货</a>
+    <% endif %>
+    <% if item.status == 365 %>
+    <a href="/upCheckReport.html?orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">上传验货报告</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodLogisticsLeader %>
+  {# 物流组长 #}
+  <% if item.status == 380 %>
+  <a href="/assignTask.html?orderNumber=<$ item.orderNumber $>&taskNumber=3&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派发货</a>
+  <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodLogisticsLeader or loginInfo.woodLogistics %>
+  {# 物流组 #}
+  <% if item.status == 381 %>
+  <a href="/upDeliverGood.html?orderNumber=<$ item.orderNumber $>" class="J_list_cache button button-fill pull-right button-success J_hold_lastpage">上传发货凭据</a>
+  <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodClothHunterAdmin %>
+    {# 找版大组长 #}
+    <% if item.status == 103 %>
+    <a href="/assignTask.html?orderNumber=<$ item.orderNumber $>&taskNumber=7&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派找版</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodClothHunterLeader %>
+    {# 找版组长 #}
+    <% if item.status == 105 %>
+    <a href="/assignTask.html?orderNumber=<$ item.orderNumber $>&taskNumber=5&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派找版</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodClothHunterAdmin or loginInfo.woodClothHunterLeader %>
+   {# 找版大组长  找版组长 #}
+   <% if item.status == 121 %>
+    <a href="#" class="button button-fill pull-right button-success J_audit_zb" data-agree="1"   data-orderNumber="<$ item.orderNumber $>">审核通过</a>
+    <a href="#" class="button button-fill pull-right button-success J_audit_zb" data-agree="0"   data-orderNumber="<$ item.orderNumber $>">审核不通过</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodClothHunter %>
+    {# 找版组员 #}
+
+    <% if item.status == 111 %>
+    <a href="/seCardList.html?orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">录入色卡信息</a>
+    <% endif %>
+    <% if item.status == 115 %>
+    <a href="#" class="button button-fill pull-right button-success J_submit_zb_to_audit"  data-orderNumber="<$ item.orderNumber $>">提交审核</a>
+    <a href="/seCardList.html?orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">录入色卡信息</a>
+    <% endif %>
+    <!-- <a href="#" class="J_list_cache J_give_up button button-fill pull-right button-warning" data-orderNumber="<$ item.orderNumber $>">放弃此单</a> -->
+  <% endif %>
+
+
+  <% if loginInfo.woodCutClothLeader %>
+    {# 剪版组长 #}
+    <% if item.status == 205 %>
+    <a href="/assignTask.html?orderNumber=<$ item.orderNumber $>&taskNumber=6&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">指派剪版</a>
+    <% endif %>
+    <% if item.status == 221 %>
+    <a href="#" class="button button-fill pull-right button-success J_audit_jb" data-agree="1"   data-orderNumber="<$ item.orderNumber $>">审核通过</a>
+    <a href="#" class="button button-fill pull-right button-success J_audit_jb" data-agree="0"   data-orderNumber="<$ item.orderNumber $>">审核不通过</a>
+    <% endif %>
+  <% endif %>
+
+  <% if loginInfo.woodCutCloth %>
+    {# 剪版组员 #}
+    <% if item.status == 211 %>
+    <a href="/jianBanInput.html?type=add&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache J_jianban_input button button-fill pull-right button-success">录入剪版信息</a>
+    <a href="#" data-orderNumber="<$ item.orderNumber $>" class="J_list_cache J_reback button button-fill pull-right button-warning">退回此单</a>
+    <% endif %>
+    <% if item.status == 215 %>
+    <a href="#" class="button button-fill pull-right button-success J_submit_jb_to_audit"  data-orderNumber="<$ item.orderNumber $>">提交审核</a>
+    <a href="/jianBanInput.html?type=edit&orderNumber=<$ item.orderNumber $>&source=<$ item.source $>" class="J_list_cache button button-fill pull-right button-success">录入剪版信息</a>
+    <% endif %>
+  <% endif %>
+<% endif %>
+<% endmacro %>

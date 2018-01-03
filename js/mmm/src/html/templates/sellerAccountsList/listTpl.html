@@ -1,0 +1,26 @@
+<% for accountObj in result %>
+<li class='row no-gutter' data-obj='<$ accountObj.obj $>'>
+  <div class='col-90 col-left'>
+    <label class="label-checkbox item-content J_account_list">
+      <input type="radio" name="address" <% if accountObj.isDefault '==' 1 %> checked = 'checked' <%endif%> value='<$ accountObj.id $>'>
+      <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+      <div class="item-inner info">
+        <div class="item-title-row">
+          <div class="item-after">户名：<$ accountObj.replyAccountUser $><$ accountObj.replyAccountCompany $></div>
+          <div class="item-after">卡号：<$ accountObj.replyAccountNumber $></div>
+          <div class="item-after">银行：<$ accountObj.replyAccountBank $></div>
+          <!-- ziying修改，取消支行显示 -->
+          <!-- <div class="item-after zhihang">支行：<span><$ accountObj.replyAccountBranch $></span></div> -->
+          <div class="item-after">账户类型：<span><$ accountObj.typeString $></span></div>
+        </div>
+      </div>
+    </label>
+  </div>
+  <div class='col-10 item-link addr-edit'>
+    <div class='icon-group'>
+      <!-- <div><a class="icon icon-edit J_edit" href='/sellerAccounts.html'></a></div> -->
+      <div><a class="icon icon-remove J_del" href=''></a></div>
+    </div>
+  </div>
+</li>
+<% endfor %>

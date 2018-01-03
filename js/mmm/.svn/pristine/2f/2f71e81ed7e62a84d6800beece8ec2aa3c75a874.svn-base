@@ -1,0 +1,20 @@
+{#
+  发布剪版
+  author yonghuang
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/jianBanPublish.css">
+      <div class="page page-current" id='jianBanPublish' style="display: block">
+        <div class='J_content'>
+          
+        </div>
+      </div>
+      <script src="javascripts/jianBanPublish.js"></script>
+    </div>
+{% endblock %}
+
+
+

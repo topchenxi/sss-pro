@@ -1,0 +1,42 @@
+.personal-detail-list {
+    margin-top: 2.2rem;
+    overflow: hidden;
+    position: relative;
+    .list-dom {
+        padding-bottom: 0.3125rem;
+    }
+    .list {
+        width: 100%;
+        background-color: #fff;
+        li {
+            position: relative;
+            color: #000;
+            font-size: 0.7rem;
+            height: 44px;
+            line-height: 44px;
+            padding: 0 0.5rem;
+            .status-title {
+                float: left;
+            }
+            .name {
+                float: right;
+            }
+        }
+    }
+    .logout {
+        padding-top: 36px;
+        text-align: center;
+        .button-dark {
+            display: inline-block;
+            background-color: #fff;
+        }
+        .button {
+            &:active {
+                background-color: #F0EBEB;
+            }
+        }
+        .row .col-50 {
+            margin-left: 28%;
+        }
+    }
+}

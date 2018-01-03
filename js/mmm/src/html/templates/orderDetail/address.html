@@ -1,0 +1,38 @@
+
+<% if not loginInfo.woodFinance %>
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner <% if status != 300 %>J_send_type<% endif %>">
+        <div class="item-title-row">
+        <div class="item-title">配送方式: <$ sendTypeString $></div>
+        <% if status == 300 %>
+        <div class="item-after"><a href="/sendWays.html?source=orderDetail" class="button button-success J_send_ways">编辑</a></div>
+        <% elif sendType == 0 %>
+        <div class="item-after"><span class="icon icon-down"></span></div>
+        <% endif %>
+        </div>
+      </div>
+    </li>
+    <% if sendType == 0 %>
+      <li class="item-content <% if status >= 303 %>fn-hide<% endif %> J_send_detail">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title"><$ contactName $></div>
+            <div class="item-after"><$ contactTel $></div>
+          </div>
+          <div class="item-text"><$ province $><$ city $><$ area $><$ addr $></div>
+        </div>
+      </li>
+      <% if sendCompany or sendTel %>
+      <li class="item-content <% if status >= 303 %>fn-hide<% endif %> J_send_detail">
+        <div class="item-inner">
+          <% if sendCompany %><div class="item-subtitle">物流公司：<$ sendCompany $></div><% endif %>
+          <% if sendTel %><div class="item-subtitle">物流电话：<$ sendTel $></div><% endif %>
+        </div>
+      </li>
+      <% endif %>
+    <% endif %>
+  </ul>
+</div>
+<% endif %>

@@ -1,0 +1,284 @@
+<div class="list-block">
+  <ul style="margin-bottom: 10px;">
+    <li class="J_shopName">
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">档口名:</div>
+          <div class="item-input">
+            <span>
+                  <% if sellerCompany %>
+                   <$ sellerCompany $>
+                  <% else %>  
+                   <$ company $>
+                  <% endif %>
+              </span>
+            <input type="hidden" name="company" value="<$ company $>">
+            <input type="hidden" name="shopId" value="<$ shopId $>">
+          </div>
+          <span class="icon icon-edit"></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title label" style="width:20%;">品类:</div>
+        <div class="item-input radio-group">
+          <label for="bill-1" class="goodSource" style="margin-right: 30px;">
+            <input type="radio" <% if productType==1 %> checked
+            <% elif productType != 1 and productType != 2 %>
+              checked
+              <% endif %>
+                name='productType' class="J_radio" value="1" id='bill-1'>面料
+          </label>
+          <label for="bill-2">
+            <input type="radio" <% if productType==2 %>checked
+            <% endif %>
+              name='productType' class="J_radio" value="2" id='bill-2'>辅料
+          </label>
+        </div>
+      </div>
+    </li>
+    <li class="item-content has-upload J_has_upload">
+      <div class="up-title">图片:</div>
+      <div class="where-image">
+        <% if imgUrls.length > 0 %>
+          <% for imgUrl in imgUrls %>
+            <div class="up-img J_upimgWrap">
+              <img class="J_zoom" src="<$ imgPath $><$ imgUrl $>@118h_118w_1e" show-src='<$ imgPath $><$ imgUrl $>' data-src="<$ imgUrl $>" style="width: 4rem; height: 3.5rem;" />
+              <span class="close J_close">x</span>
+            </div>
+            <% endfor %>
+              <% endif %>
+                <div class="J_images up-img">
+                  <span class="add-img-btn J_add_img">
+                    <span class="add-icon">+</span>
+                  <br>
+                  <span class="text">添加图片</span>
+                  <label class="img-upload-label" for="img-file">
+                    <input type="file" id="img-file" value="添加图片" class="file-input" accept="image/*" multiple="">
+                  </label>
+                  </span>
+                </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label J_product_label">
+            <% if productType==2 %> 品名: <% else %> 货号: <% endif %>
+          </div>
+          <div class="item-input">
+            <input type="text" class="J_input" placeholder="必填" name="productNumber" value="<$ productNumber $>" maxlength="30">
+          </div>
+        </div>
+      </div>
+    </li>
+    <!--         <li
+            <% if productType == 1 %>
+                style="display:none;"
+            <% elif productType == 2 %>
+                style="display:block;"
+            <% else %>
+                style="display:none;"
+            <% endif %>
+            class="J_categoryName"
+         >
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label">品名:</div>
+                    <div class="item-input">
+                        <input type="text" class="J_input" placeholder="必填" name="pingming" value="<$ pingming $>">
+                    </div>
+                </div>
+            </div>
+        </li> -->
+    <div class="J_width" <% if productType=='1' %>
+      style="display:block;"
+      <% elif productType == '2' %>
+        style="display:none;"
+        <% else %>
+          style="display:block;"
+          <% endif %>
+            >
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">空差:</div>
+                  <div class="item-input">
+                    <input type="text" class="J_input" placeholder="必填" name="kongCha" value="<$ kongCha $>">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content" style="padding-left: 0; margin-left: 0.75rem;border-bottom: 1px solid #e6e6e6;">
+                <div class="item-inner">
+                  <div class="item-title label">克重:</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="选填" name="replyWeigth" value="<$ replyWeigth $>">
+                  </div>
+                  <div class="item-input">
+                    <select name="replyWeigthUnit" id="replyWeigthUnit">
+                      <option value="g/㎡" <% if replyWeigthUnit=='g/㎡' %>selected<% endif %>>g/㎡</option>
+                      <option value="安"   <% if replyWeigthUnit=='安' %>selected <% endif %>>安</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content" style="padding-left: 0; margin-left: 0.75rem;border-bottom: 1px solid #e6e6e6;">
+                <div class="item-inner">
+                  <div class="item-title label">幅宽:</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="选填" name="replyWidth" value="<$ replyWidth $>">
+                  </div>
+                  <div class="item-input">
+                    <select name="replyWidthUnit" id="replyWidthUnit">
+                      <option value="cm" <% if replyWidthUnit=='cm' %>selected<% endif %>>cm</option>
+                      <option value='"'  <% if replyWidthUnit=='"'  %>selected<% endif %>>"</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+    </div>
+
+    <li class="J_addProperty">
+      <div class="item-content" style="margin-left: 0.75rem; padding-left: 0;border-bottom:1px solid #e6e6e6;">
+        <div class="item-inner">
+          <div class="item-title label">成分/织法/工艺:</div>
+          <div class="item-input">
+            <input type="text" placeholder="选填" name="title" value="<$ title $>" class="J_title" maxlength="100" />
+            <input type="hidden" name="tagNames" value="<$ tagNames $>" class="J_tagNames" />
+          </div>
+        </div>
+        <!-- <span style="">成分/织法/工艺: &nbsp;&nbsp;</span>
+        <span style="flex:2; overflow: hidden;  white-space:nowrap; text-overflow:ellipsis;">
+                <% if tagNames == '' %>选填<% else %><$ tagNames $><% endif %>
+                <input type="hidden" name="title" value="<$ title $>" class="J_title">
+                <input type="hidden" name="tagNames" value="<$ tagNames $>" class="J_tagNames">
+                </span>
+        <span class="icon icon-edit" style="padding-right: 10px;"></span> -->
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title label" style="width:30%;">是否现货:</div>
+        <div class="item-input radio-group">
+          <label for="productSource-1" class="goodSource" style="margin-right: 30px;">
+            <input type="radio" <% if productSource==0 %> checked
+            <% elif productSource != 0 and productSource != 1 %>
+              checked
+              <% endif %>
+                class="J_productSource" name='productSource' value="0" id='productSource-1'>现货
+          </label>
+          <label for="productSource-2">
+            <input type="radio" <% if productSource==1 %>checked
+            <% endif %>
+              name='productSource' class="J_productSource" value="1" id='productSource-2'>订货
+          </label>
+        </div>
+      </div>
+    </li>
+    <li <% if productSource=='0' %>
+      style="display:block;"
+      <% elif productSource == '1' %>
+        style="display:none;"
+        <% else %>
+          style="display:block; "
+          <% endif %>
+            class='J_price' >
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title label">价格:</div>
+                <div class="item-input">
+                  <input type="number" class="J_input" placeholder="必填" name="price" value="<$ price $>">
+                </div>
+                <div class="item-input">
+                  <select name="priceUnit">
+                    <option value="元/米" <% if priceUnit=='元/米' %>selected
+                      <% endif %>>元/米</option>
+                    <option value="元/码" <% if priceUnit=='元/码' %>selected
+                      <% endif %>>元/码</option>
+                    <option value="元/千克" <% if priceUnit=='元/千克' %>selected
+                      <% endif %>>元/千克</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+    </li>
+
+    <div class="J_bookBlock" data="<$ productSource $>" <% if productSource=='0' %>
+      style="display:none;"
+      <% elif productSource == '1' %>
+        style="display:block;"
+        <% else %>
+          style="display:none;"
+          <% endif %>
+            >
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label" style="width: 40%;">预计到货时间:</div>
+                  <div class="item-input">
+                    <input type="text" class="J_input" placeholder="必填" name="expectedArrivalDate" value="<$ expectedArrivalDate $>">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">最小起定量:</div>
+                  <div class="item-input">
+                    <input type="text" class="J_input" placeholder="必填" name="miniQuantity" value="<$ miniQuantity $>">
+                  </div>
+                  <div class="item-input">
+                    <select name="miniQuantityUnit" class="J_miniQuantityUnit">
+                      <option value="米" <% if miniQuantityUnit=='米' %>selected
+                        <% endif %>>米</option>
+                      <option value="码" <% if miniQuantityUnit=='码' %>selected
+                        <% endif %>>码</option>
+                      <option value="千克" <% if miniQuantityUnit=='千克' %>selected
+                        <% endif %>>千克</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content" style="padding-left: 0; margin-left: 0.75rem;border-bottom: 1px solid #e6e6e6;">
+                <div class="item-inner">
+                  <div class="item-title label">起订价格:</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="选填" name="miniPrice" value="<$ miniPrice $>">
+                  </div>
+                  <div class="item-input">
+                    <select name="miniPriceUnit" class="J_miniPriceUnit">
+                      <option value="元/米" <% if miniPriceUnit=='元/米' %>selected
+                        <% endif %> >元/米</option>
+                      <option value="元/码" <% if miniPriceUnit=='元/码' %>selected
+                        <% endif %>>元/码</option>
+                      <option value="元/千克" <% if miniPriceUnit=='元/千克' %>selected
+                        <% endif %>>元/千克</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </li>
+    </div>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">留言:</div>
+          <div class="item-input">
+            <textarea rows="2" class="J_replyRemark" name="leaveMessage" style="line-height: 20px;overflow-y: auto;" placeholder="选填"><$ leaveMessage $></textarea>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

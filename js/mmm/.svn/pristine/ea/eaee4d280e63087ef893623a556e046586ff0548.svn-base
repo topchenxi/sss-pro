@@ -1,0 +1,146 @@
+<header class="bar bar-nav">
+  <% if type == 'edit' %>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class='title'>编辑剪版</h1>
+
+  <%else%>
+    <a class="button button-link button-nav pull-left J_back ">
+      <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>发布剪版</h1>
+  <%endif%>
+
+</header>
+<div class="content">
+<form class="content-block list-block ">
+  <% if orderNumber %>
+    <input type="hidden" value='<$ orderNumber $>' name='orderNumber'>
+  <%endif%>
+  <h3 class='block-title'>采购商信息</h3>
+  <ul>
+    <li class='J_need_item'>
+    <% if source %>
+      <a class="item-content">
+    <%else%>
+      <a class="item-content J_select_buyer">
+    <%endif%>
+      <div class="item-media"> </div>
+      <div class="item-inner">
+        <div class="item-title">采购商 : <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm <%if buyerInfo '==' '' %>gray-text<% endif %>">
+            <$ buyerInfo.company | placeholder('必选')$>  <br/  ><$ buyerInfo.tel $>
+            <input type="hidden" name='buyerId' value='<$ buyerInfo.id $>'>
+        </div>
+        <span class="icon icon-edit pull-right"></span>
+      </div>
+      </a>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content J_addr_edit">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">收货人 :<span class="tips warning-text <%if not buyerInfo %> fn-hide <% elif defaultAddr %> fn-hide <% endif %> "> &nbsp;!</span></div>
+        <div class="item-after  select-custorm  <%if not defaultAddr %> gray-text <% endif %>"><$ defaultAddr.name | placeholder('必选')$>
+           <input type="hidden" name='addrId' value='<$ defaultAddr.id $>'>
+        </div>
+        <span class="icon icon-edit pull-right"></span>
+      </div>
+    </a>
+    </li>
+  </ul>
+  <ul class='seller-block'>
+    <li class='J_need_item'>
+      <a class="item-content J_select_seller"> 
+      <div class="item-media"> </div>
+      <div class="item-inner">
+        <div class="item-title">供应商 : <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm <%if not sellerInfo %> gray-text <% endif %>">
+            <$ sellerInfo.sellerCompany | placeholder('必填')$>
+            <input type="hidden" name='shopId' value='<$ sellerInfo.id $>'>
+        </div>
+        <span class="icon icon-edit pull-right"></span>
+      </div>
+      </a>
+    </li>
+  </ul>
+  <ul>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label leaveMessage">留言 :</div>
+        <div class="item-input">
+            <textarea name="leaveMessage" id="" cols="10" rows="10" placeholder="选填"><$ leaveMessage $></textarea>
+           <!--  <input type="text" name='leaveMessage' placeholder="选填" value='<$ leaveMessage $>'> -->
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class='J_proNumber_info proNumber-info'>
+    <% if productNumList %>
+    <h3 class='block-title'>货号信息</h3>
+    <ul>
+      <% for proNumber in productNumList %>
+      <li>
+        <a class="item-content J_edit_proNumber"  data-index='<$ loop.index $>'>
+          <div class="item-media"> </div>
+          <div class="item-inner">
+            <div class="item-title">
+              <%if proNumber.productType == 1%>
+                面料
+              <%else%>
+                辅料
+              <%endif%>
+            </div>
+            <div class="item-after">
+              <%if proNumber.productType == 1%>
+                货号：
+              <%else%>
+                名称：
+              <%endif%>
+              <$ proNumber.productNumber $>
+            </div>
+            <div class='pull-right right-btn'>
+              <span class="icon icon-edit"></span>
+            </div>
+          </div>
+        </a>
+        <div class='line'></div>
+        <a class="item-content item-price">
+          <div class="item-media"> </div>
+          <div class="item-inner">
+            <div class="item-title">
+              预估价：<$ proNumber.prospectPrice $>元
+            </div>
+            <div class='pull-right right-btn'>
+              <span class="icon icon-remove J_del_proNumber" data-number='<$ proNumber.productNumber $>'></span>
+            </div>
+          </div>
+        </a>
+      </li>
+    <%endfor%>
+      <li>
+        <a class="item-content item-all-price">
+          <div class="item-media"> </div>
+          <div class="item-inner">
+            <div class="item-title">
+              预估总计：<span class='J_all_prospect'><$ allProspectPrice $></span>元
+            </div>
+            <div class="item-after">
+
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <%endif%>
+  </div>
+</form>
+<a href="javascript:;" class='J_add_proNumber button add-proNumber button-success button-fill'>新增货号信息</a>
+
+</div>
+<nav class="bottom-btn">
+  <a class="J_save button button-fill button-block <%if disabled %> disabled <%endif%>"> <% if type == 'edit' %> 保存 <%else%> 发布 <%endif%></a>
+</nav>

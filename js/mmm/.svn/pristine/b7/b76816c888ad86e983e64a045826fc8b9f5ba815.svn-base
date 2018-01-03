@@ -1,0 +1,48 @@
+  <div class="list-block">
+    <ul>
+        <li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon icon-form-name"></i></div>
+              <div class="item-inner">
+                <div class="item-title label">任务备注</div>
+                <div class="item-input">
+                  <textarea name="content" placeholder="选填" rows='15'></textarea>
+                </div>
+              </div>
+            </div>
+        </li>
+    </ul>
+  </div>
+  <div class="card-content">
+      <div class="list-block media-list" style="padding-bottom: 50px;">
+        <p style="margin:0;"><$ topTitle $></p>
+          <ul>
+            <% for items in result %>
+              <li class="J_click">
+                <label class="label-checkbox item-content">
+                  <input type="radio" name="id" value="<$ items.id $>">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner avater">
+                    <div class="avater-l">
+                        <img src="<$ imgPath $>/<$ items.icon $>" />
+                    </div>
+                    <div class="item-subtitle"><$ items.realName $></div>
+                    <div class="item-subtitle"><$ items.mobile $></div>
+                    <% if status <= '4' %>
+                    <div class="item-subtitle">任务处理数: <$ items.taskCount $></div>
+                    <% endif %>
+                    <% if status == '5' or status == '6' %>
+                    <div class="item-subtitle">处理中任务: <$ items.taskCount $></div>
+                    <div class="item-subtitle">已完成任务: <$ items.selfFinishedTaskCount $></div>
+                    <% endif %>
+                    <% if status == '7' %>
+                    <div class="item-subtitle">处理中任务: <$ items.huntingTaskCount $></div>
+                    <div class="item-subtitle">已完成任务: <$ items.finishedTaskCount $></div>
+                    <% endif %>
+                  </div>
+                </label>
+              </li>
+            <% endfor %>
+          </ul>
+      </div>
+  </div>

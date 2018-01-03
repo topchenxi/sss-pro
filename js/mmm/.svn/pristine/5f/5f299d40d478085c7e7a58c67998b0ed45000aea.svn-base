@@ -1,0 +1,6 @@
+<span class='upload-img J_upload_img'>
+	<a href="javascript:;"  class='J_img_preview' data-link='<$ link $>'>
+		<img src="<$ previewlink $>" >
+	</a>
+	<span class='img-del J_img_del'>x</span> 
+</span>

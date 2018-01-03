@@ -1,0 +1,132 @@
+<div class="list-block media-list">
+  <ul>
+    <li>
+      <div class="item-link item-content J_status_list">
+        <div class="item-inner">
+          <div class="item-title"><$ redwoodDescr $></div>
+          <div class="item-subtitle">当前责任人：<$ handler $> <% if handlerTel %><a href="tel:<$ handlerTel $>">拨打电话</a><% endif %></div>
+          <div class="item-subtitle"><% if commitType == 1 %> 跟单员：<% elif commitType == 2 %> 销售员：<% endif %><$ follower $> <% if followerTel %><a href="tel:<$ followerTel $>">拨打电话</a><% endif %></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">订单号</div>
+        <div class="item-after"><$ serviceNumber $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">发布时间</div>
+        <div class="item-after"><$ createTime $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">采购商</div>
+        <div class="item-after"><$ buyerCompany $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">采购商结算周期</div>
+        <div class="item-after"><$ billingCycle $></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-inner">
+        <div class="item-title">供应商</div>
+        <div class="item-after"><$ sellerCompany $></div>
+      </div>
+    </li>
+    <li>
+      <a href="/colorList.html" class="item-link item-content">
+        <div class="item-inner">
+          <div class="item-title">单价、颜色、购买量（共<$ productLength $>组)</div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#supplyMethod" class="item-link item-content">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">供应商收款方式</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="item-link item-content pb-popup" data-type="madanImgUrls">
+        <div class="item-media"><img src="<$ imgPath $><$ madanImgUrls[0] $>@64h_64w_1e" style='width: 1rem; height: 1rem;'></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">码单</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <!-- <li>  产品说去掉了
+      <a href="/moneyDetailList.html?orderNumber=<$ orderNumber $>&source=orderDetail" class="item-link item-content J_hold_lastpage">
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">费用明细</div>
+          </div>
+        </div>
+      </a>
+    </li> -->
+  </ul>
+</div>
+
+<div class="list-block media-list">
+  <ul>
+    <li class="item-content">
+      <div class="item-media pb-popup" data-type="imgUrls"><img src="<$ imgPath $><$ imgUrls[0] $>@64h_64w_1e" style='width: 2rem;height: 2rem;'></div>
+      <div class="item-inner">
+        <div class="item-title-row">
+          <div class="item-title">货号：<$ productNumber $></div>
+        </div>
+        <div class="item-subtitle">类型：<$ buyType $></div>
+      </div>
+    </li>
+    <li>
+      <div class="content-padded">
+        <div class="row">
+          <div class="col-33">品类:<$ productType $></div>
+          <div class="col-33"><$ checkClothString $></div>
+          <div class="col-33"><$ haveRealVersion $></div>
+        </div>
+      </div>
+    </li>
+    <% if (earnestMoneyPayType == 1 and earnestMoneyPayStatus >= 1) or (finalMoneyPayType == 1 and finalMoneyPayStatus >= 1) or (fullMoneyPayType == 1 and fullMoneyPayStatus >= 1) %>
+    <li>
+      <a href="/certificateList.html?tplType=certiType&orderNumber=<$ orderNumber $>&typeCagetory=1" class="item-link item-content J_hold_lastpage">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">采购商付款凭据</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+    <% if (isProcessByFinance == 1 and earnestMoneyPayStatus == 101) or finalMoneyPayStatus == 101 or fullMoneyPayStatus == 101 %>
+    <li>
+      <a href="/certificateList.html?tplType=certiType&orderNumber=<$ orderNumber $>&typeCagetory=2" class="item-link item-content J_hold_lastpage">
+        <div class="item-media"><span class="icon icon-card"></span></div>
+        <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">搜芽付款凭据</div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <% endif %>
+
+
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+{#
+  发布流水订单
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/orderPublish.css">
+      <link rel="stylesheet" href="stylesheets/pages/lsOrderPublish.css">
+      <div class="page page-current" id='lsOrderPublish' style="display: block">
+        <div class='J_content'>
+          
+        </div>
+      </div>
+      <script src="javascripts/lsOrderPublish.js"></script>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,11 @@
+<div class="J_total_title">
+ <% if productSource == 0 %>
+   支付总额
+ <% endif %>
+ <% if productSource == 1 %>
+    支付定金
+ <% endif %>
+</div>
+<div class="J_corner">
+   <span class="J_total_cash hide" <% if productSource == 0 %>style="display:inline"<% endif %>><$ totalCash $></span><span class="J_total_prepay hide" <% if productSource == 1 %>style="display:inline"<% endif %>><$ earnestMoney $></span></span>元
+</div>

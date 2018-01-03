@@ -1,0 +1,17 @@
+.list-block{
+  ul + ul{
+    margin-top: .5rem;
+  }
+}
+.text-red{
+  color: #FF2222;
+}
+.text-blue{
+  color: #3399FF;
+}
+.content{
+  padding-bottom: 1rem;
+}
+.list-block .item-after.source{
+  color: #0099FF;
+}

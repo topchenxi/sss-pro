@@ -1,0 +1,48 @@
+<% if result.length %>
+<% for item in result %>
+<div class="card" style="margin: 0.5rem 0;">
+    <div class="card-content">
+      <div class="list-block media-list">
+        <ul>
+          <li class="item-content">
+            <% for val in item.imgUrlList %>
+            <div class="item-media">
+              <img class="J_zoomPicture" data-src="<$ imgPath $>/<$ val $>" src="<$ imgPath $>/<$ val $>@118h_118w_1e" style='width: 3.5rem; height: 3.5rem;'>
+            </div>
+            <% endfor %>
+            <div class="item-inner">
+              <!-- <div class="item-subtitle">
+                <span>类型:</span>
+                <span>
+                <% for funds in item.fundTypes %>
+                    <% if funds == 2 %>
+                     (订金)
+                    <% elif funds == 3 %>
+                      (尾款)
+                    <% elif funds == 4 %>
+                      (服务费)
+                    <% elif funds == 5 %>
+                      (现款)
+                    <% endif %>
+                <% endfor %>
+                </span>
+              </div> -->
+              <!-- <div class="item-subtitle">
+                <span>操作人:</span><span><$ item.name $></span>
+              </div> -->
+         <!--      <div class="item-subtitle">
+                <span>操作时间:</span><span><$ item.editTimeString $></span>
+              </div> -->
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-footer">
+      <% if item.remark %><div>备注: <span><$ item.remark $></span></div><% endif %>
+    </div>
+</div>
+<% endfor %>
+<% else %>
+  <div style="height: 50px; line-height: 50px; text-align: center;">暂无数据</div>
+<% endif %>

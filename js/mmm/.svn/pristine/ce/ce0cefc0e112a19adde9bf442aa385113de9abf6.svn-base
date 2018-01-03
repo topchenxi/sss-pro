@@ -1,0 +1,117 @@
+.uploadType-wrap {
+  .item-subtitle{
+    padding-left: 10px;
+    .item-l {
+      display: inline-block;
+      width: 60px;
+      text-align: right;
+      margin-right: 10px;
+    }
+    .item-w {
+      width: 100px;
+    }
+  }
+  .colorBlock{
+    padding-left: 0.75rem;
+    margin-top: 10px;
+     .item-content{
+       .item-inner {
+          padding: 10px 0;
+          border-right: 1px solid #e7e7e7;
+        }
+     }
+     ul{
+        padding: 0;
+        width: 100%;
+     }
+     .item-title.label {
+         float: left;
+         padding-top: 5px;
+      }
+      .common-r{
+        float: left;
+      }
+      .item-son-content{
+        
+      }
+      .del {
+          text-align: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+      }
+      .checkbox-wrap{
+        overflow: hidden;
+        label{
+          margin-right: 0.15rem;
+          display: inline-block;
+          padding: 0 5px;
+          border:1px solid #eee;
+          color: #A79D9D;
+        }
+        .labelOn {
+          background-color: #0894EC;
+          color: #fff;
+        }
+      }
+      .enter{
+        width: 90%;
+        padding-right: 5px;
+      }
+      .checkbox{
+        float: left;
+      }
+  }
+  .col-80 {
+    padding-left: 0;
+  }
+  .up-btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  .img-upload-label{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #0894ec;
+    color: #fff;
+    cursor: pointer;
+    &:active{
+      background-color: #549FCE;
+    }
+    .file-input{
+      display: none;
+    }
+    .for-text{
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  .hide{
+      display: none;
+      font-size: 12px;
+   }
+   .p-bot{
+      padding-bottom: 50px;
+   }
+   .money-input{
+      padding-left: 0.75rem;padding-top:0.75rem;margin-top: 10px;
+      .money-in{
+        display:inline-block;width:120px;
+      }
+      .bot-line {
+        border-bottom: 1px solid #e7e7e7;
+      }
+   }
+}

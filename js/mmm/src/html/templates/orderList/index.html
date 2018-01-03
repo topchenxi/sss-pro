@@ -1,0 +1,102 @@
+<% import "macro.html" as utils %>
+
+<% if page.result.length  %>
+  <% for item in page.result %>
+  <div class="card money-list-card" data-tabkey="<$ tabKey $>">
+          <div class="card-header">
+              <span class='number'>订单号：<span style="font-size: 12px;"><$ item.serviceNumber $></span></span>
+              <span class='status'>
+                <$ item.redwoodDescr $>
+              </span>
+          </div>
+          <div class="card-content" >
+             <a class="block item-link item-content J_jump_to_detail" href="/orderDetail.html?orderNumber=<$ item.orderNumber $>&tabKey=<$ page.tabKey $><% if  loginInfo.urgeMoney == 1%>&urgeMoney=1<% endif %><% if loginInfo.collectDebts == 1 %>&collectDebts=1<% endif %>&category=<$ page.category $><% if loginInfo.jbCollection == 1 %>&jbCollection=1<% endif %><% if loginInfo.unGetPay == 1 %>&unGetPay=1<% endif %>&payDebtId=<$ item.payDebtId $>">
+                <div class="card-content-inner ">
+                  <div class='pull-left img'>
+                    <% if item.imgUrls.length > 0 %>
+                    <img src="<$ page.imgPath $><$ item.imgUrls[0] $>@100h_100w" style="height: 100%;" alt="">
+                    <% else %>
+                    <img src="<$ page.imgPath $>/upload/util/default_buy.jpg@80h_80w" style="width: 100%; height: 100%;">
+                    <% endif %>
+                  </div>
+                  <ul class='info pull-left'>
+                    <li>采购商： <$ item.buyer.company $>  </li>
+                    <% if item.sellerCompany %>
+                      <li>
+                        供应商：<$ item.sellerCompany $>
+                      </li>
+                    <% endif %>
+
+                    <% if loginInfo.woodPurchaserLeader %>
+                    <!-- 采购组长可以看到所指派的买货员 -->
+                    <!-- <li>跟单员：</li> -->
+                    <li>买货员：<$ item.handler $></li>
+                    <% endif %>
+
+                    <% if page.category == 'zb-all' %>
+                    <li class="limitHeight"><$ item.wantProductList[0].tagNames $></li>
+                    <% endif %>
+                    <% if page.category == 'jb-all' %>
+                    <li>电话：<$ item.sellerTel $></li>
+                    <li>地址：<$ item.sellerProvince $><$ item.sellerCity $><$ item.sellerArea $><$ item.sellerAddr $></li>
+                    <% endif %>
+
+                    <% if page.tabKey == 'cjqk' %>
+                      <li>出仓单号：<span><$ item.outReposityNumber $></span></li>
+                    <% endif %>
+                    <% if page.tabKey == 'cjqk' %>
+                      <li>应收欠款：<span style='color: red;'><$ item.totalDebtMoney $>元</span></li>
+                      <% if item.exceptionCode %>
+                      <li><span style='color: red;word-break: break-all;'>异常<$ item.exceptionCode $>：<$ item.exceptionMsg $></span></li>
+                      <% endif%>
+                    <% endif %>
+                    <% if page.tabKey == 'sqk' %>
+                      <li>实收欠款：<span style='color: red;'><$ item.totalDebtMoney $>元</span></li>
+                    <% endif %>
+                    <% if page.tabKey == 'xj' and item.exceptionFlag == 1 %>
+                      <li><span style='color: red;word-break: break-all;'>异常<$ item.exceptionCode $>：<$ item.exceptionMsg $></span></li>
+                    <% endif %>
+                    <% if page.tabKey == 'dhwk' and item.exceptionFlag == 1 %>
+                      <li><span style='color: red;word-break: break-all;'>异常<$ item.exceptionCode $>：<$ item.exceptionMsg $></span></li>
+                    <% endif %>
+                    <% if loginInfo.woodPurchaserLeader or loginInfo.woodPurchaser %>
+                      <% if page.tabKey == 'zpxj' or page.tabKey == 'xj' %>
+                       <% if item.emergency == 2 %>
+                        <li>
+                          <span class="hurry">急</span>
+                        </li>
+                        <% endif %>
+                      <% endif %>
+                    <% endif %>
+                    <% if item.leaveMessage %>
+                      <li>
+                        跟单员留言： <$ item.leaveMessage $>
+                      </li>
+                    <% endif %>
+                    <% if page.category == 'zb-all' %>
+                    <% if page.tabKey == 'dzb' and item.salesName != '' %>
+                      <li>
+                        <span style="color: red;"><$ item.salesName $> - <$ item.salesTel $></span>
+                      </li>
+                    <% endif %>
+                    <% if item.words != '' %>
+                    <li>
+                      <span class="haveRealVersion">
+                        <$ item.words $>
+                      </span>
+                    </li>
+                    <% endif %>
+                    <% endif %>
+                  </ul>
+                  <span class="icon icon-right pull-right fix-icon"></span>
+                </div>
+              </a>
+          </div>
+          <div class="card-footers">
+            <$ utils.footer(loginInfo, item) $>
+          </div>
+  </div>
+ <% endfor %>
+<% else %>
+  <div class="J_empty_tips" style="text-align: center; margin: 2rem auto"></div>
+<% endif %>

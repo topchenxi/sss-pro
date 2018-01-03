@@ -1,0 +1,53 @@
+{#
+  录入大货
+#}
+
+{% extends 'layouts/application.html' %}
+
+
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/inputInfo.css">
+      <div class="page page-current input-bigGood" id='inputBigGood' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_goback">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title J_input_title'>录入大货信息</h1>
+        </header>
+        <div class="content J_input_content">
+            <div class="J_record_content">
+            </div>
+            <div class="good-footer">
+              <!-- <div class="footer-l J_leftCorner">
+              </div> -->
+              <div class="footer-r" style="width: 100%">
+                <a href="javascript:;" class="button button-big button-fill J_saveBtn" style="border-radius: 0">保存</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="page" id='supplyMethod'>
+        <header class="bar bar-nav">
+            <a href="javascript:;" class="button button-link button-nav pull-left J_back">
+              <span class="icon icon-left"></span>
+              返回
+            </a>
+            <h1 class='title'>供应商收款方式</h1>
+        </header>
+        <div class="content">
+          <div class="content-block" style="margin: 0; padding: 0;">
+            <div class="list-block">
+               <form class="J_account">
+               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="javascripts/inputInfo.js"></script>
+    </div>
+{% endblock %}
+
+
+

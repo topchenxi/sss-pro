@@ -1,0 +1,88 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'><$ title $></h1>
+</header>
+<form class='content'>
+    <% if id %>
+    <input type="hidden" name='id' value="<$ id $>">
+    <%endif%>
+   <div class="list-block">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">账户类型 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input buttons-row">
+                  <a href="javascript:;" class='J_account_type button active' data-type='2'>个人</a>
+                  <a href="javascript:;" class='J_account_type button' data-type='1'>企业</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">开户名 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <input type="text" class="J_account_input" value="<$ replyAccountUser $><$ replyAccountCompany $>"  placeholder="必填">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">银行卡号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <input type="text" class=""  name="replyAccountNumber" value="<$ replyAccountNumber $>"  placeholder="必填">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">银行名称<span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                  <input type="text" name='replyAccountBank' class='J_select_bank' value='<$ replyAccountBank $>' placeholder="必填">
+              </div>
+            </div>
+          </div>
+        </li>
+         <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">开户地区 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <input type="text" class="J_select_bank_area" value="<$ province $> <$ city $>"  placeholder="必填">
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- ziying去除银行支行录入 -->
+        <!-- <li class='J_need_item'>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-form-name"></i></div>
+            <div class="item-inner">
+              <div class="item-title label">支行 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+              <div class="item-input">
+                <textarea  class="J_replyAccountBranch bank-branch" placeholder="必填"><$ replyAccountBranch $></textarea>
+              </div>
+            </div>
+          </div>
+        </li> -->
+        <li>
+          <div class='autocomplete-dom'></div>
+        </li>
+      </ul>
+      <a href="javascript:;" class="button save-button J_save <%if not id %> disabled <%endif%>">确定</a>
+  </div>
+</form>

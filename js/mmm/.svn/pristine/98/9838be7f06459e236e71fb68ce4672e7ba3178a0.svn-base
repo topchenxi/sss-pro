@@ -1,0 +1,29 @@
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left J_back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'><$ title $></h1>
+  <%if status == 300 and loginInfo.woodFollowLeader %>
+  <a class='fn-right save-link' href='/addColor.html?source=colorList'>编辑</a>
+  <%endif%>
+</header>
+<div class='content list-block'>
+  <ul>
+    <% for list in productList %>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title">
+            <span> 颜色：<$ list.color $></span>
+          </div>
+          <div class="item-after">
+            <span> <$ list.salePrice $> <$ list.salePriceUnit $> </span>&nbsp;&nbsp;
+            <span>X<$ list.quantity $> <$ list.quantityUnit $> </span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <% endfor %>
+  </ul>
+</div>

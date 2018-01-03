@@ -1,0 +1,22 @@
+{#
+  供应商收款方式列表
+#}
+
+{% extends 'layouts/application.html' %}
+
+
+
+{% block content %}
+    <div class="page-group">
+ 
+		<link rel="stylesheet" href="stylesheets/pages/sellerAccountsList.css">
+ 
+	  	<div class="page" id='sellerAccountsList' style="display: block">
+	    	
+	  	</div>  
+		<script src="javascripts/sellerAccountsList.js"></script>
+    </div>
+
+{% endblock %}
+
+

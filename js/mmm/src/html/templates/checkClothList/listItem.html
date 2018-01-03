@@ -1,0 +1,50 @@
+  <% if checkFlawList.length > 0 %>
+    <% for item in checkFlawList %>
+    <% if item.serialItem.length > 0 %>
+    <p><$ item.type $></p>
+    <% for sonItem in item.serialItem %>
+    <form class="J_form">
+      <ul class="colorBlock J_changeCertItem">
+        <li class="row no-gutter">
+          <div class="col-100 item-content" style="padding-left: 0;">
+            <ul class="item-son-content">
+              <li>
+                  <div class="item-inner">
+                      <div class="pull-left col-45">
+                      匹号<span style="padding-left: 10px;"><$ sonItem.number $></span></div>
+                      <div class="col-30 pull-right">
+                      <% if woodFollowLeader and status == 371 %>
+                        <span class="J_update" style="color:#1385cc" data-ph="<$ sonItem.number $>" data-id="<$ sonItem.id $>" data-result="<$ sonItem.result $>">更改评价</span>
+                       <% endif %>
+                      </div>
+                  </div>
+              </li>
+              <% if sonItem.imgUrls.length > 0 %>  
+                <li style="padding-bottom: 10px;border-bottom: 1px solid #efefef;">
+                  <div class="check">
+                      <div  style="padding-top: 10px;margin-right: 5px;">瑕疵图片</div>
+                      <div class="common-r img J_serialImg">
+                        <span class="imgWrap">
+                          <img src="<$ imgPath $><$ sonItem.imgUrls[0] $>@118h_118w_1e" class='J_zoom cloth' style="border:1px solid #ccc; width:2rem; height: 2rem;" data-allImg="<$ sonItem.imgUrls $>"/>
+                        </span>
+                     
+                        <span  style="padding-top: 10px;">共<$ sonItem.imgUrls.length $>张</span>
+                      </div>
+                  </div>
+                </li>
+              <% endif %>
+              <li>
+                <div class="item-inner">
+                    <div class="pull-left col-20">备注</div>
+                    <div class="common-r  col-80"><$ sonItem.remark $></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </form>
+    <% endfor %>
+    <% endif %>
+  <% endfor %>
+<% endif %>

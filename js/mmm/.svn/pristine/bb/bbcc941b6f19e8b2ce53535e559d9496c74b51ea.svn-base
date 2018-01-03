@@ -1,0 +1,26 @@
+{# 验布报告列表 #} {% extends 'layouts/application.html' %} {% block content %}
+<div class="page-group">
+    <link rel="stylesheet" href="stylesheets/pages/checkClothList.css">
+    <div class="page checkClothList-wrap" id='checkClothList' style="display: block">
+        <header class="bar bar-nav J_head">
+            <a class="button button-link button-nav pull-left">
+                <span class="icon icon-left J_goBack"></span>
+            </a>
+            <h1 class='title J_input_title'>验货报告</h1>
+        </header>
+        <div class="content J_input_content">
+            <div class="list-block media-list " style="margin: 0 0 1.75rem 0">
+                <!-- 订单信息 -->
+                <div class="J_bill_text">
+                </div>
+                <!-- 换货模块 -->
+                <div class="J_changeGood" style="padding-bottom: 50px;">
+                </div>
+           </div>
+        </div>
+        <div class="J_checkFooter">
+        </div>
+</div>
+<script src="javascripts/checkClothList.js"></script>
+</div>
+{% endblock %}

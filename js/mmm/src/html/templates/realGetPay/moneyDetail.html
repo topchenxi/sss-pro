@@ -1,0 +1,184 @@
+  <ul>
+    <li>
+      <div class="item-content">
+         <div class="item-inner">
+          <div class="item-title-row">
+            <div class="item-title">费用明细</div>
+          </div>
+          <% if  productSource == 1 %>
+          <% if earnestMoney %>
+            <% if not finalMoney %>
+              <% if earnestMoney %><div class="item-subtitle"> 支付定金:<span class="assert-price"><$ earnestMoney $></span><span>元</span></div><%endif%>
+              <% if fullMoney %><div class="item-subtitle"> 预估货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+              <% if taxMoney %><div class="item-subtitle"> 预估税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+              <% if serviceMoney %><div class="item-subtitle"> 预估服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+              <%if earnestMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">欠款明细</div>
+                </div>
+                <div class="item-subtitle"> 待还定金:<span class="assert-price"><$ earnestMoneyDebt $></span><span>元</span></div>
+              <%endif%>
+            <%else%>
+              <% if earnestMoney %><div class="item-subtitle"> 定金:<span class="assert-price"><$ earnestMoney $></span><span>元</span></div><%endif%>
+              <% if fullMoney %><div class="item-subtitle"> 成本货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+              <% if finalMoney %><div class="item-subtitle"> 尾款:<span class="assert-price"><$ finalMoney $></span><span>元</span></div><%endif%>
+              <% if taxMoney %><div class="item-subtitle"> 税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+              <% if serviceMoney %><div class="item-subtitle"> 服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+              <%if earnestMoneyDebt or finalMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">欠款明细</div>
+                </div>
+                <% if earnestMoneyDebt %>
+                  <div class="item-subtitle"> 待还定金:<span class="assert-price"><$ earnestMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if finalMoneyDebt %>
+                  <div class="item-subtitle"> 待还尾款:<span class="assert-price"><$ finalMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if taxMoneyDebt %>
+                  <div class="item-subtitle"> 待还税款:<span class="assert-price"><$ taxMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+                <% if serviceMoneyDebt %>
+                  <div class="item-subtitle"> 待还服务费:<span class="assert-price"><$ serviceMoneyDebt $></span><span>元</span></div>
+                <%endif%>
+              <%endif%>
+            <%endif%>
+          <%endif%>
+          <% else %>
+            <%if fullMoney %><div class="item-subtitle"> 成本货款:<span class="assert-price"><$ fullMoney $></span><span>元</span></div><%endif%>
+            <%if taxMoney %><div class="item-subtitle"> 税款:<span class="assert-price"><$ taxMoney $></span><span>元</span></div><%endif%>
+            <%if serviceMoney %><div class="item-subtitle"> 服务费:<span class="assert-price"><$ serviceMoney $></span><span>元</span></div><%endif%>
+            <%if fullMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+              <div class="item-title-row">
+                <div class="item-title">欠款明细</div>
+              </div>
+              <% if fullMoneyDebt %>
+                <div class="item-subtitle"> 待还货款:<span class="assert-price"><$ fullMoneyDebt $></span><span>元</span></div>
+              <%endif%>
+              <% if taxMoneyDebt %>
+                <div class="item-subtitle"> 待还税款:<span class="assert-price"><$ taxMoneyDebt $></span><span>元</span></div>
+              <%endif%>
+              <% if serviceMoneyDebt %>
+                <div class="item-subtitle"> 待还服务费:<span class="assert-price"><$ serviceMoneyDebt $></span><span>元</span></div>
+              <%endif%>
+            <%endif%>
+          <%endif%>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <% if debtCertificateList.length %>
+  <% for item in debtCertificateList  %>
+   <div class="J_form">
+      <ul class="colorBlock J_bill_section">
+        <li class="row no-gutter">
+          <div class="col-100 item-content">
+            <ul class="item-son-content">
+              <li class="bottomLine">
+                  <div class="check">
+                      <div style="padding-top: 10px;margin-right: 5px;">采购商付款凭据</div>
+                      <div class="common-r img J_newParent">
+                       <img src="<$ imgPath $>/<$ item.imgUrl $>@80h_80w_1e" data-src="<$ item.imgUrl $>" class="J_zoom" style="border:1px solid #ccc;" />
+                      </div>
+                  </div>
+              </li>
+              <li>
+                  <div class="item-inner">
+                      <div class="pull-left col-20" style="padding-top: 9px;">备注</div>
+                      <div class="common-r  col-80">
+                        <span class="enter J_remark"><$ item.remark $></span>
+                      </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+      </li>
+    </ul>
+  </div>
+  <% endfor %>
+  <% endif %>
+
+<!-- fundType 款项类型 2 订金 3 尾款 4 服务费 5 现款 6 税款 -->
+  <ul style="margin-top: 10px;margin-bottom: 2.4rem;" class='financialPay J_financialPay'>
+    <li>
+      <div class="item-content">
+         <div class="item-inner">
+          <% if  productSource == 1 %>
+          <% if earnestMoney %>
+            <% if not finalMoney %>
+              <%if earnestMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">财务入账</div>
+                </div>
+                <form class="J_form"><div class="item-subtitle">
+                <span>定金:</span>
+                <span class="assert-price"><input type="text" name="realAmount" value="<$ earnestMoneyDebt $>"></span><span>元</span>
+                <input type="hidden" name="fundType" value="2">
+                </div></form>
+              <%endif%>
+            <%else%>
+              <%if earnestMoneyDebt or finalMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+                <div class="item-title-row">
+                  <div class="item-title">财务入账</div>
+                </div>
+                <% if earnestMoneyDebt %>
+                 <form class="J_form"><div class="item-subtitle">
+                 <span>定金:</span>
+                 <span class="assert-price"><input type="text" name="realAmount" value="<$ earnestMoneyDebt $>"></span><span>元</span></div>
+                 <input type="hidden" name="fundType" value="2">
+                 </form>
+                <%endif%>
+                <% if finalMoneyDebt %>
+                 <form class="J_form"> <div class="item-subtitle">
+                 <span>尾款:</span><span class="assert-price"><input type="text" name="realAmount" value="<$ finalMoneyDebt $>"></span><span>元</span></div>
+                 <input type="hidden" name="fundType" value="3">
+                 </form>
+                <%endif%>
+                <% if taxMoneyDebt %>
+                 <form class="J_form">
+                 <div class="item-subtitle"><span>税款:</span><span class="assert-price"><input type="text" name="realAmount" value="<$ taxMoneyDebt $>"></span><span>元</span></div>
+                 <input type="hidden" name="fundType" value="6">
+                 </form>
+                <%endif%>
+                <% if serviceMoneyDebt %>
+                  <form class="J_form"><div class="item-subtitle"><span>服务费:</span><span class="assert-price"><input type="text" name="realAmount" value="<$ serviceMoneyDebt $>"></span><span>元</span></div>
+                  <input type="hidden" name="fundType" value="4">
+                  </form>
+                <%endif%>
+              <%endif%>
+            <%endif%>
+          <%endif%>
+          <% else %>
+            <%if fullMoneyDebt or taxMoneyDebt or serviceMoneyDebt %>
+              <div class="item-title-row">
+                <div class="item-title">财务入账</div>
+              </div>
+              <% if fullMoneyDebt %>
+                <form class="J_form"><div class="item-subtitle">
+                <span>成本货款:</span>
+                <span class="assert-price"><input type="text" name="realAmount" value="<$ fullMoneyDebt $>"></span><span>元</span></div>
+                <input type="hidden" name="fundType" value="5">
+                </form>
+              <%endif%>
+              <% if taxMoneyDebt %>
+                <form class="J_form"><div class="item-subtitle">
+                <span>税款:</span>
+                <span class="assert-price"><input type="text" name="realAmount" value="<$ taxMoneyDebt $>"></span><span>元</span></div>
+                <input type="hidden" name="fundType" value="6">
+                </form>
+              <%endif%>
+              <% if serviceMoneyDebt %>
+                <form class="J_form"><div class="item-subtitle">
+                <span>服务费:</span>
+                <span class="assert-price"><input type="text" name="realAmount" value="<$ serviceMoneyDebt $>"></span><span>元</span></div>
+                <input type="hidden" name="fundType" value="4">
+                </form>
+              <%endif%>
+
+            <%endif%>
+          <%endif%>
+        </div>
+      </div>
+    </li>
+  </ul>
+

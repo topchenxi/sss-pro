@@ -1,0 +1,23 @@
+<li class="item-content J_need_item">
+  <div class="item-media"><i class="icon"></i></div>
+  <div class="item-inner">
+    <div class="item-title label">单位 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+    <% if productType == 2 %> <!-- 辅料 -->
+    <div class="item-input row no-gutter custrom-unit">
+        <span class='col-10'>元/</span><input type="text" name="priceUnit" class='col-50' placeholder="例如：个、码" value='<$ colorList[0].quantityUnit $>'>
+    </div>
+    <% else %><!-- 面料 -->
+    <div class="item-input radio-group">
+        <label for="priceUnit-1">
+          <input type="radio" name='priceUnit' id='priceUnit-1' value='米' <% if colorList[0].priceUnit == '元/米' %> checked="checked" <% endif %> >元/米
+        </label>
+        <label for="priceUnit-2">
+          <input type="radio" name='priceUnit' id='priceUnit-2' value='码' <% if colorList[0].priceUnit == '元/码' %> checked="checked" <% endif %> >元/码
+        </label>
+        <label for="priceUnit-3">
+          <input type="radio" name='priceUnit' id='priceUnit-3' value='千克' <% if colorList[0].priceUnit == '元/千克' %> checked="checked" <% endif %> >元/千克
+        </label>
+    </div> 
+    <% endif %>
+  </div>
+</li>

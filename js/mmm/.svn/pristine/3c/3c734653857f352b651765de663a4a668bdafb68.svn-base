@@ -1,0 +1,25 @@
+<div class='J_list_dom list-dom'>
+  <div class="list-block">
+    <ul>
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名</div>
+            <div class="item-input">
+              <$ loginInfo.user.realName $>
+              <a class="button button-fill button-danger J_logout" style="float: right">退出登录</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- <div  class="logout">
+    <div class="row">
+      <div class="col-50">
+        <a href="/orderPublish.html" class="button button-big button-fill button-success">代发采购</a>
+      </div>
+    </div>
+  </div> -->
+</div>

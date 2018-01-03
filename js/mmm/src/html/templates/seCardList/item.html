@@ -1,0 +1,54 @@
+ <% if result.length > 0 %>
+ <% for item in result %>
+ <div class="list-block J_list_block">
+    <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">档口名:</div>
+              <div class="item-title">
+                    <% if item.sellerCompany %>
+                     <$ item.sellerCompany $>
+                    <% else %>  
+                     <$ item.company $>
+                    <% endif %>
+                </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+            <% if item.productType == 1 %>
+              <div class="item-title" style="width: 55%;">货号:</div>
+              <div class="item-title" style="width: 45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><$ item.productNumber $></div>
+            <% endif %>
+            <% if item.productType == 2 %>
+              <div class="item-title" style="width: 55%;">成分/织法/工艺:</div>
+              <div class="item-title" style="width: 45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                  <% if item.tagNames %>
+                     <$ item.tagNames $>
+                  <% else %>
+                     <$ item.title $>
+                  <% endif %>
+                </div>
+            <% endif %>
+            </div>
+          </div>
+        </li>
+    </ul>
+    <div class="oper">
+      <div class="oper-flex">
+         <% if item.reply!='1' %>
+         <p>
+          <span data-id="<$ item.buyProductId $>" data-reply="<$ item.reply $>" class="J_edit_cardInfo fontSize icon icon-edit" itemInfo="<$ item.itemInfo $>" edit-index='<$ loop.index0 $>' ></span>
+        </p>
+       <% endif %>
+         <p data-id="<$ item.buyProductId $>" data-reply="<$ item.reply $>" class="J_deleteItem" data-index='<$ loop.index0 $>'><span class="fontSize icon icon-remove"></span></p>
+       </div>
+     </div>
+</div>
+<% endfor %>
+<% else %>
+  <div class='warn'>请录入色卡</div>
+<% endif %>

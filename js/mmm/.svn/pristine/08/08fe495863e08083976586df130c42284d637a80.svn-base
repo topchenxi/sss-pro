@@ -1,0 +1,83 @@
+{#
+  上传凭证的信息
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/uploadBill.css">
+      <div class="page page-current uploadBill-wrap" id='uploadBill' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_goBack">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title J_input_title'>上传付款凭据</h1>
+        </header>
+        <div class="content J_input_content">
+             <div class="list-block media-list" style="margin: 0 0 1.75rem 0">
+                <!-- 订单信息 -->
+                <div class="J_bill_text">
+                </div>
+                <!-- 财务收款方式 -->
+                <div class="account-list row no-gutter">
+                  <div class="col-30 label">财务收款账户：<span class="tips J_account_checked warning-text fn-hide">&nbsp;!</span></div>
+                  <div class="col-30 J_account_list">
+                     
+                  </div>
+                  <div class="col-30 J_account_number account-number">
+                  </div>
+                </div>
+              <!-- 上传图片模板 -->
+               <div class="p-bot J_bill_block">
+                <form class="J_form">
+                  
+                  <ul class="colorBlock J_bill_section">
+                    <li class="row no-gutter">
+                      <div class="col-80 item-content">
+                        <ul class="item-son-content">
+                          <li class="bottomLine">
+                              <div class="check">
+                                  <div style="padding-top: 10px;margin-right: 5px;">采购商付款凭据</div>
+                                  <div class="common-r img J_upParent J_newParent">
+                                    <label class='J_upCloth upCheckPic' style="margin-top: 0.25rem;">+<input type="file"  value='添加图片' class='file-input' accept="image/*" multiple >
+                                       </label>
+                                  </div>
+                              </div>
+                          </li>
+
+                          <li>
+                              <div class="item-inner">
+                                  <div class="pull-left col-20" style="padding-top: 9px;">备注</div>
+                                  <div class="common-r  col-80">
+                                    <textarea class="enter J_remark"  name="remark" placeholder="填写备注"></textarea>
+                                  </div>
+                              </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-20 del warning-text item-link J_del J_firstDel">
+                        <span>删除</span>
+                      </div>
+                  </li>
+                  </ul>
+                  </form>
+               </div>
+                <div class="plus">
+                  <a class="plus-w J_add yhide" href="javascript:;">+</a>
+                </div>
+                <!-- 上传按扭 -->
+                <div class="up-btn">
+                  <div class="for-text">
+                    <label class='J_save_btn img-upload-label disabled'>
+                       提交         
+                    </label>
+                  </div>
+                </div>
+             </div>
+        </div>
+      </div>
+      <script src="javascripts/uploadBill.js"></script>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,27 @@
+<ul>
+  <li>
+    <div class="item-inner">
+      <div class="item-subtitle">
+        <span class="item-l">订单号:</span><span><$ orderNumber $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">货号:</span><span><$ good $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">采购商:</span><span><$ buyer $></span>
+      </div>
+      <div class="item-subtitle">
+        <span class="item-l">供应商:</span><span><$ seller $></span>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <a href="#fareDetail-list" class="item-link item-content">
+      <div class="item-inner">
+        <div class="item-subtitle">查看费用明细</div>
+      </div>
+    </a>
+  </li>
+  
+</ul>

@@ -1,0 +1,50 @@
+#seCardList {
+  .warn {
+    height: 5.0rem;
+    line-height: 5.0rem;
+    text-align: center;
+  }
+  .list-block {
+    margin:0.75rem 0;
+    position:relative;
+    .item-inner {
+      justify-content: flex-start;
+    }
+    .card-ul {
+      padding-bottom: 1.0rem;
+    }
+    .item-title {
+      max-width: 75%;
+      padding-right: 10px;
+      white-space: inherit;
+    }
+    li {
+      margin-right: 3.0rem;
+    }
+    .oper {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      .oper-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      p {
+        border: 1px solid #000;
+        margin: 0;
+        margin-bottom: 10px;
+        cursor: pointer;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      .fontSize {
+        font-size: 20px;
+      }
+    }
+  }
+
+}

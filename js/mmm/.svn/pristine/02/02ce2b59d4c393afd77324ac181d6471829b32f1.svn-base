@@ -1,0 +1,64 @@
+  <header class="bar bar-nav">
+      <a class="button button-link button-nav pull-left back" href="">
+        <span class="icon icon-left"></span>
+        返回
+      </a>
+      <h1 class='title'>供应商收款方式</h1>
+  </header>
+  <div class="content">
+    <div class="content-block" style="margin: 0; padding: 0;">
+      <div class="list-block">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">户名</div>
+                  <div class="item-input break-all">
+                    <% if replyAccountType == 1 %> <$ replyAccountCompany $> <% else %> <$ replyAccountUser $><% endif%>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">卡号</div>
+                  <div class="item-input">
+                    <input type="text" disabled value="<$ replyAccountNumber $>" >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">银行</div>
+                  <div class="item-input">
+                    <input type="text" disabled value="<$ replyAccountBank $>" >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">支行</div>
+                  <div class="item-input">
+                    <textarea disabled rows='3'><$ replyAccountBranch $></textarea>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">账户类型</div>
+                  <div class="item-input">
+                   <% if replyAccountType == 1 %> 企业 <% else %> 个人 <% endif%>
+                </div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>

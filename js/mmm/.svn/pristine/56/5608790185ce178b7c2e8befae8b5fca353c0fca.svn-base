@@ -1,0 +1,118 @@
+
+<header class="bar bar-nav">
+  <a class="button button-link button-nav pull-left back">
+    <span class="icon icon-left"></span>
+    返回
+  </a>
+  <h1 class='title'>
+    <%if addrObj.id %>
+      修改地址
+    <%else%>
+      新增地址
+    <%endif%>
+  </h1>
+</header>
+<form class='content'>
+   <div class="list-block">
+    <%if addrObj.id %>
+      <input type="hidden" name='id' value="<$ addrObj.id $>">
+    <%endif%>
+    <%if userId %>
+      <input type="hidden" name='userId' value="<$ userId $>">
+    <%endif%>
+    <input type="hidden" name='isDefault' value='1'>
+    <ul class=''>
+      <!-- Text inputs -->
+      <li class='J_need_item'>
+        <div class="item-content J_need_item">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">姓名 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="text" placeholder="收货人名称" name='name' value= '<$ addrObj.name $>'>
+            </div>
+          </div> 
+        </div>
+      </li> 
+      <li  class='J_need_item'>
+        <div class="item-content J_need_item">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">手机号 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="number" placeholder="11位手机号" name='tel' value="<$ addrObj.tel $>">
+            </div>
+          </div>
+        </div>
+      </li> 
+      <li class='J_need_item'>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label"> 省市区 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="text" placeholder="请选择省市区" class='J_addr_select' value="<$ addrObj.province $> <$ addrObj.city $> <$ addrObj.area $>">
+              <input type="hidden" name='province' value="<$ addrObj.province $>">
+              <input type="hidden" name='city' value="<$ addrObj.city $>">
+              <input type="hidden" name='area' value="<$ addrObj.area $>">
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class='J_need_item'>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">详细地址 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="text" placeholder="街道门牌信息" name='addr' value="<$ addrObj.addr $>">
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class='express-block'>
+      <!-- Text inputs -->
+      <li>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">指定物流</div>
+            <div class="item-input">
+              <label class="label-switch">
+                <input type="checkbox"<% if addrObj.haveSendCompany %> checked ='checked' <%endif%> name="haveSendCompany" class='J_haveSendCompany'>
+                <div class="checkbox"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </li> 
+      <li class=' <% if addrObj.haveSendCompany %> J_need_item <% else %> fn-hide <% endif %>'  >
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">物流公司 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="text" placeholder="物流公司的名称" name='sendCompany' class='J_sendCompany' value='<$ addrObj.sendCompany $>'>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li  class=' <% if not addrObj.haveSendCompany %> fn-hide <% endif %>'>
+        <div class="item-content">
+          <div class="item-media"><i class="icon icon-form-name"></i></div>
+          <div class="item-inner">
+            <div class="item-title label">联系电话</div>
+            <div class="item-input">
+              <input type="text" placeholder="物流公司的电话" name='sendTel'  class='J_sendTel' value='<$ addrObj.sendTel $>'>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class='express-tips'>搜芽将会优先使用您指定的物流公司，但可能根据具体情况作调整</div>
+  </div>
+  <nav class="bottom-btn">
+    <a class="button button-block J_save  <%if not addrObj.id %> disabled <%endif%>">保存</a>
+  </nav>
+</form>

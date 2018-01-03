@@ -1,0 +1,100 @@
+#index{
+    .bar-nav ~ .content {
+        top: 5rem;
+    }
+    .common-head {
+        position: relative;
+        top: 2.2rem;
+        z-index: 1000;
+        .tab-content {
+           text-align: center;
+           background-color: #fff;
+           border-bottom: 2px solid #eeeeee;
+           .item {
+            padding: 0.25rem 0;
+            color: #000;
+           }
+           .active {
+             color: #0894ec;
+             border-bottom:2px solid  #0894ec;
+           }
+        }
+        // .tab-content {
+        //     width: 100%;
+        //     text-align: center;
+        //     background-color: #fff;
+        //     border-bottom: 2px solid #fff;
+        //     .tab-item {
+        //         padding: 0.25rem 0;
+        //         display: inline-block;
+        //         width: 32.33%;
+        //         color: #000;
+        //     }
+        //     .active {
+        //         color: #0894ec;
+        //         border-bottom:2px solid  #0894ec;
+        //     }
+        // }
+    }
+    .top-search {
+        padding: 0 0.5rem;
+        background-color: #efeff4;
+    }
+    .list-block ul:after {
+        background-color: transparent;
+    }
+    .list-block .item-inner:after, .list-block ul:after {
+        background-color: transparent;
+    }
+    .list-block{
+        margin-top: 1rem;
+        font-size:0.7rem;
+        overflow: hidden;
+        ul{
+            overflow: hidden;
+            background-color: transparent;
+            li{
+                margin-bottom: 2rem;
+                background-color: #fff;
+                overflow: hidden;
+            }
+        }
+        .items{
+            color: #666;
+        }
+        .block-title{
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .task-item{
+            margin-left:0.5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            text-align: center;
+            width: 3.6rem;
+            height: 4rem;
+            overflow: hidden;
+            dd{
+                padding: 0;
+                margin: 0;
+                position: relative;
+                img{
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+                .task-num{
+                    display: inline-block;
+                    position: absolute;
+                    width: 1.5rem;
+                    height: 1.1rem;
+                    line-height: 1rem;
+                    border-radius: 100%;
+                    font-size:0.5rem;
+                    border:2px solid #000;
+                    right: 0.2rem;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}

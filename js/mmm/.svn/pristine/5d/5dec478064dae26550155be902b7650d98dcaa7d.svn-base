@@ -1,0 +1,21 @@
+<%if obj %>
+	<a  data-addrId='<$ obj.id $>' class="item-link item-content address-con J_addr_select">
+	<div class="item-inner">
+	  	<div class="item-text">
+	  		<input type="hidden" name='addrId' value="<$ obj.id $>">
+	    	<span><$ obj.name $> </span> <span>&nbsp;&nbsp;&nbsp;<$ obj.tel $></span><br/>
+			<span><$ obj.province $> <$ obj.city $> <$ obj.area $><$ obj.addr $></span><br/>
+			<div class='send-company'>
+			<% if obj.haveSendCompany == 1 %>
+				<% if obj.sendCompany %><span>物流公司：</span> <span><$ obj.sendCompany $></span><br/><%endif%>
+				<% if obj.sendTel %><span>物流电话：</span> <span><$ obj.sendTel $></span><br/><%endif%>
+			<% endif %>
+			</div>
+	  	</div>
+	</div>
+</a>
+<% else %>
+<a href="/addressList.html" class="item-link item-content address-con">
+	<div class="item-inner">请选择收货地址</span></div>
+</a>
+<% endif %>

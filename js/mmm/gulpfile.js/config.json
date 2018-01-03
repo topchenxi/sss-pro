@@ -1,0 +1,131 @@
+{
+  "root": {
+    "src": "./src",
+    "dest": "./public"
+  },
+
+  "tasks": {
+    "browserSync": {
+      "host":"localredwoodm.soouya.com",
+      "open": false,
+      "server": {
+        "baseDir": "public"
+      }
+    },
+
+    "static": {
+      "src": "static",
+      "dest": "./"
+    },
+
+    "js": {
+      "src": "javascripts",
+      "dest": "javascripts",
+      "extractSharedJs": true,
+      "entries": {
+        "app": ["./pages/app.js"],
+        "login": ["./pages/login/index.js"],
+        "message": ["./pages/message/index.js"],
+        "orderPublish": ["./pages/orderPublish/index.js"],
+        "assignTask": ["./pages/assignTask/index.js"],
+        "inputInfo": ["./pages/inputInfo/index.js"],
+        "inputFinal": ["./pages/inputFinal/index.js"],
+        "orderList": ["./pages/orderList/index.js"],
+        "statusList": ["./pages/statusList/index.js"],
+        "orderDetail": ["./pages/orderDetail/index.js"],
+        "addColor": ["./pages/addColor/index.js"],
+        "sendWays": ["./pages/sendWays/index.js"],
+        "buyerList": ["./pages/buyerList/index.js"],
+        "colorList": ["./pages/colorList/index.js"],
+        "uploadBill": ["./pages/uploadBill/index.js"],
+        "sellerEdit": ["./pages/sellerEdit/index.js"],
+        "buyerAddressEdit": ["./pages/buyerAddressEdit/index.js"],
+        "addressList": ["./pages/addressList/index.js"],
+        "personalCenter": ["./pages/personalCenter/index.js"],
+        "uploadType": ["./pages/uploadType/index.js"],
+        "certificateList": ["./pages/certificateList/index.js"],
+        "upDeliverGood": ["./pages/upDeliverGood/index.js"],
+        "printQuery": ["./pages/printQuery/index.js"],
+        "printDetail": ["./pages/printDetail/index.js"],
+        "buyList": ["./pages/buyList/index.js"],
+        "progress": ["./pages/progress/index.js"],
+        "moneyDetailList": ["./pages/moneyDetailList/index.js"],
+        "upFinancialPay": ["./pages/upFinancialPay/index.js"],
+        "upCheckReport": ["./pages/upCheckReport/index.js"],
+        "jianBanPublish": ["./pages/jianBanPublish/index.js"],
+        "jianBanInput": ["./pages/jianBanInput/index.js"],
+        "proNumber": ["./pages/proNumber/index.js"],
+        "zhaoBanPublish": ["./pages/zhaoBanPublish/index.js"],
+        "seCardInfo": ["./pages/seCardInfo/index.js"],
+        "sellerAccounts": ["./pages/sellerAccounts/index.js"],
+        "lsOrderPublish": ["./pages/lsOrderPublish/index.js"],
+        "seCardList": ["./pages/seCardList/index.js"],
+        "settlement": ["./pages/settlement/index.js"],
+        "checkClothList": ["./pages/checkClothList/index.js"],
+        "shouldPay": ["./pages/shouldPay/index.js"],
+        "shopCartList": ["./pages/shopCartList/index.js"],
+        "sellerList": ["./pages/sellerList/index.js"],
+        "addProperty": ["./pages/addProperty/index.js"],
+        "sellerAccountsList": ["./pages/sellerAccountsList/index.js"],
+        "payList": ["./pages/payList/index.js"],
+        "realGetPay": ["./pages/realGetPay/index.js"],
+        "reportDetail": ["./pages/reportDetail/index.js"],
+        "replyDetail": ["./pages/replyDetail/index.js"],
+        "jbOrderList": ["./pages/jbOrderList/index.js"],
+        "jbOrderDetail": ["./pages/jbOrderDetail/index.js"],
+        "jbInputInfo": ["./pages/jbInputInfo/index.js"]
+      },
+      "extensions": ["js"]
+    },
+
+    "css": {
+      "src": "stylesheets",
+      "dest": "stylesheets",
+      "autoprefixer": {
+        "browsers": ["last 3 version", "iOS 7", "iOS 8"],
+        "remove": false
+      },
+      "sass": {
+        "indentedSyntax": false,
+        "outputStyle": "compressed"
+      },
+      "extensions": ["sass", "scss", "css"]
+    },
+
+    "html": {
+      "src": "html",
+      "dest": "./",
+      "dataFile": "data/global.json",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["html", "json"],
+      "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+    "images": {
+      "src": "images",
+      "dest": "images",
+      "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "fonts",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "iconFont": {
+      "src": "icons",
+      "dest": "fonts",
+      "sassDest": "generated",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "svgSprite": {
+      "src": "sprites",
+      "dest": "images",
+      "extensions": ["svg"]
+    }
+  }
+}

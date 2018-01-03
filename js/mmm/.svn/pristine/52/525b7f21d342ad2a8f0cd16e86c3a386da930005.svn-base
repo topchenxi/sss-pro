@@ -1,0 +1,29 @@
+{#
+  系统消息
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/personalCenter.css">
+      <div class="page" id='sysMessage' style="display: block">
+        <header class="bar bar-nav">
+          <!-- <a class="button button-link button-nav pull-left back" href="/">
+            <span class="icon icon-left"></span>
+            返回
+          </a> -->
+          <h1 class='title'>个人中心</h1>
+        </header>
+        <div class="content">
+          <div class='personal-detail-list' >
+              
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+  <script src="javascripts/personalCenter.js"></script>
+{% endblock %}

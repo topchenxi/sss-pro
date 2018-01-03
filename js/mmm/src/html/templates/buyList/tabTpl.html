@@ -1,0 +1,33 @@
+<% for tab in showTabArr %>
+  <% if tab == 'zb' and showTabArr.length >= 2 %>
+    <a 
+    data-index='zb-all'
+    class="item 
+    <% if showTabArr.length == 3 %>
+      col-33
+    <% elif showTabArr.length == 2 %> 
+      col-50
+    <% endif %>
+    <% if category == 'zb-all' %>active<% endif %>"
+    >找版</a>
+  <% endif %>
+  <% if tab == 'jb' and showTabArr.length >= 2 %>
+  <a data-index='jb-all'
+    class="item 
+    <% if showTabArr.length == 3 %>
+      col-33
+    <% elif showTabArr.length == 2 %> 
+      col-50
+    <% endif %>
+    <% if category == 'jb-all' %>active<% endif %>">剪版</a>
+  <% endif %>
+   <% if tab == 'dh'  and showTabArr.length >= 2 %>
+   <a data-index='all-all' class="item 
+   <% if showTabArr.length == 3 %>
+      col-33
+    <% elif showTabArr.length == 2 %> 
+      col-50
+    <% endif %> 
+   <% if category == 'all-all' %>active<% endif %>">大货</a>
+   <% endif %>
+<% endfor %>

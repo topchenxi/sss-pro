@@ -1,0 +1,142 @@
+<div class="content-detail">
+  <!--采购商列表-->
+  <div class="list-block contacts-block">
+    <div id="buyer-A" class="list-group">
+      <ul>
+        <% for item in result %>
+          <% if item.company %>
+            <li class="buyerItem" data-id="<$ item.id $>">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title"><$ item.company $></div>
+                  <span><$ item.tel $></span>
+                </div>
+              </div>
+            </li>
+          <% endif %>
+        <% endfor %>
+      </ul>
+    </div>
+    <!-- <div id="buyer-B" class="list-group">
+      <ul>
+        <li class="list-group-title">B</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题1</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题2</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题4</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题5</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题6</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="buyer-C" class="list-group">
+      <ul>
+        <li class="list-group-title">C</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题1</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题2</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题3</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题4</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题5</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题6</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题7</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="buyer-D" class="list-group">
+      <ul>
+        <li class="list-group-title">V</li>
+        <li>
+          <div class="item-content">
+            <div class="item-inner">
+              <div class="item-title">标题1</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+  <!--/采购商列表-->
+</div>
+<!-- <div class="content-nav">
+  <a class="nav-item external" data-targetId="buyer-A">A</a>
+  <a class="nav-item external" data-targetId="buyer-B">B</a>
+  <a class="nav-item external" data-targetId="buyer-C">C</a>
+  <a class="nav-item external" data-targetId="buyer-D">D</a>
+  <a class="nav-item external" data-targetId="buyer-E">E</a>
+</div> -->

@@ -1,0 +1,36 @@
+@import 'base/mixins';
+@import 'vendor/sm';
+@import 'vendor/sm-extend';
+// @import 'vendor/font-awesome';
+
+.fl{ float: left; }
+.fr{ float: right;}
+.red {color: red !important}
+.gray-text{
+  color: #bbb !important;
+}
+.warning-text {
+  color: #f6383a !important;
+}
+.fn-hide{
+  display: none;
+}
+.list-block .item-inner:after {
+	background-color: #cccccc;
+}
+.list-block ul:after {
+	background-color: #cccccc;
+}
+.modal-inner {
+	textarea.task-remark{
+	 	border:1px solid #a0a0a0;
+	 	width: 100%;
+	    margin-top: 0.5rem;
+	}
+}
+.swiper-container{
+  padding: 0;
+  .photo-browser-slide img {
+    max-width: 90%;
+  }
+}

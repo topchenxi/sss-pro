@@ -1,0 +1,67 @@
+#sellerAccounts{
+	.list-block{
+		textarea{
+			height: auto;
+			min-height: 1rem;
+			max-height: 3.2rem;
+		}
+		.item-input.buttons-row{
+			width: 45%;
+			position: relative;
+			left: -20%;
+		}
+	}
+	.bank-link {
+		color: #3d4145;
+	}
+	.save-button{
+		width: 80%;
+		margin: 2rem auto;
+		height: 1.8rem;
+		line-height: 1.8rem;
+		background-color: #fff;
+		font-size: 0.8rem;
+	}
+	.bank-branch {
+		font-size: 0.65rem;
+	}
+}
+.bank-list {
+	position: relative;
+	height: 100%;
+	.list-wrap{
+		overflow: auto;
+		height: 100%;
+		.bank-name{
+			background-color: #fff;
+			border: 1px solid #eee;
+			padding: 0.4rem 1rem;
+		}
+
+	}
+}
+.autocomplete-dom {
+	position: relative;
+}
+.autocomplete-suggestions {
+	margin-top: 0.5rem;
+	border: 1px solid #999;
+	background: #FFF;
+	overflow: auto;
+	position: relative !important;
+	width: 100% !important;
+	border-color: #e7e7e7;
+	padding: 0.2rem 0.5rem;
+	font-size: 0.65rem;
+}
+.autocomplete-suggestion {
+	padding: 0.4rem 1rem;
+	overflow: hidden;
+}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+.autocomplete-no-suggestion {
+	text-align: center;
+}

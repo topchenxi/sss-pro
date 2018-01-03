@@ -1,0 +1,50 @@
+{#
+  上传凭证的信息
+#}
+
+{% extends 'layouts/application.html' %}
+
+
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/uploadType.css">
+      <div class="page page-current uploadType-wrap" id='uploadType' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left back">
+            <span class="icon icon-left"></span>
+          </a>
+          <a href="javascript:;" class="button button-link button-nav pull-right J_save_btn">
+            保存
+          </a>
+          <h1 class='title J_input_title'>上传凭证</h1>
+        </header>
+        <div class="content J_input_content">
+             <div class="list-block media-list ">
+                <!-- 订单信息 -->
+                <div class="J_bill_text">
+                </div>
+
+                <!-- 收款文字模板 -->
+                <div class="J_info_tpl">
+                </div>
+                <!-- 上传图片模板 -->
+               <div class="J_bill_block p-bot">
+               </div>
+
+                <!-- 上传按扭 -->
+                <div class="up-btn">
+                  <div class="for-text">
+                    <label class='J_add_img img-upload-label' for='img-file'>
+                      <input type="file" id='img-file' value='添加图片' class='file-input' accept="image/*" multiple >
+                    </label>
+                  </div>
+                </div>
+             </div>
+        </div>
+      </div>
+      <div class="page" id='fareDetail-list'></div>
+      <script src="javascripts/uploadType.js"></script>
+    </div>
+{% endblock %}
+

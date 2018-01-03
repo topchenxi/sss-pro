@@ -1,0 +1,28 @@
+  <!-- 实付字段 -->
+  <ul class="money-input">
+    <li  class="bot-line"><span>应付</span>: <span>150</span>元</li>
+    <li style="padding-top: 5px;"><span>实付</span></li>
+    <li>
+      <span>订金</span>
+      <span>
+        <input  placeholder="填写" class="money-in" type="text">
+      </span>元
+    </li>
+    <li>
+      <span>尾款</span>
+      <span>
+        <input  placeholder="填写" class="money-in" type="text">
+      </span>元
+    </li>
+  </ul>
+
+  <!-- 实付字段 -->
+  <ul class="money-input">
+    <li  class="bot-line"><span>应付</span>: <span>150</span>元</li>
+    <li>
+      <span>实付款</span>
+      <span>
+        <input  placeholder="填写" class="money-in" type="text">
+      </span>元
+    </li>        
+  </ul>

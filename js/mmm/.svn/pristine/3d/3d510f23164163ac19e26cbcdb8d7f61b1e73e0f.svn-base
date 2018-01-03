@@ -1,0 +1,37 @@
+{#
+  订单列表
+#}
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/progress.css">
+      <div class="page page-current progress" id='orderList' style="display: block">
+        <header class="bar bar-nav">
+          <!-- <a class="button button-link button-nav pull-left" href="/">
+            <span class="icon icon-left"></span>
+          </a> -->
+          <h1 class='title J_entry_title'>进度跟进</h1>
+        </header>
+        <div class="common-head">
+          <div class="tab-content row J_tabcontent">
+          </div>
+          <div class="top-search">
+            <div class="searchbar row">
+              <div class="search-input col-80">
+                <label class="icon icon-search" for="search"></label>
+                <input type="search" id='search' placeholder='输入订单号'/>
+              </div>
+              <a class="button button-fill button-primary col-20 J_search_btn">搜索</a>
+            </div>
+          </div>
+        </div>
+        <div class="content J_content J_scroll_dom">
+          <div class="search-content J_money_content J_list_dom" data-category=''></div>
+        </div>
+         <div class="infinite-scroll-preloader J_scroll_preloader">
+              <div class="preloader"></div>
+         </div>
+      </div>
+      <script src="javascripts/progress.js"></script>
+    </div>
+{% endblock %}

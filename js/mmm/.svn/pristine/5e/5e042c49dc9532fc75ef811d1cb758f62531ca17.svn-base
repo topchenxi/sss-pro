@@ -1,0 +1,16 @@
+{#
+  供应商列表
+#}
+
+{% extends 'layouts/application.html' %}
+{% block content %}
+    <div class="page-group">
+  		<link rel="stylesheet" href="stylesheets/pages/sellerList.css">
+	  	<div class="page" id='sellerList' style="display: block">
+	  	</div>
+	<script src="javascripts/sellerList.js"></script>
+    </div>
+
+{% endblock %}
+
+

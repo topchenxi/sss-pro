@@ -1,0 +1,24 @@
+{# 购物车列表 #} {% extends 'layouts/application.html' %} {% block content %}
+<div class="page-group">
+    <link rel="stylesheet" href="stylesheets/pages/shopCartList.css">
+    <div class="page page-current shopCartList" id='shopCartList' style="display: block">
+        <header class="bar bar-nav J_index_head"><a class="button button-link button-nav pull-left J_goBack" href="/?category=all-all">
+          <span class="icon icon-left"></span>
+        </a>
+        <h1 class="title J_entry_title" data-one="">
+        <span>支付</span>
+        </h1>
+        </header>
+        <div class="content J_content J_scroll_dom">
+            <div class="search-content">
+                  <!--  -->
+                  <div class="J_shop_content"></div>
+            </div>
+        </div>
+        <div class="submit">
+          <a href="javascript:;" class="button button-fill pull-right button-danger fix J_submit">提交结算</a>
+        </div>
+    </div>
+    <script src="javascripts/shopCartList.js"></script>
+</div>
+{% endblock %}

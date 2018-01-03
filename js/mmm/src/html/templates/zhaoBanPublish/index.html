@@ -1,0 +1,237 @@
+<header class="bar bar-nav">
+  <% if source %>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class='title'>编辑找版</h1>
+  <%else%>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>发布找版</h1>
+  <%endif%>
+</header>
+<div class="content">
+<form class="content-block list-block ">
+  <% if orderNumber %>
+    <input type="hidden" value='<$ orderNumber $>' name='orderNumber'>
+  <%endif%>
+  <ul>
+    <li class='J_need_item'>
+    <% if source %>
+      <a class="item-content">
+    <%else%>
+      <a class="item-content J_select_buyer">
+    <%endif%>
+      <div class="item-media"> </div>
+      <div class="item-inner">
+        <div class="item-title">采购商 : <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+        <div class="item-after select-custorm <%if buyerInfo '==' '' %>gray-text<% endif %>">
+            <$ buyerInfo.company | placeholder('必选')$>
+            <input type="hidden" name='buyerId' value='<$ buyerInfo.id $>'>
+        </div>
+        <span class="icon icon-edit pull-right"></span>
+      </div>
+      </a>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content J_addr_edit">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">收货人 :<span class="tips warning-text <%if not buyerInfo %> fn-hide <% elif defaultAddr %> fn-hide <% endif %> "> &nbsp;!</span></div>
+        <div class="item-after  select-custorm  <%if not defaultAddr %> gray-text <% endif %>"><$ defaultAddr.name | placeholder('必选')$>
+           <input type="hidden" name='addrId' value='<$ defaultAddr.id $>'>
+        </div>
+        <span class="icon icon-edit pull-right"></span>
+      </div>
+    </a>
+    </li>
+
+    <li class="item-content has-upload">
+      <div class="item-media"><i class="icon icon-f7"></i></div>
+      <div class="item-inner">
+        <div class="item-title">图片 :<span class="tips warning-text fn-hide"> &nbsp;!</span></div>
+        <div class="item-after J_has_upload">
+        <% for urls in imgUrls %>
+          <span class='upload-img J_upload_img'>
+              <a href="javascript:;"  class='J_img_preview' data-link='<$ urls $>'>
+                <img src="<$ imagesPath $><$ urls $>@64h_64w_1e" >
+              </a>
+          <span class='img-del J_img_del'>x</span>
+          </span>
+        <% endfor %>
+        <span  class='add-img-btn J_add_img'>
+            <span class='add-icon'>+</span><br/>
+            <span class='text'>必填图片</span>
+            <label class='img-upload-label' for='img-file'>
+                <input type="file" id='img-file' value='' class='file-input' accept="image/jpg,image/jpeg,image/png" >
+            </label>
+        </span>
+        </div>
+      </div>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">寻样要求 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+              <label for="findType-1">
+                <input type="checkbox" name='findType' id='findType-1' value = 1 <% if findType1 %> checked='checked' <% endif %> />找相同
+              </label>
+              <label for="findType-2">
+                <input type="checkbox" name='findType' id='findType-2' value = 2 <% if findType2 %> checked='checked' <% endif %> />找类似
+              </label>
+              <label for="findType-3">
+                <input type="checkbox" name='findType' id='findType-3' value = 4 <% if findType3 %> checked='checked' <% endif %> />找定做
+              </label>
+        </div>
+      </div>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">品类 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <%if not source %>
+          <div class="item-input radio-group">
+                <label for="productType-1">
+                  <input type="radio" name='productType' id='productType-1' value = 1 <% if productType '==' 1 %> checked='checked' <% endif %> >面料
+                </label>
+                <label for="productType-2">
+                  <input type="radio" name='productType' id='productType-2' value = 2 <% if productType '==' 2 %> checked='checked' <% endif %> >辅料
+                </label>
+          </div>
+        <% else %>
+          <div class="item-input">
+            <% if productType == 1 %>
+              面料
+            <% elif productType == 2 %>
+              辅料
+            <% endif %>
+            <input type="hidden" name='productType' value='<$ productType $>'>
+          </div>
+        <% endif %>
+      </div>
+    </li>
+<!--     <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">品名 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input">
+            <input type="text" name='title' value='<$ title $>' placeholder="必填" >
+        </div>
+      </div>
+    </li> -->
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label min-25">颜色要求 :</div>
+        <div class="item-input">
+          <input type="text" name='color' value='<$ color $>' placeholder="选填" >
+        </div>
+      </div>
+    </li>
+    <li class='J_need_item'>
+      <a class="item-content J_choosedTags">
+        <div class="item-media"><i class="icon icon-f7"></i></div>
+        <div class="item-inner">
+          <div class="item-title min-30">成分/织法/工艺 :<span class="tips warning-text <%if not tagNames %> fn-hide <% elif tagNames %> fn-hide <% endif %> "> &nbsp;!</span></div>
+          <div class="item-after clipsis w-45 <%if not tagNames %> gray-text <% endif %>"><$ tagNames | placeholder('必选')$>
+             <input type="hidden" name='title' value='<$ title $>'>
+          </div>
+          <span class="icon icon-edit pull-right"></span>
+        </div>
+      </a>
+    </li>
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">档次 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <%if not source %>
+          <div class="item-input">
+                <label for="worth-1">
+                  <input type="radio" name='worth' id='worth-1' value = 16 <% if worth '==' 16 %> checked='checked' <% endif %>> &nbsp;高
+                </label> &nbsp; &nbsp;
+                <label for="worth-2">
+                  <input type="radio" name='worth' id='worth-2' value = 8 <% if worth '==' 8 %> checked='checked' <% endif %>> &nbsp;中
+                </label> &nbsp; &nbsp;
+                <label for="worth-3">
+                  <input type="radio" name='worth' id='worth-3' value = 1 <% if worth '==' 1 %> checked='checked' <% endif %> > &nbsp;普通
+                </label>
+          </div>
+        <% else %>
+          <div class="item-input">
+            <% if worth == 1 %>
+              高
+            <% elif worth == 2 %>
+              中
+            <% elif worth == 3 %>
+              低
+            <% endif%>
+            <input type="hidden" name='worth' value='<$ worth $>'>
+          </div>
+        <% endif %>
+      </div>
+    </li>
+
+    <li class="item-content J_need_item">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">样版 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+        <div class="item-input radio-group">
+          <label for="haveRealVersion-1">
+            <input type="radio" name='haveRealVersion' id='haveRealVersion-1' value=1  <% if haveRealVersion '==' 1 %> checked ='checked' <%endif%> >有样版
+          </label>
+          <label for="haveRealVersion-2">
+            <input type="radio" name='haveRealVersion' id='haveRealVersion-2' value=0  <% if haveRealVersion '==' 0 %> checked ='checked' <%endif%> >无样版
+          </label>
+        </div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">期望货期</div>
+         <div class="item-input">
+            <input type="text" class= 'J_send_day' name="expectedTime" placeholder= '选填' value="">
+            <!-- <input type="text" class='J_send_day' placeholder= '选填'>  -->
+            <a class="button button-link button-nav pull-left J_clear clear-time">X</a>
+        </div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">需求量 <span class="tips warning-text fn-hide">&nbsp;!</span></div>
+         <div class="item-input row ">
+            <input type="text" name='quantity' class='col-50 quantity' value="<% if quantity %><$ quantity $> <% endif %>"" placeholder= '选填'>
+            <input type="hidden" name='quantityUnit' value="<% if quantity %><$ quantityUnit $> <% endif %>">
+            <span class='quantity-unit col-40'>
+              <select class='J_mianliao_unit <% if productType == 2 %> fn-hide <% endif%>'>
+                <option value="">选择单位</option>
+                <option value="米" <%if quantityUnit == '米'%> selected = selected <% endif %>>米</option>
+                <option value="千克"<%if quantityUnit == '千克'%> selected = selected <% endif %>>千克</option>
+                <option value="码"<%if quantityUnit == '码'%> selected = selected <% endif %>>码</option>
+              </select>
+              <input type="text" class='fuliao-unit J_fuliao_unit col-30 <% if not productType or productType == 1 %> fn-hide <% endif%>' value='<$ quantityUnit $>' placeholder='单位'>
+            </span>
+        </div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="icon"></i></div>
+      <div class="item-inner">
+        <div class="item-title label leaveMessage">留言 :</div>
+        <div class="item-input">
+            <textarea name="leaveMessage" id="" cols="30" rows="10" placeholder="选填"><$ leaveMessage $></textarea>
+            <!-- <input type="text" name='' placeholder="选填" value=''> -->
+        </div>
+      </div>
+    </li>
+  </ul>
+
+</form>
+</div>
+<nav class="bottom-btn">
+  <a class="button button-block J_save disabled"> <% if type == 'edit' %> 保存 <%else%> 发布 <%endif%></a>
+</nav>

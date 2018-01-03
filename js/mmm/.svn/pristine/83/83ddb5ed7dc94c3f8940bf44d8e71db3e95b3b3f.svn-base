@@ -1,0 +1,58 @@
+{#
+  订单列表
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+    <div class="page-group">
+      <link rel="stylesheet" href="stylesheets/pages/buyList.css">
+      <div class="page page-current buyList" id='orderList' style="display: block">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left J_back" href="/progress.html">
+            <span class="icon icon-left"></span>
+          </a>
+          <h1 class='title J_entry_title'>订单列表</h1>
+        </header>
+        <div class="tab-content row J_tabContent"></div>
+        <div class="top-search">
+         <!-- 头部tab-->
+          <!-- 搜索框 -->
+          <div class="searchbar row">
+            <div class="search-input col-80">
+              <label class="icon icon-search" for="search"></label>
+              <input type="search" id='search' placeholder='输入订单号'/>
+            </div>
+            <a class="button button-fill button-primary col-20 J_search_btn">搜索</a>
+          </div>
+        </div>
+        <div class='content-wrap'>
+          <div class="content J_content J_scroll_dom">
+            <!-- <div class="buttons-row">
+              <div class="tab-link button J_filter" data-type="buyer" style="border-radius: 0;">
+                <span class="buyerTitle">采购商</span>
+                <div class="container-list list-buyer">
+
+                </div>
+              </div>
+              <div class="tab-link button J_filter" data-type="status" style="border-radius: 0;">
+                <span class="statusTitle">进度状态</span>
+                <div class="container-list list-status">
+
+                </div>
+
+              </div>
+            </div> -->
+            <div class="search-content J_money_content J_list_dom"></div>
+          </div>
+        </div>
+         <div class="infinite-scroll-preloader J_scroll_preloader">
+              <div class="preloader"></div>
+         </div>
+      </div>
+      <div class="page" id="orderList-item"></div>
+      {% block javascript %}
+        <script src="javascripts/buyList.js"></script>
+      {% endblock %}
+    </div>
+{% endblock %}

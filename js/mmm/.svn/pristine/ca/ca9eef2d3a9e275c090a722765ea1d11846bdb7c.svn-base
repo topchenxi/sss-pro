@@ -1,0 +1,263 @@
+<header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left J_back">
+        <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>录入剪版信息</h1>
+</header>
+<div class="content">
+    <dl class="jb-order-info hide">
+        <dt class="item-hd-title J-toggle-show">
+            <div class="item-title">订单信息:</div>
+            <div class="item-after">
+                <div class="icon icon-caret"></div>
+            </div>
+        </dt>
+        <dd>
+            <ul class="list-block">
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">订单号：</div>
+                        <div class="item-after"><$ number $></div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">订单时间：</div>
+                        <div class="item-after"><$ createTime $></div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">采购商：</div>
+                        <div class="item-after"><$ customerCompany $> <$ customerTel $></div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">收货地址：</div>
+                        <div class="item-after">
+                            <$ addressName $> <$ addressTel $> <$ addressProvince $><$ addressCity $><$ addressArea $><$ addressAddr $>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">供应商：</div>
+                        <div class="item-after">
+                            <div style="word-break: break-all">
+                                <$ shopCompany $> <$ shopTel $> <$ shopProvince $><$ shopCity $><$ shopArea $><$ shopAddr $>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="jb-order-info">
+        <dt class="item-hd-title J-toggle-show">
+            <div class="item-title">货号:</div>
+            <div class="item-after">
+                <div class="icon icon-caret"></div>
+            </div>
+        </dt>
+        <% for item in productNumbers %>
+        <dd>
+            <ul class="list-block">
+                <li class="item-content">
+                    <div class="item-inner">
+                        <% if item.category == 1 %>
+                        <div class="item-title">面料</div>
+                        <div class="item-after">货号:<$ item.number $></div>
+                        <% else%>
+                        <div class="item-title">辅料</div>
+                        <div class="item-after">品名:<$ item.number $></div>
+                        <% endif %>
+                    </div>
+                </li>
+                <li class="item-content content-padded">
+                    <div class="row item-inner">
+                        <% if item.category == 1 %>
+                        <div class="col-33">色号</div>
+                        <% else%>
+                        <div class="col-33">颜色</div>
+                        <% endif %>
+                        <div class="col-33">数量</div>
+                        <div class="col-33">单价</div>
+                    </div>
+                </li>
+                <% for colors in item.colors%>
+                <li class="item-content content-padded">
+                    <div class="row item-inner">
+                        <div class="col-33"><$ colors.color $></div>
+                        <div class="col-33"><$ colors.followerQuantity $><$ colors.followerQuantityUnit $></div>
+                        <div class="col-33"><$ colors.followerPriceMoney $><$ colors.followerPriceUnit $></div>
+                    </div>
+                </li>
+                <% endfor%>
+                <li class="item-content img-item">
+                    <div class="item-inner">
+                        <div class="item-title">图片：</div>
+                        <div class="item-after J_pb_img_wrap">
+                            <% for img in item.imgUrls%>
+                            <% if img != ''%>
+                            <% if loop.index%3 == 1 %>
+                            <div class="flex-img-item">
+                            <% endif %>
+                            <div class="img-wrap J_pb_img">
+                                <img src="http://www.soouya.com<$ img $>">
+                            </div>
+                            <% if loop.index%3 == 0 or loop.index == item.imgUrls.length+1 %>
+                            </div>
+                            <% endif %>
+                            <% endif %>
+                        <% endfor%>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </dd>
+        <% endfor %>
+    </dl>
+
+    <div>
+        <dl class="jb-order-info">
+            <dt class="item-hd-title J-toggle-show">
+                <div class="item-title">货号:</div>
+                <div class="item-after">
+                    <div class="icon icon-caret"></div>
+                </div>
+            </dt>
+            <% for item in productNumbers %>
+            <dd class="J-input-product">
+                <div class="row jb-product-title">
+                    <div class="col-50">
+                        <% if item.category == 1 %>
+                        面料
+                        <% else%>
+                        辅料
+                        <% endif %>
+                    </div>
+                    <div class="col-50">
+                        <% if item.category == 1 %>
+                        货号
+                        <% else%>
+                        品名
+                        <% endif %>
+                        ：<$ item.number $>
+                    </div>
+                </div>
+                <div class="row jb-product-title">
+                  <div class="col-50">
+                    单位:
+                  </div>
+                  <div class="col-50">
+                    <% if item.category == 1%>
+                    <select class="J-quantity-selector">
+                        <option value="元/米"<% if item.colors[0].followerPriceUnit == "元/米" %> selected <% endif %>>元/米</option>
+                        <option value="元/码"<% if item.colors[0].followerPriceUnit == "元/码" %> selected <% endif %>>元/码</option>
+                        <option value="元/千克"<% if item.colors[0].followerPriceUnit == "元/千克" %> selected <% endif %>>元/千克</option>
+                    </select>
+                    <% else %>
+                    <input type="text" class="J-quantity-input" value="<$ item.colors[0].followerPriceUnit $>">
+                    <% endif %>
+                  </div>
+                </div>
+                <div>
+                    <% for colors in item.colors%>
+                    <ul class="list-block J-input-color">
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title"  style="color: blue">
+                                    <% if item.category == 1 %>
+                                    色号：<$ colors.color $>
+                                    <% else%>
+                                    颜色：<$ colors.color $>
+                                    <% endif %>
+                                </div>
+                                <div class="item-after" style="color: blue">
+                                    <$ colors.followerQuantity $><$ colors.followerQuantityUnit $>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label"><span class="required-input">*</span>成本单价：</div>
+                                <div class="item-input">
+                                    <input type="number" value="<$ colors.cutterPriceMoney $>" class="J-follower-price-money">
+                                    <span class="J-cutter-unit"><$ colors.cutterPriceUnit $></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label"><span class="required-input">*</span>采购数量：</div>
+                                <div class="item-input">
+                                    <input type="number" value="<$ colors.cutterQuantity $>" class="J-follower-quantity">
+                                    <span class="J-cutter-price-unit"><$ colors.cutterQuantityUnit $></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <% endfor %>
+                </div>
+            </dd>
+            <% endfor %>
+        </dl>
+    </div>
+    <dl class="jb-order-info">
+        <dt>费用信息：</dt>
+            <dd>
+                <ul class="list-block">
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label"><span class="required-input">*</span>成本货款：</div>
+                            <div class="item-input">
+                                <input type="number" class="J-cost-money" value='<$ costMoney $>'>元</div>
+                        </div>
+                    </li>
+                    <li class="item-content has-upload">
+                        <div class="item-inner">
+                            <div class="item-title"><span class="required-input">*</span>码单：</div>
+                            <div class="item-after J_has_upload">
+                                <div class="upload-img-wrap J_pb_img_wrap">
+                                    <% for urls in madanUrls %>
+                                    <span class='upload-img J_upload_img'>
+                                        <a href="javascript:;" data-link='http://www.soouya.com<$ urls $>' class="J_pb_img">
+                                            <img src="http://www.soouya.com<$ urls $>" >
+                                        </a>
+                                        <span class='img-del J_img_del'>x</span>
+                                    </span>
+                                    <% endfor %>
+                                </div>
+                                <span  class='add-img-btn J_add_img'>
+                                    <span class='add-icon'>+</span><br/>
+                                    <span class='text'>必填图片</span>
+                                    <label class='img-upload-label' for='img-file'>
+                                        <input type="file" id='img-file' value='' class='file-input' accept="image/*" >
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label"><span class="required-input">*</span>码单号码：</div>
+                            <div class="item-input">
+                                <input type="text" class="J-mandan-number" value="<$ madan $>" placeholder="多个用 / 隔开,如2332/4657"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title label">剪版员留言：</div>
+                            <div class="item-input">
+                                <textarea id="jb-msg"></textarea>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    <div class="btn-wrap">
+        <a class="button button-fill button-success J_save">保存</a>
+    </div>
+</div>

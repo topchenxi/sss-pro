@@ -1,0 +1,65 @@
+<ul>
+  <li>
+    <div class="item-content">
+      <div class="item-media"><i class="icon icon-form-name"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">户名</div>
+        <div class="item-input">
+          <!-- <input type="text"  readonly class="J_account_input" name="replyAccountUser" value="<$ replyAccountUser $>"  placeholder="必填"> -->
+          <span>
+            <% if replyAccountType == 1 %> <$ replyAccountCompany $> <% else %><$ replyAccountUser $><% endif %> 
+          </span>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="item-content">
+      <div class="item-media"><i class="icon icon-form-name"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">卡号</div>
+        <div class="item-input">
+          <!-- <input type="number" readonlyclass="J_account_input"  name="replyAccountNumber" value="<$ replyAccountNumber $>"  placeholder="必填"> -->
+          <span><$ replyAccountNumber $></span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <div class="item-content">
+      <div class="item-media"><i class="icon icon-form-name"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">银行</div>
+        <div class="item-input">
+          <span><$ replyAccountBank $></span>
+          <!-- <input type="text" readonly class="J_account_input"  name="replyAccountBank" value="<$ replyAccountBank $>"  placeholder="必填"> -->
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="item-content">
+      <div class="item-media"><i class="icon icon-form-name"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">支行</div>
+        <div class="item-input">
+          <!-- <input type="text" class="J_account_input" readonly name="replyAccountBranch" value="<$ replyAccountBranch $>" placeholder="必填"> -->
+          <span><$ replyAccountBranch $></span>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="item-content">
+      <div class="item-media"><i class="icon icon-form-name"></i></div>
+      <div class="item-inner">
+        <div class="item-title label">账户类型</div>
+        <div class="item-input">
+          <!-- <input type="text" class="J_account_input" readonly name="replyAccountBranch" value="<$ replyAccountBranch $>" placeholder="必填"> -->
+          <span><% if replyAccountType == 1%> 企业 <% else %> 个人 <%endif%></span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

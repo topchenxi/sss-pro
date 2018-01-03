@@ -1,0 +1,109 @@
+#sellerList{
+    .bar-header-secondary{
+        top:2.5rem;
+        border-bottom: 1px solid #e7e7e7;
+    }
+    .bar{
+        height: 3.5rem;
+        .searchbar{
+            height: 3.5rem;
+            padding-left: 1rem;
+            .tips{
+                font-size: 0.6rem;
+                font-weight: normal;
+                color: #999;
+                margin-bottom: 0.3rem;
+            }
+        }
+    }
+    .none-data{
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .add-seller {
+        width: 3rem;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    .content{
+        top: 5rem;
+    }
+    .list-block {
+        margin-bottom: 0.3rem;
+        ul{
+            background-color: transparent;
+        }
+        li{
+            background-color: #fff;
+            margin-bottom: 0.5rem;
+        }
+    }
+    .item-content {
+      position: relative;
+      .verify{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+    }
+    .media-list{
+        .item-media{
+            img{
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+            }
+        }
+        .item-title{
+            font-size: 0.7rem;
+            font-weight: normal;
+            .company-name{
+                display: inline-block;
+                // max-width: 6.8rem;
+                width: 100%;
+                word-break: break-all;
+                white-space: pre-line;
+                vertical-align: top;
+                margin-top: 0.2rem;
+            }
+            img{
+                vertical-align: middle;
+                width: 4.8rem;
+                height: 0.8rem;
+            }
+        }
+
+        // .item-subtitle{
+        //     font-weight: normal;
+        //     font-size: 0.7rem;
+        //     margin-top: 0.2rem;
+        //     display: inline-block;
+        //     width: 100%;
+        //     word-break: break-all;
+        //     white-space: pre-line;
+        //     vertical-align: top;
+        // }
+        .item-content:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: auto;
+            top: auto;
+            height: 1px;
+            width: 100%;
+            background-color: #e7e7e7;
+            display: block;
+            z-index: 15;
+            -webkit-transform-origin: 50% 100%;
+            -ms-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+           background-color:#e7e7e7;
+        }
+        .item-inner:after{
+            background-color:transparent;
+        }
+    }
+
+}

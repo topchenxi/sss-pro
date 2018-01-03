@@ -1,0 +1,21 @@
+{# 色卡信息 #} {% extends 'layouts/application.html' %} {% block content %}
+<div class="page-group">
+    <link rel="stylesheet" href="stylesheets/pages/seCardInfo.css">
+    <div class="page" id='seCardInfo' style="display: block">
+        <header class="bar bar-nav J_assign_head">
+            <a class="button button-link button-nav pull-left J_goBack">
+                <span class="icon icon-left"></span>
+            </a>
+            <h1 class='title J_seCardInfo_title'>录入色卡信息</h1>
+        </header>
+        <div class="content J_assginTask_content">
+            <form class="J_seCardInfo">
+            </form>
+            <div class="assgin-btn">
+                <a href="#" class="button button-big button-fill disabled J_save">确定</a>
+            </div>
+        </div>
+    </div>
+    <script src="javascripts/seCardInfo.js"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,156 @@
+<header class="bar bar-nav">
+  <% if type == 'edit' %>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class='title'>编辑货号信息</h1>
+  <%else%>
+    <a class="button button-link button-nav pull-left J_back">
+      <span class="icon icon-left"></span>
+    </a>
+    <h1 class='title'>新增货号信息</h1>
+  <%endif%>
+</header>
+<div class="content">
+  <form class="content-block list-block">
+    <ul>
+      <li class="item-content J_need_item">
+        <div class="item-media"><i class="icon"></i></div>
+        <div class="item-inner">
+          <div class="item-title label">品类 :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+          <%if type == 'add' %>
+            <div class="item-input radio-group">
+              <label for="productType-1">
+                <input type="radio" name='productType' id='productType-1' value = 1 <% if productType '==' 1 %> checked='checked' <% endif %>  value=1 >面料
+              </label>
+              <label for="productType-2">
+                <input type="radio" name='productType' id='productType-2' value = 2 <% if productType '==' 2 %> checked='checked' <% endif %> value=2 >辅料
+              </label>
+            </div>
+          <% else %>
+            <div class="item-input">
+              <% if productType == 1 %>
+                面料
+              <% elif productType == 2 %>
+                辅料
+              <% endif %>
+              <input type="hidden" name='productType' value='<$ productType $>'>
+            </div>
+          <% endif %>
+        </div>
+      </li>
+      <li class="item-content has-upload">
+        <div class="item-inner">
+          <div class="item-title">图片 :<span class="tips warning-text fn-hide"> &nbsp;!</span></div>
+          <div class="item-after J_has_upload">
+          <% for urls in imgUrls %>
+            <span class='upload-img J_upload_img'>
+                <a href="javascript:;"  class='J_img_preview' data-link='<$ urls $>'>
+                  <img src="<$ imgPath $><$ urls $>@64h_64w_1e" >
+                </a>
+            <span class='img-del J_img_del'>x</span>
+            </span>
+          <% endfor %>
+          <span  class='add-img-btn J_add_img'>
+              <span class='add-icon'>+</span><br/>
+              <span class='text'>
+                选填图片
+              </span>
+              <label class='img-upload-label' for='img-file'>
+                  <input type="file" id='img-file' value='' class='file-input' accept="image/*" >
+              </label>
+          </span>
+          </div>
+        </div>
+      </li>
+
+        <li class="item-content J_need_item">
+          <div class="item-media"><i class="icon"></i></div>
+          <div class="item-inner">
+            <div class="item-title label "> <span class='J_name_label'>货号</span> :<span class="tips warning-text fn-hide">&nbsp;!</span></div>
+            <div class="item-input">
+              <input type="text" name='productNumber' value='<$ productNumber $>' placeholder="必填" >
+            </div>
+          </div>
+        </li>
+
+      <% if source == 'jianBanInput' %>
+      <li class="item-content">
+        <div class="item-media"><i class="icon"></i></div>
+        <div class="item-inner">
+          <div class="item-title per45">到货时间:</div>
+          <div class="item-input">
+            <input type="text" placeholder="选填"
+             value="<% if expectedArrivalDateString != '1970-01-01' %><$ expectedArrivalDateString $><% endif %>"
+             name="expectedArrivalDate">
+             <a class="button button-link button-nav pull-left J_clear clear-time">X</a>
+          </div>
+        </div>
+      </li>
+      <% endif %>
+    </ul>
+    <ul class='unit-block J_unit_block'>
+
+    </ul>
+    <% if type == 'edit'%>
+      <ul class=''>
+        <li>
+          <a class="item-link list-button J_change_all">一键修改所有色号单价</a>
+        </li>
+      </ul>
+    <% endif%>
+    <ul class='J_color_block color-block'>
+      <% for colorInfo in colorList %>
+        <li class='row no-gutter'>
+          <div class="col-80 item-content J_items">
+            <ul>
+                <li class='J_need_item'>
+                  <a  class='fn-hide J_id' data-value='<$ colorInfo.id $>'></a>
+                  <a  class='fn-hide J_buyProductId' data-value='<$ colorInfo.buyProductId $>'></a>
+                  <div class="item-inner">
+                      <div class="item-title label">单价 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class="item-input row no-gutter">
+                        <% if productType == 2 %>
+                            <input type="number" class='col-40 J_price' placeholder="单价" value="<$ colorInfo.price $>">
+                            <span class='col-15 unit'>元/</span>
+                            <span class='col-40 J_unit unit'><$ colorInfo.quantityUnit $></span>
+                        <% else %>
+                            <input type="number" class='col-50 J_price' placeholder="请输入单价" value="<$ colorInfo.price $>">
+                            <span class='J_unit col-50 unit'><$ colorInfo.priceUnit $></span>
+                        <% endif %>
+                      </div>
+                  </div>
+              </li>
+              <li class='J_need_item'>
+                  <div class="item-inner">
+                      <div class="item-title label J_color_label"><% if productType == 2 %>颜色<%else%>色号<% endif %> <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <input type="text" placeholder="必填" class='J_color' value='<$ colorInfo.color $>'>
+                  </div>
+              </li>
+              <li class='J_need_item'>
+                  <div class="item-inner">
+                      <div class="item-title label ">数量 <span class="tips warning-text fn-hide ">&nbsp;!</span></div>
+                      <div class="item-input row no-gutter">
+                        <input type="number" placeholder="必填" class='J_num quantity col-50' value= '<$ colorInfo.quantity $>'>
+                        <span class='col-25 unit J_quantityUnit'><$ colorInfo.quantityUnit $></span>
+                      </div>
+                  </div>
+              </li>
+              </ul>
+          </div>
+          <div class="col-20 del warning-text item-link J_del">删除</div>
+        </li>
+      <% endfor %>
+    </ul>
+    <ul class='add-more'>
+      <li>
+          <a class="item-link list-button J_add_more">添加颜色</a>
+      </li>
+    </ul>
+  </form>
+</div>
+
+<nav class="bottom-btn">
+  <a class="button  button-block J_save disabled button-fill">保存</a>
+</nav>
