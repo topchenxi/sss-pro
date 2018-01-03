@@ -1,0 +1,304 @@
+*,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+table {
+  word-break: break-all;
+}
+
+// @import '~element-ui/lib/theme-default/index.css';
+.box {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1), 0 0 0 1px rgba(17, 17, 17, 0.1);
+  display: block;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.box:after {
+  display: block;
+  content: '';
+  clear: both;
+  zoom: 1;
+}
+
+.media {
+  clear: both;
+  display: inline-block;
+  vertical-align: top;
+  .media-left {
+    display: inline-block;
+    &:after {
+      display: block;
+      content: '';
+      clear: both;
+      zoom: 1;
+    }
+  }
+  .media-content {
+    padding: 0 15px;
+    display: inline-block;
+    :after {
+      display: block;
+      content: '';
+      clear: both;
+      zoom: 1;
+    }
+  }
+}
+.media:after {
+  display: block;
+  content: '';
+  clear: both;
+  zoom: 1;
+}
+
+.is-64x64 {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border: 1px solid #eee;
+  margin-right: 5px;
+  position: relative;
+  z-index: 1000;
+  img {
+    width: 100%;
+    min-height: 100%;
+    float: left;
+  }
+}
+
+.red {
+  color: red;
+}
+
+.icon-shu {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.el-dialog {
+  .el-dialog__header {
+    text-align: center;
+  }
+  .el-dialog__body {
+    text-align: center;
+  }
+  .el-dialog__footer {
+    text-align: center;
+  }
+  .warn-msg {
+    padding: 5px 19px;
+    text-align: left;
+    background-color: #f2f2f2;
+    line-height: 30px;
+    color: #f00;
+    word-break: break-all;
+  }
+  .tip-msg {
+    padding: 5px 19px;
+    text-align: left;
+    background-color: #f2f2f2;
+    line-height: 30px;
+    color: #666;
+    word-break: break-all;
+  }
+  .el-button {
+    min-width: 80px;
+  }
+
+}
+
+.el-form {
+  text-align: left;
+  .el-form-item {
+    margin: 8px 0 !important;
+  }
+}
+
+.el-table--border th {
+  border-right: 0;
+}
+
+.el-table {
+  text-align: center;
+  th {
+    text-align: center;
+    padding: 5px !important;
+    .cell {
+      padding: 0 5px;
+    }
+  }
+  td {
+    text-align: center;
+    padding: 5px !important;
+    .cell {
+      padding: 0 5px;
+    }
+  }
+}
+
+.operate-btn {
+  .el-button {
+    margin-bottom: 5px;
+  }
+}
+
+.preview-img {
+  max-height: 30rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.el-table td .cell {
+  padding: 5px;
+}
+
+.el-table th .cell {
+  text-align: center;
+  padding: 5px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.el-tabs.has-link {
+  background-color: #fff;
+  .el-tabs__header {
+    margin-bottom: 0;
+  }
+  .el-tabs__nav {
+    .el-tabs__item {
+      height: 50px;
+      border: 0 !important;
+      padding: 2px;
+      a {
+        line-height: 50px;
+        font-weight: 600;
+        padding: 0 15px;
+        display: block;
+        color: #999 !important;
+        text-decoration: none;
+      }
+    }
+    .is-active {
+      border: 0 !important;
+      color: #2fb468 !important;
+      border-bottom: 2px solid#2fb468 !important;
+      a {
+        color: #2fb468 !important;
+      }
+    }
+  }
+}
+
+.forgive-color {
+  border-color: #2fb468 !important;
+  color: #2fb468 !important;
+}
+
+.goback-icon {
+  color: #333;
+  margin-bottom: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.form-handle {
+  margin-left: 113px;
+}
+
+.detail-title {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Microsoft YaHei" !important;
+  display: inline-block;
+  height: 30px;
+}
+
+.red-color {
+  color: #f00;
+}
+
+.icon-baitiao {
+  background: url("./assets/icon/ximu-active.png") 0 0 no-repeat;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-size: 100% 100%;
+  vertical-align: bottom;
+}
+.icon-feibaitiao {
+  background: url("./assets/icon/ximu-gray.png") 0 0 no-repeat;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+
+  background-size: 100% 100%;
+  vertical-align: bottom;
+}
+.icon-yanzhen {
+  background: url("./assets/icon/yanzhen-active.png") 0 0 no-repeat;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-size: 100% 100%;
+  vertical-align: bottom;
+}
+.icon-feiyanzhen {
+  background: url("./assets/icon/yanzhen-gray.png") 0 0 no-repeat;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-size: 100% 100%;
+  vertical-align: bottom;
+}
+.remark-font {
+  color: #999;
+  float: right;
+}
+.pagination-content {
+  text-align: right;
+  background-color: #fff;
+  // width: 100%;
+  padding: 15px 25px 15px 0;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+  -webkit-text-fill-color: #666;
+}
+.left-align {
+  text-align: left !important;
+}
+.center-align {
+  text-align: center !important;
+}
+.right-align {
+  text-align: right !important;
+}
+.el-table {
+  .el-tooltip__popper {
+    max-width: 400px;
+  }
+}
