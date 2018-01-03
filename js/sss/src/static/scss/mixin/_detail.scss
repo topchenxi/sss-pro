@@ -1,0 +1,555 @@
+.detail-container
+{
+    padding: 0 50px;
+    .crumbs
+    {
+        line-height: 36px;
+
+        padding: 20px 0;
+
+        @include clearfix;
+        span
+        {
+            font-size: 24px;
+
+            display: inline-block;
+            float: left;
+
+            color: #a2a4b4;
+        }
+        .arrow
+        {
+            width: 16px;
+            height: 16px;
+            margin: (36px-16px)/2 10px;
+
+            background: url('static/images/right.png') 0 0 no-repeat;
+        }
+        .current
+        {
+            color: #3f5165;
+        }
+    }
+}
+.detail-content
+{
+    margin-bottom: 20px;
+    padding: 20px;
+
+    border: 1px solid #e8e9ed;
+    background-color: #fff;
+    .customer-info-row
+    {
+        color: #666;
+    }
+    .title
+    {
+        line-height: 26px;
+
+        height: 26px;
+        margin-bottom: 10px;
+
+        @include clearfix;
+        h5
+        {
+            font-size: 16px;
+
+            float: left;
+
+            color: #333;
+
+            @include heiti;
+        }
+        .op
+        {
+            float: right;
+        }
+        .update
+        {
+            font-size: 12px;
+
+            cursor: pointer;
+
+            color: $green;
+            .icon
+            {
+                vertical-align: sub;
+            }
+        }
+        .save
+        {
+            font-size: 12px;
+            line-height: 26px;
+
+            height: 26px;
+            margin-left: 10px;
+            padding: 0 15px;
+
+            color: #fff;
+            border-radius: 13px;
+            background: #2fb468;
+            span
+            {
+                cursor: pointer;
+            }
+            .icon
+            {
+                vertical-align: sub;
+            }
+        }
+    }
+
+    .line,
+    .d-line
+    {
+        height: 1px;
+        margin: 10px 0;
+
+        border-bottom: 1px solid #e8e9ed;
+    }
+    .d-line
+    {
+        border-bottom: 1px dashed #e8e9ed;
+    }
+    .o-row
+    {
+        @include clearfix;
+         + .o-row
+        {
+            margin-top: 10px;
+        }
+        .o-item
+        {
+            float: left;
+
+            min-width: 250px;
+            margin: 5px 0;
+            margin-right: 40px;
+
+            @include clearfix;
+            dt,
+            dd
+            {
+                font-size: 14px;
+                line-height: 20px;
+
+                display: inline-block;
+                float: left;
+
+                min-height: 20px;
+
+                color: #666;
+            }
+            dt
+            {
+                margin-right: 10px;
+            }
+            .icon-wrap
+            {
+                display: flex;
+
+                align-items: center;
+                span
+                {
+                    margin-left: 5px;
+                }
+            }
+            .font
+            {
+                font-size: 12px;
+                line-height: 18px;
+
+                height: 18px;
+                padding: 0 10px;
+
+                color: #fff;
+                border-radius: 15px;
+                background: #2fb468;
+            }
+            .error
+            {
+                color: #fff !important;
+                background-color: #e63939;
+            }
+            .offStatus
+            {
+                color: #fff !important;
+                background-color: #bbb;
+            }
+            .onStatus
+            {
+                color: #fff !important;
+                background-color: #fa9d3b;
+            }
+        }
+    }
+    .row-address
+    {
+        position: relative;
+
+        padding: 8px;
+
+        background: #f5f6fa;
+        .o-item
+        {
+            min-width: 300px;
+        }
+        .el-input
+        {
+            width: auto;
+        }
+        .el-form-item__label
+        {
+            min-width: 120px;
+        }
+        .el-form-item__error
+        {
+            padding-left: 0;
+        }
+        .address-op
+        {
+            right: 15px;
+
+            @include ct;
+            .icon
+            {
+                margin-left: 5px;
+            }
+        }
+    }
+    .o-form
+    {
+        .el-row
+        {
+            .el-col
+            {
+                line-height: 28px;
+
+                min-height: 28px;
+                .el-form-item
+                {
+                    margin-bottom: 18px;
+                    .el-form-item__label
+                    {
+                        line-height: 28px;
+
+                        min-width: 90px;
+                        height: 28px;
+                        margin-right: 5px;
+                        padding: 0;
+                    }
+                    .el-form-item__content
+                    {
+                        line-height: 28px;
+                    }
+                    .el-input__inner
+                    {
+                        line-height: 20px;
+
+                        min-width: 200px;
+                        height: 28px;
+
+                        @include input;;
+                    }
+                    .el-cascader__label
+                    {
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+    .showMore
+    {
+        font-size: 14px;
+
+        width: 100%;
+        margin: 20px 0;
+
+        cursor: pointer;
+        text-align: center;
+
+        color: $green;
+    }
+    .btn-groups
+    {
+        padding: 55px 0;
+
+        text-align: center;
+    }
+    .status-wrap
+    {
+        font-size: 14px;
+        line-height: 38px;
+
+        width: 100%;
+        height: 38px;
+        margin: 10px 0 20px 0;
+        padding: 0 10px;
+
+        color: #2fb468;
+        background: #eafff3;
+    }
+    .o-title
+    {
+        font-size: 16px;
+        font-weight: normal;
+
+        margin-bottom: 20px;
+
+        color: #333;
+    }
+}
+
+.edit-form
+{
+    color: #666;
+    .o-title
+    {
+        font-weight: bold;
+
+        @include heiti;
+    }
+    .el-form-item
+    {
+        .el-form-item__label
+        {
+            font-size: 14px;
+
+            color: #666;
+        }
+        .el-form-item__content
+        {
+            font-size: 14px;
+
+            color: #666;
+        }
+        .el-select
+        {
+            .el-input
+            {
+                .el-input__inner
+                {
+                    border-radius: 4px;
+                }
+            }
+        }
+
+        .input,
+        .select
+        {
+            width: 200px;
+        }
+        .textarea
+        {
+            position: relative;
+
+            width: 720px;
+            .el-textarea__inner,
+            textarea
+            {
+                font-size: 16px;
+
+                width: 720px;
+                height: 103px;
+                padding: 10px;
+
+                color: #666;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+            .length
+            {
+                font-size: 12px;
+                font-weight: normal;
+
+                position: absolute;
+                right: 5px;
+                bottom: -5px;
+
+                color: #999;
+            }
+        }
+        .el-radio
+        {
+            min-width: 90px;
+        }
+    }
+    .seller-wrap
+    {
+        width: 580px;
+        min-height: 200px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+        padding: 10px;
+
+        border-radius: 4px;
+        background: #f5f6fa;
+        li
+        {
+            font-size: 16px;
+
+            color: #666;
+        }
+    }
+    .img-list
+    {
+        display: inline-block;
+
+        margin-right: 15px;
+
+        @include clearfix;
+        .image
+        {
+            position: relative;
+
+            float: left;
+
+            border: 1px solid #ddd;
+            .icon-close
+            {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+
+                display: inline-block;
+
+                width: 16px;
+                height: 16px;
+
+                cursor: pointer;
+
+                border-radius: 50%;
+                background: #fff url('static/images/close.png') 0 0 no-repeat;
+            }
+             + .image
+            {
+                margin-left: 20px;
+            }
+        }
+    }
+    .icon-upload
+    {
+        display: inline-block;
+
+        width: 86px;
+        height: 86px;
+
+        background: url('static/images/addimg.png') 0 0 no-repeat;
+    }
+    .d-line
+    {
+        width: 100%;
+        height: 1px;
+        margin: 20px 0;
+
+        border-bottom: 1px dashed #ddd;
+    }
+}
+.btns-group
+{
+    padding-bottom: 20px;
+    padding-left: 150px;
+    button
+    {
+         + button
+        {
+            margin-left: 30px;
+        }
+    }
+}
+
+.o-finance
+{
+    padding: 20px 20px;
+
+    background: #f5f6fa;
+    .status
+    {
+        font-size: 12px;
+        line-height: 18px;
+
+        height: 18px;
+        margin-left: 10px;
+        padding: 0 10px;
+
+        color: #fff;
+        border-radius: 15px;
+        background: #2fb468;
+    }
+    h4
+    {
+        font-size: 16px;
+        font-weight: normal;
+
+        margin-bottom: 15px;
+
+        color: #333;
+
+        @include heiti;
+    }
+    .wrap
+    {
+        @include clearfix;
+        dl
+        {
+            float: left;
+
+            min-width: 260px;
+
+            @include clearfix;
+            margin: 5px 0;
+            dt,
+            dd
+            {
+                font-size: 14px;
+
+                float: left;
+
+                margin-right: 10px;
+
+                color: #333;
+            }
+            .status-had
+            {
+                color: $green;
+            }
+            .status-not
+            {
+                color: #f6a623 ;
+            }
+            .img
+            {
+                clear: both;
+
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+.finance-form
+{
+    padding: 20px 20px;
+
+    background: #f5f6fa;
+    h4
+    {
+        font-size: 16px;
+        font-weight: normal;
+
+        margin-bottom: 20px;
+
+        color: #333;
+
+        @include heiti;
+    }
+    .el-form-item
+    {
+        .el-input__inner
+        {
+            // background: #f5f6fa;
+            background-color: #fff;
+        }
+    }
+}

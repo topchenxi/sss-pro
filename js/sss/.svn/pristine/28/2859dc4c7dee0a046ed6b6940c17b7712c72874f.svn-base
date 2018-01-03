@@ -1,0 +1,174 @@
+/* 清楚浮动 */
+
+@mixin clearfix
+{
+    &::after
+    {
+        display: block;
+        clear: both;
+
+        content: '';
+    }
+}
+
+
+/* 定位上下居中 */
+
+@mixin ct
+{
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* 定位左右居中 */
+
+@mixin cl
+{
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* 居中 */
+
+@mixin fc
+{
+    display: flex !important;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 浮动 */
+
+@mixin float($side: left)
+{
+    display: inline-block!important;
+    float: $side !important;
+    zoom: 1!important;
+}
+
+
+/* 文字对齐 */
+
+@mixin textAlign($side)
+{
+    text-align: $side!important;
+}
+
+
+/* 文字 */
+
+@mixin fontSize($size)
+{
+    font-size: $size !important;
+}
+
+
+/* 内边距 */
+
+@mixin padding($paddingSize)
+{
+    padding: $paddingSize !important;
+}
+
+@mixin input
+{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    &:focus
+    {
+        border-color: #ccc;
+        outline: 0;
+    }
+
+    &:hover
+    {
+        border-color: #ccc;
+    }
+}
+
+@mixin heiti
+{
+    font-family: 'Heiti SC', 'Microsoft YaHei', 'Tahoma', Helvetica, Arial, sans-serif;
+}
+
+
+@mixin btn
+{
+    font-size: 14px;
+    line-height: 28px;
+
+    min-width: 86px;
+    height: 30px;
+    padding: 0 28px;
+
+    text-align: center;
+
+    color: #fff;
+    border: 1px solid #2fb468;
+    border-radius: 18px;
+    background-color: #2fb468;
+    &[disabled],
+    &.is-disabled
+    {
+        cursor: not-allowed !important;
+
+        color: #bfcbd9 !important;
+        border-color: #eef1f6 !important;
+        background-color: #eef1f6 !important;
+        background-image: none !important;
+    }
+    &:hover
+    {
+        background-color: $green-hover;
+    }
+}
+
+@mixin btn-default
+{
+    color: #fff;
+    background-color: $green;
+    &:hover,
+    &:focus
+    {
+        background-color: $green-hover;
+    }
+}
+
+@mixin btn-white
+{
+    color: #2fb468;
+    background-color: #fff;
+    &:hover,
+    &:focus
+    {
+        background-color: $white-hover;
+    }
+}
+
+@mixin btn-gray
+{
+    color: #999;
+    border: 1px solid #bbb;
+    background-color: #fff;
+    &:hover,
+    &:focus
+    {
+        background-color: #f9f9f9;
+    }
+}
+
+
+
+$green: #2fb468!default;
+$green-hover: #22a65c!default;
+$white: #fff;
+$white-hover: #eefff6;

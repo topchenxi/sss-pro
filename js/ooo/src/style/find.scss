@@ -1,0 +1,49 @@
+.fy-table-content {
+  padding-top: 15px;
+  background-color: #fff;
+  overflow: auto;
+  .fy-table-body {
+    border: none;
+    width: 3600px;
+    border-collapse: collapse;
+    word-break: break-all;
+    thead {
+      th {
+        background-color: #F9F9F9;
+        @extend .center-align;
+        border-color: #ddd;
+        padding: 10px 15px;
+      }
+    }
+    tbody {
+      overflow: auto;
+      td {
+        @extend .center-align;
+        border-color: #ddd;
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+.el-findTable-content {
+  .el-table {
+    text-align: center;
+    th {
+      text-align: center;
+      background-color: #f9f9f9;
+      border-color: #ddd;
+      padding: 5px 5px !important;
+      .cell {
+        padding: 0 5px;
+        background-color: #f9f9f9;
+      }
+    }
+    td {
+      border-color: #ddd;
+      padding: 5px 0px !important;
+      .cell {
+        padding: 0 5px;
+      }
+    }
+  }
+}

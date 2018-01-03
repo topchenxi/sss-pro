@@ -1,0 +1,303 @@
+.oms-tabs
+{
+    ul
+    {
+        margin-bottom: 10px;
+        padding: 0 20px;
+
+        @include clearfix;
+        li
+        {
+            font-size: 14px;
+            line-height: 50px;
+
+            float: left;
+
+            min-width: 120px;
+            height: 50px;
+            padding: 0;
+
+            cursor: pointer;
+            text-align: center;
+
+            color: #bbb;
+            border: none;
+            border-bottom: 2px solid #fff;
+        }
+        .active
+        {
+            color: #2fb468;
+            border-bottom: 2px solid #2fb468;
+        }
+    }
+}
+.containter
+{
+    margin: 0 50px;
+
+    border: 1px solid #e8e9ed;
+    background-color: #fff;
+    .tabs-containter
+    {
+        margin-bottom: 10px;
+        padding: 0 20px;
+        .el-tabs__header
+        {
+            margin: 0;
+
+            border: none;
+            .el-tabs__nav
+            {
+                .el-tabs__active-bar
+                {
+                    background-color: $green;
+                }
+                .el-tabs__item
+                {
+                    font-size: 14px;
+                    line-height: 50px;
+
+                    min-width: 120px;
+                    height: 50px;
+                    padding: 0;
+
+                    text-align: center;
+
+                    color: #bbb;
+                    border: none;
+                    border-bottom: 2px solid #fff;
+                    a
+                    {
+                        display: block;
+
+                        color: #bbb;
+                        &:hover
+                        {
+                            color: #bbb;
+                        }
+                    }
+                }
+                .el-tabs__item.is-active
+                {
+                    color: $green;
+                    border-bottom: 2px solid $green;
+                    a
+                    {
+                        color: $green;
+                        &:hover
+                        {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.oms-title-wrap
+{
+    line-height: 40px;
+
+    min-height: 40px;
+    padding: 20px 50px;
+
+    @include clearfix;
+    h2
+    {
+        font-size: 25px;
+        font-weight: normal;
+
+        float: left;
+
+        color: #3f5165;
+    }
+    .right
+    {
+        float: right;
+        .btn-add
+        {
+            font-size: 18px;
+            line-height: 40px;
+
+            min-width: 150px;
+            height: 40px;
+
+            cursor: pointer;
+            text-align: center;
+
+            color: #fff;
+            border-radius: 20px;
+            background-color: $green;
+            box-shadow: 0 2px 5px $green;
+            span
+            {
+                display: inline-block;
+
+                width: 18px;
+                height: 18px;
+                margin-top: (40px-18px)/2;
+                margin-right: 3px;
+
+                vertical-align: top;
+            }
+            &:hover
+            {
+                background-color: $green-hover;
+                box-shadow: 0 2px 5px $green-hover;
+            }
+        }
+    }
+}
+
+.search-wrap
+{
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+    background-color: #fff;
+
+    @include clearfix;
+    .item
+    {
+        line-height: 30px;
+
+        float: left;
+
+        height: 30px;
+        margin: 10px;
+        .el-input
+        {
+            display: inline-block;
+
+            width: auto;
+            .el-input__inner
+            {
+                height: 30px;
+            }
+        }
+        .el-cascader__label
+        {
+            line-height: 30px;
+        }
+    }
+    .btn-search
+    {
+        float: left;
+
+        margin: 10px;
+
+        color: $green;
+        background-color: #fff;
+        &:hover
+        {
+            background-color: $white-hover;
+        }
+    }
+}
+
+.table-wrap
+{
+    position: relative;
+
+    padding-bottom: 70px;
+
+    background-color: #fff;
+    .table-content
+    {
+        overflow: auto;
+
+        margin: 0 20px;
+        margin-bottom: 2px;
+        .table
+        {
+            width: 100%;
+
+            background-color: #fff;
+            thead
+            {
+                tr
+                {
+                    th
+                    {
+                        font-size: 14px;
+                        font-weight: bold;
+
+                        padding: 12px 10px;
+
+                        text-align: center;
+
+                        color: #333;
+                        border: 1px solid #ddd;
+                        background: #f9f9f9;
+
+                        @include heiti;
+                    }
+                }
+            }
+            tbody
+            {
+                tr
+                {
+                    td
+                    {
+                        font-size: 14px;
+
+                        padding: 7px 10px;
+
+                        text-align: center;
+
+                        color: #333;
+                        border: 1px solid #ddd;
+                    }
+                    &:hover
+                    {
+                        background-color: #f5f5f5;
+                    }
+                }
+            }
+        }
+        .el-table
+        {
+            td,
+            th
+            {
+                border-color: #ddd;
+            }
+            th
+            {
+                background-color: #f9f9f9;
+                .cell
+                {
+                    font-size: 14px;
+                    font-weight: bold;
+
+                    color: #333;
+                    background-color: #f9f9f9;
+
+                    @include heiti;
+                }
+            }
+        }
+    }
+    .page-wrap
+    {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 70px;
+
+        box-shadow: 0 -2px 4px 0 #f2f2f2;
+
+        @include clearfix;
+        .el-pagination
+        {
+            float: right;
+
+            margin-top: (70px-32px)/2;
+            padding: 0 20px;
+        }
+    }
+}

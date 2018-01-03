@@ -1,0 +1,116 @@
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-color: rgba(#fff, 0.9);
+  z-index: 10000;
+}
+.lightbox__image {
+  position: fixed;
+}
+.lightbox__close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  font-size: 35px;
+  cursor: pointer;
+}
+.lightbox__btn {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -50px;
+  background-color: #ccc;
+  cursor: pointer;
+  z-index: 100;
+}
+.next {
+  right: 10px;
+}
+.prev {
+  left: 10px;
+}
+.lightbox__loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin-left: -20px;
+  margin-top: -20px;
+  background-color: #444;
+  background-color: rgba(#000, 0.5);
+  border-radius: 40px;
+  &:after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    animation: lightbox-loading .5s ease infinite;
+  }
+}
+.lightbox__operation {
+  width: 300px;
+  margin: 20px;
+  z-index: 100;
+  position: relative;
+}
+@keyframes lightbox-loading {
+  0%{
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+  50%{
+      opacity: 1;
+      transform: scale(1);
+  }
+  100%{
+    opacity: 0.5;
+    transform: scale(0.75);
+  }
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-out .5s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

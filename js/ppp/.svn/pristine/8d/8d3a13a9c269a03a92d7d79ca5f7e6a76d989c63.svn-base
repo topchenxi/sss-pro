@@ -1,0 +1,19 @@
+@mixin linkFoo($color,$bg-color,$hover-color)
+{
+    cursor: pointer;
+
+    color: $color;
+    background-color: $bg-color;
+    &:hover
+    {
+        color: $hover-color;
+    }
+}
+
+.link
+{
+    @include linkFoo(
+    $link-default-color,
+    $link-default-bg-color,
+    $link-default-bg-color-hover);
+}

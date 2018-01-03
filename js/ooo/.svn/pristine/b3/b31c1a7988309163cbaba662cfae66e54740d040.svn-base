@@ -1,0 +1,137 @@
+.el-cutTable-content {
+  padding-top: 12px;
+  background-color: #fff;
+  .el-table {
+    text-align: center;
+    th {
+      text-align: center;
+      background-color: #f9f9f9;
+      border-color: #ddd;
+      padding: 5px !important;
+      .cell {
+        padding: 0 5px;
+        background-color: #f9f9f9;
+      }
+    }
+    td {
+      border-color: #ddd;
+      padding: 5px 0 !important;
+      .cell {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+.max-width {
+  max-width: 400px;
+  margin-top: 10px;
+}
+.productNumber-td {
+  max-width: 120px;
+  width: auto;
+  cursor: pointer;
+}
+.el-table {
+  .el-icon-arrow-down {
+    color: #39ab65;
+    float: right;
+    position: absolute;
+    top: 33%;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+.popover-div {
+  p {
+    font-size: 14px;
+    color: #333;
+    line-height: 32px;
+  }
+  .popover-table {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+    border: none;
+    th {
+      text-align: center;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 5px !important;
+    }
+    td {
+      border: 1px solid #ddd;
+      padding: 5px !important;
+    }
+  }
+}
+.popover-div2 {
+  text-align: right;
+  p {
+    color: #666;
+    line-height: 32px;
+    font-size: 14px;
+  }
+}
+.cutMsg-content {
+  margin-left: 5px;
+  margin-right: 15px;
+  background-color: #fff;
+  border-top: 2px solid #39ab65;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  color: #333;
+  .el-button--mini {
+    span {
+      height: 18px !important;
+      line-height: 18px !important;
+    }
+  }
+  .msg-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  p {
+    line-height: 35px;
+    font-size: 14px;
+  }
+  span {
+    font-size: 14px;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+  }
+  .bottom-border-dashed {
+    margin-top: 5px;
+  }
+}
+.product-msg {
+  padding-bottom: 5px;
+  width: 100%;
+  margin-top: 5px;
+  .detail-table {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 5px;
+    border: none;
+    th {
+      text-align: center;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      padding: 5px !important;
+    }
+    td {
+      border: 1px solid #ddd;
+      padding: 5px !important;
+    }
+  }
+}
+.width50 {
+  width: 50px;
+}
+.el-dialog {
+  footer {
+    .el-button--small {
+      padding: 8px 20px;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@mixin btn
+{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+
+    display: inline-block;
+
+    margin: 0;
+    padding: 5px 18px;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    color: #666;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    outline: none;
+    background-color: #fff;
+    background-image: none;
+
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    &:focus,
+    &:hover,
+    {
+        border: 1px solid #eee;
+        background-color: #fff;
+    }
+}
+
+@mixin button($bg-color, $hover-bg-color, $active-bg-color, $disabled-bg-color,$color: #fff)
+{
+    color: $color;
+    border-color: $bg-color;
+    background-color: $bg-color;
+    &:hover,
+    &.hover
+    {
+        color: $color;
+        border-color: $hover-bg-color;
+        background-color: $hover-bg-color;
+    }
+    &:focus,
+    &.focus
+    {
+        color: $color;
+        border-color: $active-bg-color;
+        background-color: $active-bg-color;
+    }
+    &:disabled,
+    &.disabled,
+    &[disabled]
+    {
+        color: $color;
+        border-color: $disabled-bg-color;
+        background-color: $disabled-bg-color;
+    }
+}
+
+.btn
+{
+    @include btn;
+}
+
+.btn-default
+{
+    @include button(
+    $btn-default-bg-color-default,
+    $btn-default-bg-color-hover,
+    $btn-default-bg-color-active,
+    $btn-default-bg-color-disabled);
+}
+
+.btn-submit
+{
+    @include button(
+    $btn-submit-bg-color-default,
+    $btn-submit-bg-color-hover,
+    $btn-submit-bg-color-active,
+    $btn-submit-bg-color-disabled);
+}
+
+.el-button
+{
+    @include btn;
+}
+
+.el-button--default
+{
+    color: #666;
+    border: 1px solid $btn-default-bg-color-default;
+    background-color: #fff;
+    &:hover,
+    &:active,
+    &:focus
+    {
+        color: #666;
+        border: 1px solid $btn-default-bg-color-default;
+        background-color: #fff;
+    }
+}
+.el-button--primary
+{
+    @include button(
+    $btn-default-bg-color-default,
+    $btn-default-bg-color-hover,
+    $btn-default-bg-color-active,
+    $btn-default-bg-color-disabled);
+}
+.el-button--submit
+{
+    @include button(
+    $btn-submit-bg-color-default,
+    $btn-submit-bg-color-hover,
+    $btn-submit-bg-color-active,
+    $btn-submit-bg-color-disabled);
+}
