@@ -1,0 +1,483 @@
+.form-btn-group
+{
+    text-align: right;
+    .el-button
+    {
+        font-size: 16px;
+
+        margin: 7px;
+
+        border-radius: 2px;
+    }
+    .btn-submit
+    {
+        color: #333;
+        border: 1px solid #666;
+        border-radius: 2px;
+        background-color: #fff;
+        &:hover
+        {
+            color: #333;
+            border: 1px solid #666;
+            background-color: #fff;
+        }
+    }
+}
+
+.checkbox-group
+{
+    @include clearfix;
+    label
+    {
+        float: left;
+
+        margin-right: 10px;
+    }
+}
+
+.form-dialog
+{
+    padding: 4px !important;
+
+    @include clearfix;
+    .el-form-item
+    {
+        margin-bottom: 6px;
+        .el-form-item__label
+        {
+            font-size: 14px;
+
+            min-width: 80px;
+
+            color: #333;
+        }
+        .el-form-item__content
+        {
+            font-size: 14px;
+
+            color: #333;
+        }
+    }
+}
+
+.el-form-dialog
+{
+    .el-dialog__body
+    {
+        .el-form
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .line
+        {
+            width: 100%;
+            height: 3px;
+            margin: 10px 0;
+            padding: 1px;
+
+            border-bottom: 1px dashed #ddd;
+        }
+        .el-form-item
+        {
+            margin-bottom: 15px;
+            .el-form-item__label,
+            .el-form-item__content
+            {
+                font-size: 14px;
+                line-height: 20px;
+
+                color: #333;
+            }
+            .el-form-item__label
+            {
+                padding: 0;
+                padding-right: 16px;
+
+                background-color: #fff;
+            }
+            .el-form-item__content
+            {
+                background-color: #fff;
+                .el-input
+                {
+                    input
+                    {
+                        @include input;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 录入剪版信息
+.cut-dialog
+{
+    .el-dialog__body
+    {
+        .input-product
+        {
+            line-height: 30px;
+
+            margin-bottom: 20px;
+            .seller
+            {
+                color: #666;
+            }
+            .info
+            {
+                color: #333;
+            }
+            .el-row
+            {
+                margin-bottom: 5px;
+            }
+        }
+        .el-input__inner
+        {
+            @include input;
+        }
+    }
+}
+
+.el-dialog
+{
+    .el-dialog__header
+    {
+        padding: 20px 30px 0 30px;
+
+        text-align: center;
+        .el-dialog__title
+        {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 24px;
+
+            color: rgba(0, 0, 0, .87);
+        }
+    }
+    .el-dialog__body
+    {
+        padding: 20px 30px;
+        .el-form
+        {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.el-dialog-pay
+{
+    .el-dialog
+    {
+        width: 1000px;
+        .el-dialog__body
+        {
+            padding-bottom: 0;
+        }
+        .el-form
+        {
+            .d-top
+            {
+                font-size: 14px;
+
+                color: rgba(0, 0, 0, .87);
+
+                @include clearfix;
+                .f-buyer
+                {
+                    float: left;
+
+                    padding: 0 14px;
+                }
+                .f-account
+                {
+                    float: right;
+
+                    width: 50%;
+                    min-height: 80px;
+                    padding-left: 14px;
+
+                    border-left: 1px solid #ddd;
+                    dl
+                    {
+                        @include clearfix;
+                        dt
+                        {
+                            line-height: 20px;
+
+                            float: left;
+
+                            margin-right: 14px;
+                        }
+                        dd
+                        {
+                            float: left;
+
+                            color: #333;
+                            p
+                            {
+                                line-height: 20px;
+
+                                margin-bottom: 5px;
+                            }
+                            span
+                            {
+                                margin-left: 5px;
+                            }
+                            i
+                            {
+                                font-size: 12px;
+                                font-style: normal;
+
+                                margin-left: 5px;
+
+                                color: #999;
+                            }
+                        }
+                    }
+                }
+            }
+            h5
+            {
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 20px;
+
+                margin-top: 10px;
+
+                color: rgba(0, 0, 0, .87);
+            }
+            .table-wrap
+            {
+                margin-top: 10px;
+                .table
+                {
+                    tbody
+                    {
+                        tr
+                        {
+                            background-color: #fff !important;
+                            td
+                            {
+                                font-size: 14px;
+
+                                word-break: break-all;
+
+                                color: #333;
+                                border: 1px solid #ddd;
+                            }
+                        }
+                    }
+                }
+            }
+            .line
+            {
+                width: 100%;
+                height: 15px;
+                margin-bottom: 15px;
+                padding: 14px 0 0 0;
+
+                border-bottom: 1px dashed #ddd;
+            }
+            .pay-form
+            {
+                margin-top: 20px;
+
+                @include clearfix;
+                h5
+                {
+                    margin-bottom: 15px;
+                }
+                .el-form-item
+                {
+                    margin-bottom: 18px;
+                }
+                .left
+                {
+                    float: left;
+
+                    width: 50%;
+                    padding-right: 10px;
+
+                    border-right: 1px solid #ddd;
+                    .total
+                    {
+                        line-height: 18px;
+
+                        height: 18px;
+                        margin-top: 10px;
+                    }
+                }
+                input[type='text']
+                {
+                    width: 200px;
+
+                    @include input;
+                }
+                .icon-upload
+                {
+                    margin-bottom: 10px;
+                }
+                .textarea-wrap
+                {
+                    position: relative;
+
+                    width: 100%;
+                    textarea
+                    {
+                        width: 100%;
+                        height: 100px;
+                        padding: 10px;
+
+                        border: 1px solid #ddd;
+                    }
+                    .count
+                    {
+                        font-size: 12px;
+
+                        position: absolute;
+                        right: 10px;
+                        bottom: 10px;
+
+                        color: #ddd;
+                    }
+                }
+                .right
+                {
+                    float: right;
+
+                    width: 49%;
+                    .address-wrap
+                    {
+                        margin-bottom: 12px;
+                        padding: 8px;
+
+                        border-radius: 4px;
+                        background: #f2f2f2;
+                        p
+                        {
+                            font-size: 14px;
+                            line-height: 24px;
+
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-groups
+{
+    @include clearfix;
+    .btn
+    {
+        float: left;
+
+        margin-right: 30px;
+        padding: 5px 31px;
+    }
+}
+
+.app
+{
+    .cell
+    {
+        .el-button
+        {
+            margin: 3px;
+        }
+    }
+    .table-btn
+    {
+        @include btn;
+        @include btn-default;
+        @include table-btn;
+        &.submit
+        {
+            @include btn-submit;
+        }
+    }
+}
+
+
+.font-reason
+{
+    font-size: 12px;
+
+    display: inline-block;
+
+    min-width: 70px;
+    margin: 3px;
+    padding: 4px 10px;
+
+    cursor: default;
+
+    color: #f6a623;
+}
+
+.el-message-box__wrapper
+{
+    .el-message-box__title
+    {
+        text-align: center;
+    }
+    .el-message-box__btns
+    {
+        .el-button--default
+        {
+            @include btn;
+            @include btn-white;
+        }
+        .el-button--primary
+        {
+            @include btn;
+            @include btn-default;
+        }
+        .el-button
+        {
+             + .el-button
+            {
+                margin-left: 30px;
+            }
+        }
+    }
+}
+
+.el-dialog__wrapper
+{
+    .el-dialog__footer
+    {
+        padding: 20px 30px;
+        .el-button--default
+        {
+            min-width: 72px;
+
+            @include btn;
+            @include btn-white;
+        }
+        .el-button--primary
+        {
+            min-width: 72px;
+
+            @include btn;
+            @include btn-default;
+        }
+        .is-disabled
+        {
+            @include btn-disabled;
+        }
+        .el-button
+        {
+             + .el-button
+            {
+                margin-left: 30px;
+            }
+        }
+    }
+}
+

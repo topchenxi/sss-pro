@@ -1,0 +1,423 @@
+// main color
+$green: #2fb468!default;
+
+// font color
+$c333: #333!default;
+$c666: #666!default;
+$c999: #999!default;
+
+// support color
+$red: #e63939!default;
+
+// background color
+$bg-color: #f9f9f9;
+
+// btn-default
+$btn-default-bg-color-default: #2fb468;
+$btn-default-bg-color-hover: #22c76a;
+$btn-default-bg-color-active: #1ba958;
+$btn-default-bg-color-disabled: #ddd;
+
+// btn-submit
+$btn-submit-bg-color-default: #f6a623;
+$btn-submit-bg-color-hover: #fcbc52;
+$btn-submit-bg-color-active: #f39f15;
+$btn-submit-bg-color-disabled: #ddd;
+
+// link
+$link-default-color: #2fb468;
+$link-default-bg-color: transparent;
+$link-default-bg-color-hover: #22c76a;
+
+// menu
+$menu-bg-color: rgb(54, 54, 54);
+
+// btn-green
+$green-default: #2fb468;
+$green-hover: #22c76b;
+$green-active: #1ba958;
+
+// btn-submit
+$submit-default: #f5a623;
+$submit-hover: #fcbb52;
+$submit-active: #f39f16;
+
+@mixin bis($url)
+{
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin allcover
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@mixin center
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+@mixin ct
+{
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+@mixin cl
+{
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+@mixin fc
+{
+    display: flex !important;
+
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin size($width, $height: $width)
+{
+    width: $width;
+    height: $height;
+}
+
+@mixin font($size, $line-height, $family: 'Microsoft YaHei')
+{
+    font: #{$size}/#{$line-height} $family;
+}
+
+@mixin sc($size, $color)
+{
+    font-size: $size;
+
+    color: $color;
+}
+
+@mixin fj($type: space-between)
+{
+    display: flex;
+
+    justify-content: $type;
+}
+
+@mixin float($side: left)
+{
+    display: inline-block!important;
+    float: $side !important;
+    zoom: 1!important;
+}
+
+@mixin textAlign($side)
+{
+    text-align: $side!important;
+}
+
+@mixin verticalAlign($side)
+{
+    vertical-align: $side!important;
+}
+
+@mixin linkFoo($color, $bg-color, $hover-color)
+{
+    cursor: pointer;
+
+    color: $color;
+    background-color: $bg-color;
+    &:hover
+    {
+        color: $hover-color;
+    }
+}
+
+@mixin clearfix()
+{
+    &::after
+    {
+        display: block;
+        clear: both;
+
+        content: '';
+    }
+}
+
+@mixin btn
+{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+
+    display: inline-block;
+
+    margin: 0;
+    padding: 5px 20px;
+
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    color: $green;
+    border: 1px solid $green;
+    border-radius: 2px;
+    outline: none;
+    background-color: #fff;
+    background-image: none;
+
+    touch-action: manipulation;
+    &:focus,
+    &:hover
+    {
+        border: 1px solid #eee;
+        background-color: #fff;
+    }
+    &:disabled,
+    &.disabled,
+    &[disabled]
+    {
+        cursor: not-allowed;
+
+        color: #fff !important;
+        border-color: #ddd !important;
+        background-color: #ddd !important;
+    }
+}
+
+
+
+@mixin button($bg-color, $hover-bg-color, $active-bg-color, $disabled-bg-color, $color: #fff)
+{
+    color: $color;
+    border-color: $bg-color;
+    background-color: $bg-color;
+    &:hover,
+    &.hover
+    {
+        color: $color;
+        border-color: $hover-bg-color;
+        background-color: $hover-bg-color;
+    }
+    &:focus,
+    &.focus
+    {
+        color: $color;
+        border-color: $active-bg-color;
+        background-color: $active-bg-color;
+    }
+}
+
+@mixin btn-default
+{
+    color: #fff;
+    border: 1px solid $green-default;
+    border-radius: 2px;
+    background-color: $green-default;
+    &:hover
+    {
+        color: #fff;
+        border-color: $green-hover;
+        background-color: $green-hover;
+    }
+    &:focus
+    {
+        color: #fff;
+        border-color: $green-active;
+        background-color: $green-active;
+    }
+}
+
+@mixin btn-white
+{
+    color: #333;
+    border: 1px solid #666;
+    border-radius: 2px;
+    background-color: #fff;
+    &:hover
+    {
+        color: $green-default;
+        border-color: $green-default;
+        background-color: #fff;
+    }
+    &:focus
+    {
+        color: $green-active;
+        border-color: $green-active;
+        background-color: #fff;
+    }
+}
+
+@mixin btn-submit
+{
+    color: #fff;
+    border: 1px solid $submit-default;
+    border-radius: 2px;
+    background-color: $submit-default;
+    &:hover
+    {
+        color: #fff;
+        border-color: $submit-hover;
+        background-color: $submit-hover;
+    }
+    &:focus
+    {
+        color: #fff;
+        border-color: $submit-active;
+        background-color: $submit-active;
+    }
+}
+
+@mixin btn-disabled
+{
+    cursor: not-allowed;
+
+    color: #fff !important;
+    border-color: #ddd !important;
+    background-color: #ddd !important;
+    &:disabled,
+    &.disabled,
+    &[disabled]
+    {
+        color: #fff !important;
+        border-color: #ddd !important;
+        background-color: #ddd !important;
+    }
+}
+
+@mixin d-btn-cancel
+{
+    color: #333;
+    border: 1px solid #666;
+    border-radius: 2px;
+    background-color: #fff;
+    &:hover
+    {
+        color: #2fb468;
+        border: 1px solid #2fb468;
+        background-color: #fff;
+    }
+}
+
+@mixin d-btn-submit
+{
+    color: #fff;
+    border: 1px solid #2fb468;
+    border-radius: 2px;
+    background-color: #2fb468;
+    &:hover
+    {
+        color: #fff;
+        border: 1px solid #2fb468;
+        background-color: #2fb468;
+    }
+}
+
+@mixin table-btn
+{
+    font-size: 12px;
+
+    min-width: 70px;
+    margin: 3px !important;
+    padding: 2px 10px !important;
+    &:disabled,
+    &.disabled,
+    &[disabled]
+    {
+        cursor: not-allowed;
+
+        color: #fff !important;
+        border-color: #ddd !important;
+        background-color: #ddd !important;
+    }
+}
+
+@mixin empty
+{
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+    height: 90%;
+
+    text-align: center;
+
+    color: #666;
+    background: url(./assets/images/empty-list.png) center center no-repeat;
+
+    justify-content: center;
+    align-items: center;
+    &:hover
+    {
+        background-color: #fff !important;
+    }
+    &:after
+    {
+        display: block;
+
+        width: 200px;
+        height: 30px;
+        margin: 0 0 -200px 10px;
+
+        content: '列表暂时没有数据';
+
+        color: #666;
+    }
+}
+
+@mixin input
+{
+    font-size: 14px;
+
+    padding: 5px 12px;
+
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    &:hover,
+    &:focus
+    {
+        border-color: $green;
+    }
+}
+
+@mixin textarea
+{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+@mixin ellipsis
+{
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin sprite-icon
+{
+    background-color: transparent;
+    background-image: url(assets/images/icon-sprites.png);
+    background-repeat: no-repeat;
+}
+
+@mixin sprite-finance
+{
+    background-color: transparent;
+    background-image: url(assets/images/finance-sprites.png);
+    background-repeat: no-repeat;
+}

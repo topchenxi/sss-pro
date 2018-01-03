@@ -1,0 +1,362 @@
+@charset 'utf-8';
+*
+{
+    font-family: 'Microsoft YaHei','Tahoma',Helvetica,Arial,sans-serif;
+
+    box-sizing: border-box;
+}
+
+html
+{
+    height: 100%;
+    min-height: 100%;
+
+        -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+}
+
+body
+{
+    font: 14px/1.5 'Microsoft YaHei','Tahoma',Helvetica,Arial,sans-serif;
+
+    position: relative;
+
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    color: #333;
+}
+
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section
+{
+    margin: 0;
+    padding: 0;
+}
+
+//重设 HTML5 标签, IE 需要在 js 中 createElement(TAG)
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary
+{
+    display: block;
+}
+
+//HTML5 媒体文件跟 img 保持一致
+audio,
+canvas,
+progress,
+video
+{
+    display: inline-block;
+
+    vertical-align: baseline;
+}
+
+// 要注意表单元素并不继承父级 font 的问题
+button,
+input,
+select,
+textarea
+{
+    //   font: 300 1em @base-font-family;
+}
+
+input,
+textarea:focus
+{
+    border-color: #666;
+    outline: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner
+{
+    padding: 0;
+
+    border: 0;
+}
+
+input:focus
+{
+    outline: none;
+}
+
+[hidden],
+.hidden
+{
+    display: none;
+}
+
+a
+{
+    text-decoration: none;
+
+    background: transparent;
+}
+
+a:active,
+a:hover
+{
+    outline: 0;
+}
+
+.b,
+strong
+{
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    line-height: 1.1;
+
+    margin-top: 0;
+}
+
+
+
+img
+{
+    vertical-align: middle;
+
+    border: 0;
+}
+
+
+
+/* 去掉各Table cell 的边距并让其边重合 */
+
+table
+{
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+    tr
+    {
+        td
+        {
+            word-break: break-word;
+        }
+    }
+}
+
+
+
+/* 去除默认边框 */
+
+fieldset,
+img
+{
+    border: 0;
+}
+
+
+
+/* 块/段落引用 */
+
+blockquote
+{
+    font-weight: 400;
+
+    position: relative;
+
+    margin: 1em 3em 1em 2em;
+    padding-left: 1em;
+
+    color: #999;
+    border-left: 1px solid #1abc9c;
+}
+
+@media only screen and ( max-width: 640px)
+{
+    blockquote
+    {
+        margin: 1em 0;
+    }
+}
+
+
+
+/* Firefox 以外，元素没有下划线，需添加 */
+
+acronym,
+abbr
+{
+    font-variant: normal;
+
+    border-bottom: 1px dotted;
+}
+
+
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
+
+abbr
+{
+    cursor: help;
+}
+
+del
+{
+    text-decoration: line-through;
+}
+
+small
+{
+    font-size: 80%;
+}
+
+sub,
+sup
+{
+    font-size: 75%;
+    line-height: 0;
+
+    position: relative;
+
+    vertical-align: baseline;
+}
+
+:root sub,
+:root sup
+{
+    vertical-align: baseline;
+    /* for ie9 and other modern browsers */
+}
+
+sup
+{
+    top: -.5em;
+}
+
+sub
+{
+    bottom: -.25em;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var
+{
+    font-weight: 400;
+    font-style: normal;
+}
+
+ul,
+ol
+{
+    list-style: none;
+}
+
+mark
+{
+    margin: 0 5pxfieldset;
+    padding: 2px;
+
+    border-bottom: 1px solid #ffedce;
+    background: #fffdd1;
+}
+
+
+
+
+pre
+{
+    display: block;
+
+    padding: 1em 1.5em;
+
+    white-space: pre-wrap;
+
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+hr
+{
+    height: 10px;
+    margin-bottom: .8em;
+
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+textarea
+{
+    &[disabled],
+    &:disabled
+    {
+        cursor: not-allowed;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+{
+    margin: 0;
+
+    -webkit-appearance: none !important;
+}
+
+input[type='number']
+{
+    -moz-appearance: textfield;
+}

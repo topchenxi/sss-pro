@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>红杉系统</title>
+    <link rel="icon" href="http://test.soouya.com/soouyaFrontend/1.0.1/favicon.ico" sizes="32x32">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
